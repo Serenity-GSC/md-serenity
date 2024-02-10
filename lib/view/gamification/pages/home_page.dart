@@ -1,11 +1,11 @@
-import 'package:serenity/size_config.dart';
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/gamification/animal_test/animal_test.dart';
-import 'package:serenity/view/gamification/auth.dart';
-import 'package:serenity/view/gamification/pages/nst.dart';
-import 'package:serenity/view/gamification/phonetic%20list/phonetic_list.dart';
-import 'package:serenity/view/gamification/storylines/first_storyline.dart';
-import 'package:serenity/view/gamification/storylines/second_storyline.dart';
+import 'package:aksonhealth/size_config.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/gamification/animal_test/animal_test.dart';
+import 'package:aksonhealth/view/gamification/auth.dart';
+import 'package:aksonhealth/view/gamification/pages/nst.dart';
+import 'package:aksonhealth/view/gamification/phonetic%20list/phonetic_list.dart';
+import 'package:aksonhealth/view/gamification/storylines/first_storyline.dart';
+import 'package:aksonhealth/view/gamification/storylines/second_storyline.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
                     children: <Widget>[
                       Text(
                         "Playground",
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                           color: darkBlueColor,
                           fontSize: 35.0,
                           fontWeight: FontWeight.w600,
@@ -73,8 +73,8 @@ class _HomePageState extends State<HomePage> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => NST()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => NST()));
               },
               child: Stack(
                 alignment: Alignment.center,
@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                                 children: [
                                   Text(
                                     "Permainan Pra Membaca cocok gambar NST untuk Disleksia",
-                                    style: GoogleFonts.nunito(
+                                    style: GoogleFonts.sora(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18,
@@ -133,8 +133,8 @@ class _HomePageState extends State<HomePage> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => PhonetikList()));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => PhonetikList()));
               },
               child: Stack(
                 alignment: Alignment.center,
@@ -159,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                                 children: [
                                   Text(
                                     "Terapi Bermain untuk penyandang Dislexia",
-                                    style: GoogleFonts.nunito(
+                                    style: GoogleFonts.sora(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18,
@@ -188,13 +188,13 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-             SizedBox(
+            SizedBox(
               height: 30,
             ),
-             GestureDetector(
+            GestureDetector(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => AnimalTest()));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => AnimalTest()));
               },
               child: Stack(
                 alignment: Alignment.center,
@@ -219,7 +219,7 @@ class _HomePageState extends State<HomePage> {
                                 children: [
                                   Text(
                                     "Terapi Audio dan Visual untuk penyandang Autisme",
-                                    style: GoogleFonts.nunito(
+                                    style: GoogleFonts.sora(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18,

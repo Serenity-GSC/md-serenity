@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:serenity/theme.dart';
+import 'package:aksonhealth/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -54,14 +54,16 @@ class Onboarding1Screen extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 0.49,
             padding: EdgeInsets.only(
-                top: 90, 
-                left: 34, 
-                right: 34, 
-                bottom: MediaQuery.of(context).size.height * 0.05, // Adjust bottom padding as per mockup
+              top: 90,
+              left: 34,
+              right: 34,
+              bottom: MediaQuery.of(context).size.height *
+                  0.05, // Adjust bottom padding as per mockup
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min, // Ensure the column takes minimum space
+              mainAxisSize:
+                  MainAxisSize.min, // Ensure the column takes minimum space
               children: [
                 Text(
                   'Everything you need to be a good parent is here',
@@ -71,10 +73,12 @@ class Onboarding1Screen extends StatelessWidget {
                     color: blackColor,
                   ),
                 ),
-                SizedBox(height: 12), // You may need to adjust this size to match the mockup
+                SizedBox(
+                    height:
+                        12), // You may need to adjust this size to match the mockup
                 Text(
                   'Help you find out are you baby blues or not and help you be a good parent for your baby',
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.sora(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
                     color: grayColor,

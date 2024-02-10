@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:serenity/view/gamification/components/custom_container.dart';
-import 'package:serenity/view/gamification/components/from_index_dc.dart';
-import 'package:serenity/view/gamification/db.dart';
+import 'package:aksonhealth/view/gamification/components/custom_container.dart';
+import 'package:aksonhealth/view/gamification/components/from_index_dc.dart';
+import 'package:aksonhealth/view/gamification/db.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -41,9 +41,8 @@ class DailyChallenge extends HookWidget {
           title: Column(children: [
             Text(
               options[i - 1],
-              style: GoogleFonts.nunito(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400),
+              style:
+                  GoogleFonts.sora(fontSize: 20, fontWeight: FontWeight.w400),
             ),
             const Divider(),
           ])));
@@ -52,7 +51,7 @@ class DailyChallenge extends HookWidget {
       children: [
         const SizedBox(height: 40),
         Text("Daily Challenge",
-            style: GoogleFonts.nunito(
+            style: GoogleFonts.sora(
               fontSize: 20,
             )),
         const SizedBox(height: 10),
@@ -72,9 +71,8 @@ class DailyChallenge extends HookWidget {
                       cursor: '',
                       speed: const Duration(milliseconds: 50),
                       textAlign: TextAlign.center,
-                      textStyle: GoogleFonts.nunito(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400),
+                      textStyle: GoogleFonts.sora(
+                          fontSize: 20, fontWeight: FontWeight.w400),
                     )
                   ],
                   displayFullTextOnTap: true,
@@ -169,14 +167,14 @@ class DailyChallenge extends HookWidget {
             (!challengeCompleted.value)
                 ? _startDailyChallenge(
                     context, dayId.value, formattedCurrentDate.value)
-                : Column(children:  [
+                : Column(children: [
                     SizedBox(height: 50),
                     Text("Daily Challenge Completed!",
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                           fontSize: 20,
                         )),
                     Text("Come back tomorrow!",
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                           fontSize: 20,
                         ))
                   ])

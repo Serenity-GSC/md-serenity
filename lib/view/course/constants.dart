@@ -11,85 +11,85 @@ const kShadowColor = Color.fromRGBO(72, 76, 82, 0.16);
 const kCourseElementIconColor = Color(0xFF17294D);
 
 // Text Styles
-var kLargeTitleStyle = GoogleFonts.nunito(
+var kLargeTitleStyle = GoogleFonts.sora(
   fontSize: 28.0,
   fontWeight: FontWeight.bold,
   color: kPrimaryLabelColor,
   decoration: TextDecoration.none,
 );
 
-var kTitle1Style = GoogleFonts.nunito(
+var kTitle1Style = GoogleFonts.sora(
   fontSize: 22.0,
   fontWeight: FontWeight.bold,
   color: kPrimaryLabelColor,
   decoration: TextDecoration.none,
 );
 
-var kCardTitleStyle = GoogleFonts.nunito(
+var kCardTitleStyle = GoogleFonts.sora(
   fontWeight: FontWeight.bold,
   color: const Color.fromARGB(255, 0, 0, 0),
   fontSize: 22.0,
   decoration: TextDecoration.none,
 );
 
-var kTitle2Style = GoogleFonts.nunito(
+var kTitle2Style = GoogleFonts.sora(
   fontSize: 20.0,
   fontWeight: FontWeight.bold,
   color: kPrimaryLabelColor,
   decoration: TextDecoration.none,
 );
 
-var kHeadlineLabelStyle = GoogleFonts.nunito(
+var kHeadlineLabelStyle = GoogleFonts.sora(
   fontSize: 17.0,
   fontWeight: FontWeight.w800,
   color: kPrimaryLabelColor,
   decoration: TextDecoration.none,
 );
 
-var kSubtitleStyle = GoogleFonts.nunito(
+var kSubtitleStyle = GoogleFonts.sora(
   fontSize: 16.0,
   color: kSecondaryLabelColor,
   decoration: TextDecoration.none,
 );
 
-var kBodyLabelStyle = GoogleFonts.nunito(
+var kBodyLabelStyle = GoogleFonts.sora(
   fontSize: 16.0,
   color: Colors.black,
   decoration: TextDecoration.none,
 );
 
-var kCalloutLabelStyle = GoogleFonts.nunito(
+var kCalloutLabelStyle = GoogleFonts.sora(
   fontSize: 16.0,
   fontWeight: FontWeight.w800,
   color: kPrimaryLabelColor,
   decoration: TextDecoration.none,
 );
 
-var kSecondaryCalloutLabelStyle = GoogleFonts.nunito(
+var kSecondaryCalloutLabelStyle = GoogleFonts.sora(
   fontSize: 16.0,
   color: kSecondaryLabelColor,
   decoration: TextDecoration.none,
 );
 
-var kSearchPlaceholderStyle = GoogleFonts.nunito(
+var kSearchPlaceholderStyle = GoogleFonts.sora(
   fontSize: 13.0,
   color: kSecondaryLabelColor,
   decoration: TextDecoration.none,
 );
 
-var kSearchTextStyle = GoogleFonts.nunito(
+var kSearchTextStyle = GoogleFonts.sora(
   fontSize: 13.0,
   color: kPrimaryLabelColor,
   decoration: TextDecoration.none,
 );
 
-var kCardSubtitleStyle = GoogleFonts.nunito(
+var kCardSubtitleStyle = GoogleFonts.sora(
   color: Color.fromARGB(230, 0, 0, 0),
   fontSize: 13.0,
   decoration: TextDecoration.none,
 );
 
-var kCaptionLabelStyle = GoogleFonts.nunito(
+var kCaptionLabelStyle = GoogleFonts.sora(
   fontSize: 12.0,
   color: kSecondaryLabelColor,
   decoration: TextDecoration.none,

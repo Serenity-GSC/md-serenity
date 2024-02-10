@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:serenity/constants.dart';
-import 'package:serenity/model/questionare_model.dart';
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/specialists/consult_screen.dart';
+import 'package:aksonhealth/constants.dart';
+import 'package:aksonhealth/model/questionare_model.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/specialists/consult_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -130,7 +130,7 @@ class _QuestionareScreenState extends State<QuestionareScreen> {
         title: showResult == 'yes' && _question == null
             ? Text(
                 'Laporan',
-                style: GoogleFonts.nunito(
+                style: GoogleFonts.sora(
                     color: Colors.white, fontWeight: FontWeight.bold),
               )
             : Center(
@@ -199,7 +199,7 @@ class _QuestionareScreenState extends State<QuestionareScreen> {
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
                             'Nama Anak : ',
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                                 color: darkBlueColor,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 13),
@@ -215,7 +215,7 @@ class _QuestionareScreenState extends State<QuestionareScreen> {
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
                             childName,
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 14),
@@ -242,7 +242,7 @@ class _QuestionareScreenState extends State<QuestionareScreen> {
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
                             'Umur :',
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                                 color: darkBlueColor,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 13),
@@ -260,7 +260,7 @@ class _QuestionareScreenState extends State<QuestionareScreen> {
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
                             age.toString() + ' tahun',
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 14),
@@ -290,7 +290,7 @@ class _QuestionareScreenState extends State<QuestionareScreen> {
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
                             'Hasil : ',
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                                 color: darkBlueColor,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 13),
@@ -306,7 +306,7 @@ class _QuestionareScreenState extends State<QuestionareScreen> {
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
                             total.toString() + ' / 20',
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 14),
@@ -333,7 +333,7 @@ class _QuestionareScreenState extends State<QuestionareScreen> {
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
                             'Prediksi :',
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                                 color: darkBlueColor,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 13),
@@ -355,7 +355,7 @@ class _QuestionareScreenState extends State<QuestionareScreen> {
                                     : total > 18
                                         ? 'Hasil ini menunjukan resiko tinggi anak anda menunjukan gejala autisme, anda harus membawa anak anda periksa ke dokter lanjutan.'
                                         : 'Hasil ini menunjukan resiko tinggi anak anda menunjukan gejala autisme, anda harus membawa anak anda periksa ke dokter lanjutan',
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                                 color: total <= 4
                                     ? Colors.green
                                     : total > 4 && total <= 6
@@ -380,7 +380,7 @@ class _QuestionareScreenState extends State<QuestionareScreen> {
                   progressColor: total <= 4
                       ? Colors.green
                       : total > 4 && total <= 6
-                          ? darkBlueColor 
+                          ? darkBlueColor
                           : total > 6
                               ? Colors.red
                               : darkBlueColor,
@@ -473,7 +473,7 @@ class _QuestionareScreenState extends State<QuestionareScreen> {
                           });
                         },
                         child: Text('Tanyakan ke Dokter Akson',
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16))),
@@ -568,7 +568,7 @@ class _QuestionareScreenState extends State<QuestionareScreen> {
                             width: size.width * 0.9,
                             child: Text(
                               _question!.question.toString(),
-                              style: GoogleFonts.nunito(
+                              style: GoogleFonts.sora(
                                   color: darkBlueColor,
                                   fontSize: 17,
                                   fontWeight: FontWeight.w500),
@@ -629,7 +629,7 @@ class _QuestionareScreenState extends State<QuestionareScreen> {
                                               _question!.options![index]
                                                   .toString(),
                                               textAlign: TextAlign.left,
-                                              style: GoogleFonts.nunito(
+                                              style: GoogleFonts.sora(
                                                   fontSize: 15,
                                                   color: selectedIndex ==
                                                           index.toString()
@@ -730,7 +730,7 @@ class _QuestionareScreenState extends State<QuestionareScreen> {
                                         ),
                                         Spacer(),
                                         Text('Kembali',
-                                            style: GoogleFonts.nunito(
+                                            style: GoogleFonts.sora(
                                                 color: Color.fromARGB(
                                                     255, 73, 73, 73),
                                                 fontWeight: FontWeight.bold,
@@ -792,7 +792,7 @@ class _QuestionareScreenState extends State<QuestionareScreen> {
                                               var snackBar = SnackBar(
                                                 content: Text(
                                                   'Jawaban harus diisi',
-                                                  style: GoogleFonts.nunito(
+                                                  style: GoogleFonts.sora(
                                                       color: Colors.white),
                                                 ),
                                                 backgroundColor: Colors.red,
@@ -857,7 +857,7 @@ class _QuestionareScreenState extends State<QuestionareScreen> {
                                             children: [
                                               Spacer(),
                                               Text('Lanjut',
-                                                  style: GoogleFonts.nunito(
+                                                  style: GoogleFonts.sora(
                                                       color: Colors.white,
                                                       fontWeight:
                                                           FontWeight.bold,

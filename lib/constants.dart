@@ -28,8 +28,7 @@ Color navigationColor = Color(0xFF6751B5);
 Color gradientStartColor = Color.fromARGB(255, 147, 174, 206);
 Color gradientEndColor = Color.fromARGB(255, 3, 0, 210);
 
-
- TextStyle buttonStyle = GoogleFonts.nunito(
+TextStyle buttonStyle = GoogleFonts.sora(
     color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16);
 
 // double fontSizeExtraSmall = Get.context.width >= 1300 ? 14 : 10;
@@ -40,12 +39,12 @@ Color gradientEndColor = Color.fromARGB(255, 3, 0, 210);
 // double fontSizeOverLarge = Get.context.width >= 1300 ? 28 : 24;
 
 const primaryColor1 = Color(0xffaddfb9); //Color(0xff37A000);
-const secondaryColor1 = Color(0xff2C64C5);//Color(0xff37A000); 
+const secondaryColor1 = Color(0xff2C64C5); //Color(0xff37A000);
 //const lightGreenColor = Color(0xffD9E9D1);
 const lightGreyColor = Color(0xfff6f6f6);
 const secondaryColor = Color(0xffaddfb9);
 const secondary2Color = Color(0xff2C64C5); //Color(0xff033f7c);
-const secondary3Color = Color(0xff2C64C5);//Color(0xff4565ba);
+const secondary3Color = Color(0xff2C64C5); //Color(0xff4565ba);
 const appBarColor = Color(0xff2C64C5); //Color(0xff1564c0);
 
 const greyColor = Color(0xffB4C2CD);
@@ -72,112 +71,110 @@ double caption12_12 = 10;
 double caption3 = 10;
 
 // textStyles
-TextStyle titleBlack = GoogleFonts.nunito(
+TextStyle titleBlack = GoogleFonts.sora(
     fontSize: titleSize, fontWeight: FontWeight.bold, color: textColor);
-TextStyle titleGreen = GoogleFonts.nunito(
+TextStyle titleGreen = GoogleFonts.sora(
     fontSize: titleSize, fontWeight: FontWeight.bold, color: primaryColor);
-TextStyle titleWhite = GoogleFonts.nunito(
+TextStyle titleWhite = GoogleFonts.sora(
     fontSize: titleSize, fontWeight: FontWeight.bold, color: Colors.white);
 
-TextStyle subtitleBlack = GoogleFonts.nunito(
+TextStyle subtitleBlack = GoogleFonts.sora(
     fontSize: subTitleSize, fontWeight: FontWeight.bold, color: textColor);
-TextStyle subtitleGreen = GoogleFonts.nunito(
+TextStyle subtitleGreen = GoogleFonts.sora(
     fontSize: subTitleSize, fontWeight: FontWeight.bold, color: primaryColor);
-TextStyle subtitleWhite = GoogleFonts.nunito(
+TextStyle subtitleWhite = GoogleFonts.sora(
     fontSize: subTitleSize, fontWeight: FontWeight.bold, color: Colors.white);
 
-TextStyle body1Black = GoogleFonts.nunito(
+TextStyle body1Black = GoogleFonts.sora(
     fontSize: body12_16, fontWeight: FontWeight.bold, color: textColor);
-TextStyle body1Red = GoogleFonts.nunito(
+TextStyle body1Red = GoogleFonts.sora(
     fontSize: body12_16, fontWeight: FontWeight.bold, color: redColor);
-TextStyle body1Green = GoogleFonts.nunito(
+TextStyle body1Green = GoogleFonts.sora(
     fontSize: body12_16, fontWeight: FontWeight.bold, color: primaryColor);
-TextStyle body1White = GoogleFonts.nunito(
+TextStyle body1White = GoogleFonts.sora(
     fontSize: body12_16, fontWeight: FontWeight.bold, color: Colors.white);
 
-TextStyle body2Black =
-    GoogleFonts.nunito(fontSize: body12_16, color: textColor);
+TextStyle body2Black = GoogleFonts.sora(fontSize: body12_16, color: textColor);
 TextStyle body2Green =
-    GoogleFonts.nunito(fontSize: body12_16, color: primaryColor);
+    GoogleFonts.sora(fontSize: body12_16, color: primaryColor);
 TextStyle body2White =
-    GoogleFonts.nunito(fontSize: body12_16, color: Colors.white);
+    GoogleFonts.sora(fontSize: body12_16, color: Colors.white);
 
-TextStyle body3Black = GoogleFonts.nunito(
+TextStyle body3Black = GoogleFonts.sora(
   fontSize: body34_14,
   color: textColor,
   fontWeight: FontWeight.bold,
 );
-TextStyle body3Green = GoogleFonts.nunito(
+TextStyle body3Green = GoogleFonts.sora(
   fontSize: body34_14,
   color: primaryColor,
   fontWeight: FontWeight.bold,
 );
-TextStyle body3Red = GoogleFonts.nunito(
+TextStyle body3Red = GoogleFonts.sora(
   fontSize: body34_14,
   color: redColor,
   fontWeight: FontWeight.bold,
 );
-TextStyle body3White = GoogleFonts.nunito(
+TextStyle body3White = GoogleFonts.sora(
   fontSize: body34_14,
   color: Colors.white,
   fontWeight: FontWeight.bold,
 );
 
-TextStyle body4Black =
-    GoogleFonts.nunito(fontSize: body34_14, color: textColor);
+TextStyle body4Black = GoogleFonts.sora(fontSize: body34_14, color: textColor);
 TextStyle body4Grey =
-    GoogleFonts.nunito(fontSize: body34_14, color: darkGreyColor);
+    GoogleFonts.sora(fontSize: body34_14, color: darkGreyColor);
 TextStyle body4Green =
-    GoogleFonts.nunito(fontSize: body34_14, color: primaryColor);
-TextStyle body4Red = GoogleFonts.nunito(fontSize: body34_14, color: redColor);
+    GoogleFonts.sora(fontSize: body34_14, color: primaryColor);
+TextStyle body4Red = GoogleFonts.sora(fontSize: body34_14, color: redColor);
 TextStyle body4White =
-    GoogleFonts.nunito(fontSize: body34_14, color: Colors.white);
-TextStyle body4GreenBold = GoogleFonts.nunito(
+    GoogleFonts.sora(fontSize: body34_14, color: Colors.white);
+TextStyle body4GreenBold = GoogleFonts.sora(
   fontSize: 13,
   color: primaryColor,
   fontWeight: FontWeight.bold,
 );
-TextStyle body4BlackBold = GoogleFonts.nunito(
+TextStyle body4BlackBold = GoogleFonts.sora(
   fontSize: 13,
   color: Colors.black,
   fontWeight: FontWeight.bold,
 );
 
-TextStyle caption1Black = GoogleFonts.nunito(
+TextStyle caption1Black = GoogleFonts.sora(
   fontSize: caption12_12,
   color: textColor,
   fontWeight: FontWeight.bold,
 );
-TextStyle caption1Green = GoogleFonts.nunito(
+TextStyle caption1Green = GoogleFonts.sora(
   fontSize: caption12_12,
   color: primaryColor,
   fontWeight: FontWeight.bold,
 );
-TextStyle caption1White = GoogleFonts.nunito(
+TextStyle caption1White = GoogleFonts.sora(
   fontSize: caption12_12,
   color: Colors.white,
   fontWeight: FontWeight.bold,
 );
-TextStyle caption1Red = GoogleFonts.nunito(
+TextStyle caption1Red = GoogleFonts.sora(
   fontSize: caption12_12,
   color: redColor,
   fontWeight: FontWeight.bold,
 );
 
 TextStyle caption2Black =
-    GoogleFonts.nunito(fontSize: caption12_12, color: textColor);
+    GoogleFonts.sora(fontSize: caption12_12, color: textColor);
 TextStyle caption2Green =
-    GoogleFonts.nunito(fontSize: caption12_12, color: primaryColor);
+    GoogleFonts.sora(fontSize: caption12_12, color: primaryColor);
 TextStyle caption2White =
-    GoogleFonts.nunito(fontSize: caption12_12, color: Colors.white);
+    GoogleFonts.sora(fontSize: caption12_12, color: Colors.white);
 TextStyle caption2Grey =
-    GoogleFonts.nunito(fontSize: caption12_12, color: darkGreyColor);
+    GoogleFonts.sora(fontSize: caption12_12, color: darkGreyColor);
 
 TextStyle caption3Black =
-    GoogleFonts.nunito(fontSize: caption3, color: textColor, height: 1.3);
+    GoogleFonts.sora(fontSize: caption3, color: textColor, height: 1.3);
 TextStyle caption3Red =
-    GoogleFonts.nunito(fontSize: caption3, color: redColor, height: 1.3);
+    GoogleFonts.sora(fontSize: caption3, color: redColor, height: 1.3);
 TextStyle caption3Green =
-    GoogleFonts.nunito(fontSize: caption3, color: primaryColor);
+    GoogleFonts.sora(fontSize: caption3, color: primaryColor);
 TextStyle caption3White =
-    GoogleFonts.nunito(fontSize: caption3, color: Colors.white);
+    GoogleFonts.sora(fontSize: caption3, color: Colors.white);

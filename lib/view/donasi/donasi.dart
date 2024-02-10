@@ -1,5 +1,5 @@
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/donasi/donasi_payment.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/donasi/donasi_payment.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -39,7 +39,8 @@ class DonationScreen extends StatelessWidget {
       description:
           'Selamat datang di kampanye donasi untuk mendukung Yayasan Autisme di Indonesia! Yayasan ini berkomitmen untuk meningkatkan pemahaman, dukungan, dan kualitas hidup bagi individu dengan spektrum autisme di seluruh negeri. Dengan memberikan sumbangan Anda, Anda turut berperan dalam mewujudkan perubahan positif dan inklusif bagi mereka yang membutuhkan.',
       validation: '',
-      address: 'Jl. Srijaya Negara, Bukit Lama, Kec. Ilir Bar. I, Kota Palembang, Sumatera Selatan, Indonesia',
+      address:
+          'Jl. Srijaya Negara, Bukit Lama, Kec. Ilir Bar. I, Kota Palembang, Sumatera Selatan, Indonesia',
       imageUrl:
           'https://www.communitycare.co.uk/wp_content/uploads/sites/7//2016/04/Fotolia_106551158_S.jpg',
     ),
@@ -51,7 +52,7 @@ class DonationScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Peduli untuk mereka',
-          style: GoogleFonts.nunito(),
+          style: GoogleFonts.sora(),
         ),
         backgroundColor: darkBlueColor,
       ),
@@ -90,7 +91,7 @@ class DonationCard extends StatelessWidget {
               children: [
                 Text(
                   campaign.title,
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.sora(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -98,36 +99,35 @@ class DonationCard extends StatelessWidget {
                 SizedBox(height: 8.0),
                 Text(
                   campaign.description,
-                  style: GoogleFonts.nunito(fontSize: 16.0),
+                  style: GoogleFonts.sora(fontSize: 16.0),
                 ),
                 SizedBox(height: 16.0),
                 Text(
                   campaign.address,
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.sora(
                     fontSize: 16.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 CampaignProgress(),
-
                 SizedBox(height: 16.0),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 80),
                   child: ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(darkBlueColor)
-
-                    ),
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(darkBlueColor)),
                       onPressed: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => DonationPayment()));
                       },
-                      child: Text("Donasi Sekarang", style: GoogleFonts.nunito(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18
-                      ),)),
+                      child: Text(
+                        "Donasi Sekarang",
+                        style: GoogleFonts.sora(
+                            fontWeight: FontWeight.bold, fontSize: 18),
+                      )),
                 )
               ],
             ),
@@ -135,13 +135,8 @@ class DonationCard extends StatelessWidget {
         ],
       ),
     );
-    
   }
-
- 
 }
-
-
 
 class CampaignProgress extends StatelessWidget {
   final double currentProgress = 0.6; // Misalnya, 0.6 untuk 60% progress

@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'package:serenity/constants.dart';
-import 'package:serenity/model/firebase_auth.dart';
+import 'package:aksonhealth/constants.dart';
+import 'package:aksonhealth/model/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -211,7 +211,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
           backgroundColor: Colors.white,
           title: Text(
             'Ubah Profil',
-            style: GoogleFonts.nunito(
+            style: GoogleFonts.sora(
                 color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),
@@ -226,7 +226,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                   child: Center(
                     child: Text(
                       '$name',
-                      style: GoogleFonts.nunito(
+                      style: GoogleFonts.sora(
                           color: Colors.black,
                           fontSize: 16,
                           fontWeight: FontWeight.bold),
@@ -250,7 +250,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                       margin: EdgeInsets.only(left: 16, right: 16, bottom: 0),
                       child: TextFormField(
                         controller: _nameController,
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                           fontSize: 14,
                           color: Colors.black,
                         ),
@@ -268,15 +268,15 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: darkGreyTextColor1, width: 1.0),
+                            borderSide: BorderSide(
+                                color: darkGreyTextColor1, width: 1.0),
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           fillColor: Colors.grey,
                           hintText: "",
-    
+
                           //make hint text
-                          hintStyle: GoogleFonts.nunito(
+                          hintStyle: GoogleFonts.sora(
                             color: Colors.grey,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
@@ -284,7 +284,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                           //create lable
                           labelText: 'Nama Lengkap',
                           //lable style
-                          labelStyle: GoogleFonts.nunito(
+                          labelStyle: GoogleFonts.sora(
                             color: darkRedColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
@@ -300,7 +300,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                       child: TextFormField(
                         controller: _emailAddressController,
                         enabled: false,
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                           fontSize: 14,
                           color: Colors.black,
                         ),
@@ -315,32 +315,32 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                               EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                           focusColor: Colors.white,
                           //add prefix icon
-    
+
                           // errorText: "Error",
-    
+
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-    
+
                           focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: darkGreyTextColor1, width: 1.0),
+                            borderSide: BorderSide(
+                                color: darkGreyTextColor1, width: 1.0),
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           fillColor: Colors.grey,
                           hintText: "",
-    
+
                           //make hint text
-                          hintStyle: GoogleFonts.nunito(
+                          hintStyle: GoogleFonts.sora(
                             color: Colors.grey,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
-    
+
                           //create lable
                           labelText: 'Email',
                           //lable style
-                          labelStyle: GoogleFonts.nunito(
+                          labelStyle: GoogleFonts.sora(
                             color: darkRedColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
@@ -356,8 +356,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                     ),
                     isLoading
                         ? Center(
-                              child: CircularProgressIndicator(
-                              color: darkRedColor,
+                            child: CircularProgressIndicator(
+                            color: darkRedColor,
                             strokeWidth: 1,
                           ))
                         : Padding(
@@ -386,7 +386,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                                     shape: MaterialStateProperty.all<
                                         RoundedRectangleBorder>(
                                       RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10.0),
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
                                       ),
                                     ),
                                     minimumSize: MaterialStateProperty.all(
@@ -402,7 +403,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                                       var snackBar = SnackBar(
                                         content: Text(
                                           'Nama harus diisi',
-                                          style: GoogleFonts.nunito(color: Colors.white),
+                                          style: GoogleFonts.sora(
+                                              color: Colors.white),
                                         ),
                                         backgroundColor: Colors.red,
                                       );
@@ -412,7 +414,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                                       setState(() {
                                         isLoading = true;
                                       });
-    
+
                                       await FirebaseFirestore.instance
                                           .collection(userType == 'Doctors'
                                               ? 'Doctors'
@@ -444,6 +446,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
       ),
     );
   }
+
   Future<bool> showExitPopup() async {
     return await showDialog(
           //show confirm dialogue
@@ -456,7 +459,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: Colors.green,
-                    textStyle: GoogleFonts.nunito(
+                    textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
                 onPressed: () => Navigator.of(context).pop(false),
                 //return false when click on "NO"
@@ -467,7 +470,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                 //return true when click on "Yes"
                 style: ElevatedButton.styleFrom(
                     primary: redColor,
-                    textStyle: GoogleFonts.nunito(
+                    textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
                 child: Text('Ya'),
               ),

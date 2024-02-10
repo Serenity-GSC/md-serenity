@@ -1,6 +1,6 @@
-import 'package:serenity/constants.dart';
-import 'package:serenity/view/parents/bottomNavBar/app_bottom_nav_bar_screen.dart';
-import 'package:serenity/view/specialists/doctor_screen.dart';
+import 'package:aksonhealth/constants.dart';
+import 'package:aksonhealth/view/parents/bottomNavBar/app_bottom_nav_bar_screen.dart';
+import 'package:aksonhealth/view/specialists/doctor_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -42,7 +42,7 @@ class _ReportDetailScreenState extends State<ReportDetailScreen> {
         backgroundColor: appBarColor,
         title: Text(
           'Laporan',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.sora(
               fontSize: 19, fontWeight: FontWeight.w600, color: Colors.white),
         ),
         centerTitle: true,
@@ -68,7 +68,7 @@ class _ReportDetailScreenState extends State<ReportDetailScreen> {
                 child: Center(
                     child: Text(
                   'Prediksi',
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.sora(
                       color: Colors.blue,
                       fontWeight: FontWeight.w600,
                       fontSize: 15),
@@ -109,7 +109,7 @@ class _ReportDetailScreenState extends State<ReportDetailScreen> {
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
                           'Tanggal',
-                          style: GoogleFonts.nunito(
+                          style: GoogleFonts.sora(
                               color: Colors.blue,
                               fontWeight: FontWeight.w600,
                               fontSize: 13),
@@ -125,7 +125,7 @@ class _ReportDetailScreenState extends State<ReportDetailScreen> {
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
                           DateFormat('dd-MM-yyyy').format(DateTime.now()),
-                          style: GoogleFonts.nunito(
+                          style: GoogleFonts.sora(
                               color: Colors.black,
                               fontWeight: FontWeight.w600,
                               fontSize: 14),
@@ -153,7 +153,7 @@ class _ReportDetailScreenState extends State<ReportDetailScreen> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'Nama Anak',
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                             color: Colors.blue,
                             fontWeight: FontWeight.w600,
                             fontSize: 13),
@@ -169,7 +169,7 @@ class _ReportDetailScreenState extends State<ReportDetailScreen> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         widget.childName,
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                             color: Colors.black,
                             fontWeight: FontWeight.w500,
                             fontSize: 14),
@@ -196,7 +196,7 @@ class _ReportDetailScreenState extends State<ReportDetailScreen> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'Umur',
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                             color: Colors.blue,
                             fontWeight: FontWeight.w600,
                             fontSize: 13),
@@ -214,7 +214,7 @@ class _ReportDetailScreenState extends State<ReportDetailScreen> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         widget.childAge.toString() + ' tahun',
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                             color: Colors.black,
                             fontWeight: FontWeight.w500,
                             fontSize: 14),
@@ -241,7 +241,7 @@ class _ReportDetailScreenState extends State<ReportDetailScreen> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'Hasil',
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                             color: Colors.blue,
                             fontWeight: FontWeight.w600,
                             fontSize: 13),
@@ -257,7 +257,7 @@ class _ReportDetailScreenState extends State<ReportDetailScreen> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         widget.total.toString() + ' / 10',
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                             color: Colors.black,
                             fontWeight: FontWeight.w500,
                             fontSize: 14),
@@ -284,7 +284,7 @@ class _ReportDetailScreenState extends State<ReportDetailScreen> {
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
                         'Prediksi',
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                             color: Colors.blue,
                             fontWeight: FontWeight.w600,
                             fontSize: 13),
@@ -299,22 +299,22 @@ class _ReportDetailScreenState extends State<ReportDetailScreen> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                            widget.total <= 4
-                                ? 'Hasil ini menunjukkan risiko rendah autisme, tidak perlu membawa anak Anda ke dokter'
+                        widget.total <= 4
+                            ? 'Hasil ini menunjukkan risiko rendah autisme, tidak perlu membawa anak Anda ke dokter'
+                            : widget.total > 4 && widget.total <= 6
+                                ? 'Hasil ini menunjukkan risiko autisme sedang, Anda diharuskan membawa anak Anda ke dokter untuk pemeriksaan lanjutan. Anda juga dapat mencari layanan intervensi dini untuk anak Anda di Aplikasi Akson.'
+                                : widget.total > 6
+                                    ? 'Hasil ini menunjukkan risiko tinggi autisme, Anda wajib membawa anak Anda ke dokter untuk pemeriksaan lanjutan. Anda juga dapat mencari layanan intervensi dini untuk anak Anda di Aplikasi Akson'
+                                    : 'Kalkulasi Autisme',
+                        style: GoogleFonts.sora(
+                            color: widget.total <= 4
+                                ? Colors.green
                                 : widget.total > 4 && widget.total <= 6
-                                    ? 'Hasil ini menunjukkan risiko autisme sedang, Anda diharuskan membawa anak Anda ke dokter untuk pemeriksaan lanjutan. Anda juga dapat mencari layanan intervensi dini untuk anak Anda di Aplikasi Akson.'
-                                    : widget.total > 6
-                                        ? 'Hasil ini menunjukkan risiko tinggi autisme, Anda wajib membawa anak Anda ke dokter untuk pemeriksaan lanjutan. Anda juga dapat mencari layanan intervensi dini untuk anak Anda di Aplikasi Akson'
-                                        : 'Kalkulasi Autisme',
-                            style: GoogleFonts.nunito(
-                                color: widget.total <= 4
-                                    ? Colors.green
-                                    : widget.total > 4 && widget.total <= 6
-                                        ? Colors.blue
-                                        : Colors.red,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14),
-                          ),
+                                    ? Colors.blue
+                                    : Colors.red,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14),
+                      ),
                     ),
                   ),
                 ],
@@ -373,7 +373,8 @@ class _ReportDetailScreenState extends State<ReportDetailScreen> {
                         ),
                       );
                     },
-                    child: Text('Tanyakan ke Dokter Akson', style: buttonStyle)),
+                    child:
+                        Text('Tanyakan ke Dokter Akson', style: buttonStyle)),
               ),
             ),
             SizedBox(

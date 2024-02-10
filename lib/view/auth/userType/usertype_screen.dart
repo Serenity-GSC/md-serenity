@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:serenity/constants.dart';
+import 'package:aksonhealth/constants.dart';
 
 class UserType extends StatefulWidget {
   const UserType({Key? key}) : super(key: key);
@@ -48,7 +48,7 @@ class _UserTypeState extends State<UserType> {
               ),
             ),
 
-            //  Text('Autism', style: GoogleFonts.nunito(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 32),textAlign: TextAlign.center),
+            //  Text('Autism', style: GoogleFonts.sora(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 32),textAlign: TextAlign.center),
 
             SizedBox(
               height: size.height * 0.05,

@@ -1,8 +1,8 @@
-import 'package:serenity/model/category_model.dart';
-import 'package:serenity/model/date_model.dart';
-import 'package:serenity/model/doctor_model.dart';
-import 'package:serenity/model/event_type_model.dart';
-import 'package:serenity/model/events_model.dart';
+import 'package:aksonhealth/model/category_model.dart';
+import 'package:aksonhealth/model/date_model.dart';
+import 'package:aksonhealth/model/doctor_model.dart';
+import 'package:aksonhealth/model/event_type_model.dart';
+import 'package:aksonhealth/model/events_model.dart';
 import 'package:line_icons/line_icons.dart';
 class Data {
   static final categoriesList = [

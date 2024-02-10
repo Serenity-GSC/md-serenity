@@ -1,6 +1,6 @@
 {
-  "name": "serenity",
-  "short_name": "serenity",
+  "name": "aksonhealth",
+  "short_name": "aksonhealth",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#0175C2",

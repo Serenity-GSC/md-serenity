@@ -1,9 +1,9 @@
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/doctor/bottomNavBarDoctor/doctor_nav_bar_screen.dart';
-import 'package:serenity/view/parents/bottomNavBar/app_bottom_nav_bar_screen.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/doctor/bottomNavBarDoctor/doctor_nav_bar_screen.dart';
+import 'package:aksonhealth/view/parents/bottomNavBar/app_bottom_nav_bar_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:serenity/model/firebase_auth.dart';
-import 'package:serenity/model/input_validator.dart';
+import 'package:aksonhealth/model/firebase_auth.dart';
+import 'package:aksonhealth/model/input_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -94,7 +94,7 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
                       child: TextFormField(
                         controller: _emailAddressController,
                         keyboardType: TextInputType.emailAddress,
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                           fontSize: 14,
                           color: Colors.black,
                         ),
@@ -125,7 +125,7 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
                           hintText: "Email",
 
                           //make hint text
-                          hintStyle: GoogleFonts.nunito(
+                          hintStyle: GoogleFonts.sora(
                             color: darkBlueColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
@@ -145,7 +145,7 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
                         autofocus: true,
                         controller: _passwordController,
                         obscureText: true,
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                           fontSize: 14,
                           color: Colors.black,
                         ),
@@ -176,7 +176,7 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
                           hintText: "Password",
 
                           //make hint text
-                          hintStyle: GoogleFonts.nunito(
+                          hintStyle: GoogleFonts.sora(
                             color: darkBlueColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
@@ -515,7 +515,7 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
                                     // );
                                   },
                                   child: Text('Login Dokter',
-                                      style: GoogleFonts.nunito(
+                                      style: GoogleFonts.sora(
                                           fontSize: 20,
                                           fontWeight: FontWeight.w600))),
                             ),

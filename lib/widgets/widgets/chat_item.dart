@@ -1,4 +1,4 @@
-import 'package:serenity/theme.dart';
+import 'package:aksonhealth/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -41,7 +41,7 @@ class ChatItem extends StatelessWidget {
             ),
             child: Text(
               text,
-              style: GoogleFonts.nunito(
+              style: GoogleFonts.sora(
                   color: isMe ? Colors.white : Colors.black,
                   fontWeight: isMe ? FontWeight.w400 : FontWeight.w600),
             ),

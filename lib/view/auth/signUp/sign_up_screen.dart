@@ -1,9 +1,12 @@
 import 'dart:io';
 
-import 'package:serenity/constants.dart';
-import 'package:serenity/model/firebase_auth.dart';
-import 'package:serenity/model/input_validator.dart';
-import 'package:serenity/theme.dart';
+import 'package:aksonhealth/constants.dart';
+import 'package:aksonhealth/model/firebase_auth.dart';
+import 'package:aksonhealth/model/input_validator.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/doctor/bottomNavBarDoctor/doctor_nav_bar_screen.dart';
+import 'package:aksonhealth/view/parents/bottomNavBar/app_bottom_nav_bar_screen.dart';
+import 'package:aksonhealth/widgets/google_signup_button_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -40,6 +43,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   bool _imageLoading = false;
   PickedFile? _pickedFile;
+  String isCreated = '';
 
   bool _isLoading = false;
   bool _isVisible = false;
@@ -205,900 +209,900 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               topLeft: Radius.circular(30))),
                       child: SingleChildScrollView(
                         physics: NeverScrollableScrollPhysics(),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: size.height * 0.01,
-                            ),
+                        // child: Column(
+                        //   children: [
+                        //     SizedBox(
+                        //       height: size.height * 0.01,
+                        //     ),
 
-                            Center(
-                              child: SizedBox(
-                                child: Image.asset(
-                                  'assets/logo.png',
-                                  fit: BoxFit.scaleDown,
-                                  height: 200,
-                                  width: 200,
-                                ),
-                              ),
-                            ),
+                        //     Center(
+                        //       child: SizedBox(
+                        //         child: Image.asset(
+                        //           'assets/logo.png',
+                        //           fit: BoxFit.scaleDown,
+                        //           height: 200,
+                        //           width: 200,
+                        //         ),
+                        //       ),
+                        //     ),
 
-                            SizedBox(
-                              height: size.height * 0.03,
-                            ),
+                        //     SizedBox(
+                        //       height: size.height * 0.03,
+                        //     ),
 
-                            Center(
-                                child: Text(
-                              'Buat Akun',
-                              style: GoogleFonts.nunito(
-                                  color: blueColor,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold),
-                            )),
+                        //     Center(
+                        //         child: Text(
+                        //       'Buat Akun',
+                        //       style: GoogleFonts.sora(
+                        //           color: blueColor,
+                        //           fontSize: 24,
+                        //           fontWeight: FontWeight.bold),
+                        //     )),
 
-                            SizedBox(
-                              height: size.height * 0.05,
-                            ),
+                        //     SizedBox(
+                        //       height: size.height * 0.05,
+                        //     ),
 
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(30)),
-                              margin: EdgeInsets.only(
-                                  left: 16, right: 16, bottom: 0),
-                              child: TextFormField(
-                                controller: _firstNameControoler,
-                                keyboardType: TextInputType.name,
-                                style: GoogleFonts.nunito(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                ),
-                                onChanged: (value) {
-                                  // setState(() {
-                                  //   userInput.text = value.toString();
-                                  // });
-                                },
-                                decoration: InputDecoration(
-                                  //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
-                                  contentPadding: EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
-                                  focusColor: Colors.white,
-                                  //add prefix icon
+                        //     Container(
+                        //       decoration: BoxDecoration(
+                        //           color: Colors.white,
+                        //           borderRadius: BorderRadius.circular(30)),
+                        //       margin: EdgeInsets.only(
+                        //           left: 16, right: 16, bottom: 0),
+                        //       child: TextFormField(
+                        //         controller: _firstNameControoler,
+                        //         keyboardType: TextInputType.name,
+                        //         style: GoogleFonts.sora(
+                        //           fontSize: 14,
+                        //           color: Colors.black,
+                        //         ),
+                        //         onChanged: (value) {
+                        //           // setState(() {
+                        //           //   userInput.text = value.toString();
+                        //           // });
+                        //         },
+                        //         decoration: InputDecoration(
+                        //           //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+                        //           contentPadding: EdgeInsets.fromLTRB(
+                        //               20.0, 15.0, 20.0, 15.0),
+                        //           focusColor: Colors.white,
+                        //           //add prefix icon
 
-                                  // errorText: "Error",
+                        //           // errorText: "Error",
 
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
+                        //           border: OutlineInputBorder(
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
 
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: blueColor, width: 1.0),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  fillColor: Colors.grey,
-                                  hintText: "Nama Dokter",
+                        //           focusedBorder: OutlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: blueColor, width: 1.0),
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+                        //           fillColor: Colors.grey,
+                        //           hintText: "Nama Dokter",
 
-                                  //make hint text
-                                  hintStyle: GoogleFonts.nunito(
-                                    color: darkBlueColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: size.height * 0.02,
-                            ),
+                        //           //make hint text
+                        //           hintStyle: GoogleFonts.sora(
+                        //             color: darkBlueColor,
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.w400,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: size.height * 0.02,
+                        //     ),
 
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(30)),
-                              margin: EdgeInsets.only(
-                                  left: 16, right: 16, bottom: 0),
-                              child: TextFormField(
-                                controller: _clinicNameControoler,
-                                keyboardType: TextInputType.name,
-                                style: GoogleFonts.nunito(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                ),
-                                onChanged: (value) {
-                                  // setState(() {
-                                  //   userInput.text = value.toString();
-                                  // });
-                                },
-                                decoration: InputDecoration(
-                                  //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
-                                  contentPadding: EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
-                                  focusColor: Colors.white,
-                                  //add prefix icon
+                        //     Container(
+                        //       decoration: BoxDecoration(
+                        //           color: Colors.white,
+                        //           borderRadius: BorderRadius.circular(30)),
+                        //       margin: EdgeInsets.only(
+                        //           left: 16, right: 16, bottom: 0),
+                        //       child: TextFormField(
+                        //         controller: _clinicNameControoler,
+                        //         keyboardType: TextInputType.name,
+                        //         style: GoogleFonts.sora(
+                        //           fontSize: 14,
+                        //           color: Colors.black,
+                        //         ),
+                        //         onChanged: (value) {
+                        //           // setState(() {
+                        //           //   userInput.text = value.toString();
+                        //           // });
+                        //         },
+                        //         decoration: InputDecoration(
+                        //           //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+                        //           contentPadding: EdgeInsets.fromLTRB(
+                        //               20.0, 15.0, 20.0, 15.0),
+                        //           focusColor: Colors.white,
+                        //           //add prefix icon
 
-                                  // errorText: "Error",
+                        //           // errorText: "Error",
 
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
+                        //           border: OutlineInputBorder(
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
 
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: blueColor, width: 1.0),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  fillColor: Colors.grey,
-                                  hintText: "Nama Klinik",
+                        //           focusedBorder: OutlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: blueColor, width: 1.0),
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+                        //           fillColor: Colors.grey,
+                        //           hintText: "Nama Klinik",
 
-                                  //make hint text
-                                  hintStyle: GoogleFonts.nunito(
-                                    color: darkBlueColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: size.height * 0.02,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(30)),
-                              margin: EdgeInsets.only(
-                                  left: 16, right: 16, bottom: 0),
-                              child: TextFormField(
-                                controller: _emailControoler,
-                                keyboardType: TextInputType.emailAddress,
-                                style: GoogleFonts.nunito(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                ),
-                                onChanged: (value) {
-                                  // setState(() {
-                                  //   userInput.text = value.toString();
-                                  // });
-                                },
-                                decoration: InputDecoration(
-                                  //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
-                                  contentPadding: EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
-                                  focusColor: Colors.white,
-                                  //add prefix icon
+                        //           //make hint text
+                        //           hintStyle: GoogleFonts.sora(
+                        //             color: darkBlueColor,
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.w400,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: size.height * 0.02,
+                        //     ),
+                        //     Container(
+                        //       decoration: BoxDecoration(
+                        //           color: Colors.white,
+                        //           borderRadius: BorderRadius.circular(30)),
+                        //       margin: EdgeInsets.only(
+                        //           left: 16, right: 16, bottom: 0),
+                        //       child: TextFormField(
+                        //         controller: _emailControoler,
+                        //         keyboardType: TextInputType.emailAddress,
+                        //         style: GoogleFonts.sora(
+                        //           fontSize: 14,
+                        //           color: Colors.black,
+                        //         ),
+                        //         onChanged: (value) {
+                        //           // setState(() {
+                        //           //   userInput.text = value.toString();
+                        //           // });
+                        //         },
+                        //         decoration: InputDecoration(
+                        //           //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+                        //           contentPadding: EdgeInsets.fromLTRB(
+                        //               20.0, 15.0, 20.0, 15.0),
+                        //           focusColor: Colors.white,
+                        //           //add prefix icon
 
-                                  // errorText: "Error",
+                        //           // errorText: "Error",
 
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
+                        //           border: OutlineInputBorder(
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
 
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: blueColor, width: 1.0),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  fillColor: Colors.grey,
-                                  hintText: "Email Dokter",
+                        //           focusedBorder: OutlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: blueColor, width: 1.0),
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+                        //           fillColor: Colors.grey,
+                        //           hintText: "Email Dokter",
 
-                                  //make hint text
-                                  hintStyle: GoogleFonts.nunito(
-                                    color: darkBlueColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: size.height * 0.02,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(30)),
-                              margin: EdgeInsets.only(
-                                  left: 16, right: 16, bottom: 0),
-                              child: TextFormField(
-                                controller: _phoneControoler,
-                                keyboardType: TextInputType.phone,
-                                style: GoogleFonts.nunito(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                ),
-                                onChanged: (value) {
-                                  // setState(() {
-                                  //   userInput.text = value.toString();
-                                  // });
-                                },
-                                decoration: InputDecoration(
-                                  //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+                        //           //make hint text
+                        //           hintStyle: GoogleFonts.sora(
+                        //             color: darkBlueColor,
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.w400,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: size.height * 0.02,
+                        //     ),
+                        //     Container(
+                        //       decoration: BoxDecoration(
+                        //           color: Colors.white,
+                        //           borderRadius: BorderRadius.circular(30)),
+                        //       margin: EdgeInsets.only(
+                        //           left: 16, right: 16, bottom: 0),
+                        //       child: TextFormField(
+                        //         controller: _phoneControoler,
+                        //         keyboardType: TextInputType.phone,
+                        //         style: GoogleFonts.sora(
+                        //           fontSize: 14,
+                        //           color: Colors.black,
+                        //         ),
+                        //         onChanged: (value) {
+                        //           // setState(() {
+                        //           //   userInput.text = value.toString();
+                        //           // });
+                        //         },
+                        //         decoration: InputDecoration(
+                        //           //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
 
-                                  contentPadding: EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
-                                  focusColor: Colors.white,
-                                  //add prefix icon
+                        //           contentPadding: EdgeInsets.fromLTRB(
+                        //               20.0, 15.0, 20.0, 15.0),
+                        //           focusColor: Colors.white,
+                        //           //add prefix icon
 
-                                  // errorText: "Error",
+                        //           // errorText: "Error",
 
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
+                        //           border: OutlineInputBorder(
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
 
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: blueColor, width: 1.0),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  fillColor: Colors.grey,
-                                  hintText: "Nomor Handphone",
+                        //           focusedBorder: OutlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: blueColor, width: 1.0),
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+                        //           fillColor: Colors.grey,
+                        //           hintText: "Nomor Handphone",
 
-                                  //make hint text
-                                  hintStyle: GoogleFonts.nunito(
-                                    color: darkBlueColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: size.height * 0.02,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(30)),
-                              margin: EdgeInsets.only(
-                                  left: 16, right: 16, bottom: 0),
-                              child: TextFormField(
-                                controller: _addressControoler,
-                                keyboardType: TextInputType.streetAddress,
-                                style: GoogleFonts.nunito(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                ),
-                                onChanged: (value) {
-                                  // setState(() {
-                                  //   userInput.text = value.toString();
-                                  // });
-                                },
-                                decoration: InputDecoration(
-                                  //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
-                                  contentPadding: EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
-                                  focusColor: Colors.white,
-                                  //add prefix icon
+                        //           //make hint text
+                        //           hintStyle: GoogleFonts.sora(
+                        //             color: darkBlueColor,
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.w400,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: size.height * 0.02,
+                        //     ),
+                        //     Container(
+                        //       decoration: BoxDecoration(
+                        //           color: Colors.white,
+                        //           borderRadius: BorderRadius.circular(30)),
+                        //       margin: EdgeInsets.only(
+                        //           left: 16, right: 16, bottom: 0),
+                        //       child: TextFormField(
+                        //         controller: _addressControoler,
+                        //         keyboardType: TextInputType.streetAddress,
+                        //         style: GoogleFonts.sora(
+                        //           fontSize: 14,
+                        //           color: Colors.black,
+                        //         ),
+                        //         onChanged: (value) {
+                        //           // setState(() {
+                        //           //   userInput.text = value.toString();
+                        //           // });
+                        //         },
+                        //         decoration: InputDecoration(
+                        //           //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+                        //           contentPadding: EdgeInsets.fromLTRB(
+                        //               20.0, 15.0, 20.0, 15.0),
+                        //           focusColor: Colors.white,
+                        //           //add prefix icon
 
-                                  // errorText: "Error",
+                        //           // errorText: "Error",
 
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
+                        //           border: OutlineInputBorder(
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
 
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: blueColor, width: 1.0),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  fillColor: Colors.grey,
-                                  hintText: "Address",
+                        //           focusedBorder: OutlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: blueColor, width: 1.0),
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+                        //           fillColor: Colors.grey,
+                        //           hintText: "Address",
 
-                                  //make hint text
-                                  hintStyle: GoogleFonts.nunito(
-                                    color: darkBlueColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: size.height * 0.02,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10)),
-                              margin:
-                                  EdgeInsets.only(left: 16, right: 16, top: 0),
-                              child: TextFormField(
-                                autofocus: true,
-                                obscureText: true,
-                                keyboardType: TextInputType.text,
-                                controller: _passwordControoler,
-                                style: GoogleFonts.nunito(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                ),
-                                onChanged: (value) {
-                                  // setState(() {
-                                  //   userInput.text = value.toString();
-                                  // });
-                                },
-                                decoration: InputDecoration(
-                                  //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
-                                  focusColor: Colors.white,
-                                  //add prefix icon
-                                  contentPadding: EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
+                        //           //make hint text
+                        //           hintStyle: GoogleFonts.sora(
+                        //             color: darkBlueColor,
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.w400,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: size.height * 0.02,
+                        //     ),
+                        //     Container(
+                        //       decoration: BoxDecoration(
+                        //           color: Colors.white,
+                        //           borderRadius: BorderRadius.circular(10)),
+                        //       margin:
+                        //           EdgeInsets.only(left: 16, right: 16, top: 0),
+                        //       child: TextFormField(
+                        //         autofocus: true,
+                        //         obscureText: true,
+                        //         keyboardType: TextInputType.text,
+                        //         controller: _passwordControoler,
+                        //         style: GoogleFonts.sora(
+                        //           fontSize: 14,
+                        //           color: Colors.black,
+                        //         ),
+                        //         onChanged: (value) {
+                        //           // setState(() {
+                        //           //   userInput.text = value.toString();
+                        //           // });
+                        //         },
+                        //         decoration: InputDecoration(
+                        //           //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+                        //           focusColor: Colors.white,
+                        //           //add prefix icon
+                        //           contentPadding: EdgeInsets.fromLTRB(
+                        //               20.0, 15.0, 20.0, 15.0),
 
-                                  // errorText: "Error",
+                        //           // errorText: "Error",
 
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
+                        //           border: OutlineInputBorder(
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
 
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: blueColor, width: 1.0),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  fillColor: Colors.grey,
-                                  hintText: "Password",
+                        //           focusedBorder: OutlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: blueColor, width: 1.0),
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+                        //           fillColor: Colors.grey,
+                        //           hintText: "Password",
 
-                                  //make hint text
-                                  hintStyle: GoogleFonts.nunito(
-                                    color: darkBlueColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: size.height * 0.02,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(30)),
-                              margin:
-                                  EdgeInsets.only(left: 16, right: 16, top: 0),
-                              child: TextFormField(
-                                autofocus: true,
-                                obscureText: true,
-                                keyboardType: TextInputType.text,
-                                controller: _confirmPasswordControoler,
-                                style: GoogleFonts.nunito(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                ),
-                                onChanged: (value) {
-                                  // setState(() {
-                                  //   userInput.text = value.toString();
-                                  // });
-                                },
-                                decoration: InputDecoration(
-                                  //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
-                                  focusColor: Colors.white,
-                                  //add prefix icon
-                                  contentPadding: EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
+                        //           //make hint text
+                        //           hintStyle: GoogleFonts.sora(
+                        //             color: darkBlueColor,
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.w400,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: size.height * 0.02,
+                        //     ),
+                        //     Container(
+                        //       decoration: BoxDecoration(
+                        //           color: Colors.white,
+                        //           borderRadius: BorderRadius.circular(30)),
+                        //       margin:
+                        //           EdgeInsets.only(left: 16, right: 16, top: 0),
+                        //       child: TextFormField(
+                        //         autofocus: true,
+                        //         obscureText: true,
+                        //         keyboardType: TextInputType.text,
+                        //         controller: _confirmPasswordControoler,
+                        //         style: GoogleFonts.sora(
+                        //           fontSize: 14,
+                        //           color: Colors.black,
+                        //         ),
+                        //         onChanged: (value) {
+                        //           // setState(() {
+                        //           //   userInput.text = value.toString();
+                        //           // });
+                        //         },
+                        //         decoration: InputDecoration(
+                        //           //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+                        //           focusColor: Colors.white,
+                        //           //add prefix icon
+                        //           contentPadding: EdgeInsets.fromLTRB(
+                        //               20.0, 15.0, 20.0, 15.0),
 
-                                  // errorText: "Error",
+                        //           // errorText: "Error",
 
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
+                        //           border: OutlineInputBorder(
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
 
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: blueColor, width: 1.0),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  fillColor: Colors.grey,
-                                  hintText: "Konfirmasi Password",
+                        //           focusedBorder: OutlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: blueColor, width: 1.0),
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+                        //           fillColor: Colors.grey,
+                        //           hintText: "Konfirmasi Password",
 
-                                  //make hint text
-                                  hintStyle: GoogleFonts.nunito(
-                                    color: darkBlueColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: size.height * 0.02,
-                            ),
+                        //           //make hint text
+                        //           hintStyle: GoogleFonts.sora(
+                        //             color: darkBlueColor,
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.w400,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: size.height * 0.02,
+                        //     ),
 
-                            Column(
-                              children: [
-                                Container(
-                                  //color: whiteColor,
-                                  width: size.width * 0.9,
-                                  height: size.height * 0.055,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      GestureDetector(
-                                        onTap: () {
-                                          _showPicker(context, true);
-                                        },
-                                        child: Container(
-                                          width: size.width * 0.9,
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 1)),
-                                          //  width: size.width*0.15,
-                                          alignment: Alignment.centerLeft,
-                                          //  height: size.height*0.08,
-                                          child: Center(
-                                              child: Text(
-                                            'Upload Clinic Image',
-                                            style: GoogleFonts.nunito(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold),
-                                          )),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
+                        //     Column(
+                        //       children: [
+                        //         Container(
+                        //           //color: whiteColor,
+                        //           width: size.width * 0.9,
+                        //           height: size.height * 0.055,
+                        //           child: Row(
+                        //             mainAxisAlignment: MainAxisAlignment.center,
+                        //             children: [
+                        //               GestureDetector(
+                        //                 onTap: () {
+                        //                   _showPicker(context, true);
+                        //                 },
+                        //                 child: Container(
+                        //                   width: size.width * 0.9,
+                        //                   decoration: BoxDecoration(
+                        //                       borderRadius:
+                        //                           BorderRadius.circular(10),
+                        //                       border: Border.all(
+                        //                           color: Colors.white,
+                        //                           width: 1)),
+                        //                   //  width: size.width*0.15,
+                        //                   alignment: Alignment.centerLeft,
+                        //                   //  height: size.height*0.08,
+                        //                   child: Center(
+                        //                       child: Text(
+                        //                     'Upload Clinic Image',
+                        //                     style: GoogleFonts.sora(
+                        //                         color: Colors.white,
+                        //                         fontWeight: FontWeight.bold),
+                        //                   )),
+                        //                 ),
+                        //               ),
+                        //             ],
+                        //           ),
+                        //         ),
+                        //       ],
+                        //     ),
 
-                            _imageLoading
-                                ? Center(
-                                    child: CircularProgressIndicator(
-                                    color: Colors.white,
-                                  ))
-                                : Container(),
+                        //     _imageLoading
+                        //         ? Center(
+                        //             child: CircularProgressIndicator(
+                        //             color: Colors.white,
+                        //           ))
+                        //         : Container(),
 
-                            profileImage == ""
-                                ? Container()
-                                : Container(
-                                    height: 120,
-                                    width: 120,
-                                    child: Stack(
-                                      alignment: Alignment.topRight,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            child: Image.network(
-                                              profileImage.toString(),
-                                              height: 120,
-                                              width: 120,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          // color: Colors.white,
-                                          child: IconButton(
-                                              onPressed: () {
-                                                setState(() {
-                                                  profileImage = "";
-                                                });
-                                              },
-                                              icon: Icon(
-                                                Icons.cancel,
-                                                color: Colors.red,
-                                                size: 20,
-                                              )),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                            SizedBox(
-                              height: size.height * .03,
-                            ),
+                        //     profileImage == ""
+                        //         ? Container()
+                        //         : Container(
+                        //             height: 120,
+                        //             width: 120,
+                        //             child: Stack(
+                        //               alignment: Alignment.topRight,
+                        //               children: [
+                        //                 Padding(
+                        //                   padding: const EdgeInsets.all(8.0),
+                        //                   child: ClipRRect(
+                        //                     borderRadius:
+                        //                         BorderRadius.circular(10),
+                        //                     child: Image.network(
+                        //                       profileImage.toString(),
+                        //                       height: 120,
+                        //                       width: 120,
+                        //                       fit: BoxFit.cover,
+                        //                     ),
+                        //                   ),
+                        //                 ),
+                        //                 Container(
+                        //                   // color: Colors.white,
+                        //                   child: IconButton(
+                        //                       onPressed: () {
+                        //                         setState(() {
+                        //                           profileImage = "";
+                        //                         });
+                        //                       },
+                        //                       icon: Icon(
+                        //                         Icons.cancel,
+                        //                         color: Colors.red,
+                        //                         size: 20,
+                        //                       )),
+                        //                 ),
+                        //               ],
+                        //             ),
+                        //           ),
+                        //     SizedBox(
+                        //       height: size.height * .03,
+                        //     ),
 
-                            // SizedBox(
-                            //   height: size.height*0.05,
-                            // ),
+                        //     // SizedBox(
+                        //     //   height: size.height*0.05,
+                        //     // ),
 
-                            _isLoading
-                                ? CircularProgressIndicator(
-                                    color: darkBlueColor,
-                                    strokeWidth: 2,
-                                  )
-                                : Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 16, right: 16),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        boxShadow: [
-                                          BoxShadow(
-                                              color: Colors.black26,
-                                              offset: Offset(0, 4),
-                                              blurRadius: 5.0)
-                                        ],
-                                        gradient: LinearGradient(
-                                          begin: Alignment.topLeft,
-                                          end: Alignment.bottomRight,
-                                          stops: [0.0, 1.0],
-                                          colors: [
-                                            darkBlueColor,
-                                            darkBlueColor,
-                                          ],
-                                        ),
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: ElevatedButton(
-                                          style: ButtonStyle(
-                                            shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
-                                              RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(10.0),
-                                              ),
-                                            ),
-                                            minimumSize:
-                                                MaterialStateProperty.all(
-                                                    Size(size.width, 50)),
-                                            backgroundColor:
-                                                MaterialStateProperty.all(
-                                                    Colors.transparent),
-                                            // elevation: MaterialStateProperty.all(3),
-                                            shadowColor:
-                                                MaterialStateProperty.all(
-                                                    Colors.transparent),
-                                          ),
-                                          onPressed: () async {
-                                            if (_inputValidator.validateEmail(
-                                                        _emailControoler
-                                                            .text) !=
-                                                    'success' &&
-                                                _emailControoler
-                                                    .text.isNotEmpty) {
-                                              Fluttertoast.showToast(
-                                                  msg: "Wrong email address",
-                                                  toastLength:
-                                                      Toast.LENGTH_SHORT,
-                                                  gravity: ToastGravity.BOTTOM,
-                                                  timeInSecForIosWeb: 1,
-                                                  backgroundColor: Colors.black,
-                                                  textColor: Colors.white,
-                                                  fontSize: 16.0);
-                                            }
+                        //     _isLoading
+                        //         ? CircularProgressIndicator(
+                        //             color: darkBlueColor,
+                        //             strokeWidth: 2,
+                        //           )
+                        //         : Padding(
+                        //             padding: const EdgeInsets.only(
+                        //                 left: 16, right: 16),
+                        //             child: Container(
+                        //               decoration: BoxDecoration(
+                        //                 boxShadow: [
+                        //                   BoxShadow(
+                        //                       color: Colors.black26,
+                        //                       offset: Offset(0, 4),
+                        //                       blurRadius: 5.0)
+                        //                 ],
+                        //                 gradient: LinearGradient(
+                        //                   begin: Alignment.topLeft,
+                        //                   end: Alignment.bottomRight,
+                        //                   stops: [0.0, 1.0],
+                        //                   colors: [
+                        //                     darkBlueColor,
+                        //                     darkBlueColor,
+                        //                   ],
+                        //                 ),
+                        //                 borderRadius: BorderRadius.circular(10),
+                        //               ),
+                        //               child: ElevatedButton(
+                        //                   style: ButtonStyle(
+                        //                     shape: MaterialStateProperty.all<
+                        //                         RoundedRectangleBorder>(
+                        //                       RoundedRectangleBorder(
+                        //                         borderRadius:
+                        //                             BorderRadius.circular(10.0),
+                        //                       ),
+                        //                     ),
+                        //                     minimumSize:
+                        //                         MaterialStateProperty.all(
+                        //                             Size(size.width, 50)),
+                        //                     backgroundColor:
+                        //                         MaterialStateProperty.all(
+                        //                             Colors.transparent),
+                        //                     // elevation: MaterialStateProperty.all(3),
+                        //                     shadowColor:
+                        //                         MaterialStateProperty.all(
+                        //                             Colors.transparent),
+                        //                   ),
+                        //                   onPressed: () async {
+                        //                     if (_inputValidator.validateEmail(
+                        //                                 _emailControoler
+                        //                                     .text) !=
+                        //                             'success' &&
+                        //                         _emailControoler
+                        //                             .text.isNotEmpty) {
+                        //                       Fluttertoast.showToast(
+                        //                           msg: "Wrong email address",
+                        //                           toastLength:
+                        //                               Toast.LENGTH_SHORT,
+                        //                           gravity: ToastGravity.BOTTOM,
+                        //                           timeInSecForIosWeb: 1,
+                        //                           backgroundColor: Colors.black,
+                        //                           textColor: Colors.white,
+                        //                           fontSize: 16.0);
+                        //                     }
 
-                                            // else if (_inputValidator.validateMobile(
-                                            //     _phoneControoler.text) !=
-                                            //     'success' &&
-                                            //     _phoneControoler.text.isNotEmpty) {
-                                            //   Fluttertoast.showToast(
-                                            //       msg: "Nomor Handphone Starts with + followed by code then number (Hint +923346567876)",
-                                            //       toastLength: Toast.LENGTH_SHORT,
-                                            //       gravity: ToastGravity.BOTTOM,
-                                            //       timeInSecForIosWeb: 1,
-                                            //       backgroundColor: Colors.black,
-                                            //       textColor: Colors.white,
-                                            //       fontSize: 16.0
-                                            //   );
-                                            // }
+                        //                     // else if (_inputValidator.validateMobile(
+                        //                     //     _phoneControoler.text) !=
+                        //                     //     'success' &&
+                        //                     //     _phoneControoler.text.isNotEmpty) {
+                        //                     //   Fluttertoast.showToast(
+                        //                     //       msg: "Nomor Handphone Starts with + followed by code then number (Hint +923346567876)",
+                        //                     //       toastLength: Toast.LENGTH_SHORT,
+                        //                     //       gravity: ToastGravity.BOTTOM,
+                        //                     //       timeInSecForIosWeb: 1,
+                        //                     //       backgroundColor: Colors.black,
+                        //                     //       textColor: Colors.white,
+                        //                     //       fontSize: 16.0
+                        //                     //   );
+                        //                     // }
 
-                                            else if ((_passwordControoler
-                                                            .text.length <
-                                                        7 &&
-                                                    _passwordControoler
-                                                        .text.isNotEmpty) &&
-                                                (_confirmPasswordControoler
-                                                            .text.length <
-                                                        7 &&
-                                                    _confirmPasswordControoler
-                                                        .text.isNotEmpty)) {
-                                              Fluttertoast.showToast(
-                                                  msg:
-                                                      "Password and Konfirmasi Password harus sama",
-                                                  toastLength:
-                                                      Toast.LENGTH_SHORT,
-                                                  gravity: ToastGravity.BOTTOM,
-                                                  timeInSecForIosWeb: 1,
-                                                  backgroundColor: Colors.black,
-                                                  textColor: Colors.white,
-                                                  fontSize: 16.0);
-                                            } else if (_passwordControoler
-                                                    .text !=
-                                                _confirmPasswordControoler
-                                                    .text) {
-                                              Fluttertoast.showToast(
-                                                  msg:
-                                                      "Password and Konfirmasi Password harus sama",
-                                                  toastLength:
-                                                      Toast.LENGTH_SHORT,
-                                                  gravity: ToastGravity.BOTTOM,
-                                                  timeInSecForIosWeb: 1,
-                                                  backgroundColor: Colors.black,
-                                                  textColor: Colors.white,
-                                                  fontSize: 16.0);
-                                            } else {
-                                              if (_firstNameControoler
-                                                  .text.isEmpty) {
-                                                Fluttertoast.showToast(
-                                                    msg:
-                                                        "Doctor Name harus diisi",
-                                                    toastLength:
-                                                        Toast.LENGTH_SHORT,
-                                                    gravity:
-                                                        ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
-                                              }
+                        //                     else if ((_passwordControoler
+                        //                                     .text.length <
+                        //                                 7 &&
+                        //                             _passwordControoler
+                        //                                 .text.isNotEmpty) &&
+                        //                         (_confirmPasswordControoler
+                        //                                     .text.length <
+                        //                                 7 &&
+                        //                             _confirmPasswordControoler
+                        //                                 .text.isNotEmpty)) {
+                        //                       Fluttertoast.showToast(
+                        //                           msg:
+                        //                               "Password and Konfirmasi Password harus sama",
+                        //                           toastLength:
+                        //                               Toast.LENGTH_SHORT,
+                        //                           gravity: ToastGravity.BOTTOM,
+                        //                           timeInSecForIosWeb: 1,
+                        //                           backgroundColor: Colors.black,
+                        //                           textColor: Colors.white,
+                        //                           fontSize: 16.0);
+                        //                     } else if (_passwordControoler
+                        //                             .text !=
+                        //                         _confirmPasswordControoler
+                        //                             .text) {
+                        //                       Fluttertoast.showToast(
+                        //                           msg:
+                        //                               "Password and Konfirmasi Password harus sama",
+                        //                           toastLength:
+                        //                               Toast.LENGTH_SHORT,
+                        //                           gravity: ToastGravity.BOTTOM,
+                        //                           timeInSecForIosWeb: 1,
+                        //                           backgroundColor: Colors.black,
+                        //                           textColor: Colors.white,
+                        //                           fontSize: 16.0);
+                        //                     } else {
+                        //                       if (_firstNameControoler
+                        //                           .text.isEmpty) {
+                        //                         Fluttertoast.showToast(
+                        //                             msg:
+                        //                                 "Doctor Name harus diisi",
+                        //                             toastLength:
+                        //                                 Toast.LENGTH_SHORT,
+                        //                             gravity:
+                        //                                 ToastGravity.BOTTOM,
+                        //                             timeInSecForIosWeb: 1,
+                        //                             backgroundColor:
+                        //                                 Colors.black,
+                        //                             textColor: Colors.white,
+                        //                             fontSize: 16.0);
+                        //                       }
 
-                                              // else  if(_clinicNameControoler.text.isEmpty)
-                                              // {
-                                              //   Fluttertoast.showToast(
-                                              //       msg: "Clinic Name harus diisi",
-                                              //       toastLength: Toast.LENGTH_SHORT,
-                                              //       gravity: ToastGravity.BOTTOM,
-                                              //       timeInSecForIosWeb: 1,
-                                              //       backgroundColor: Colors.black,
-                                              //       textColor: Colors.white,
-                                              //       fontSize: 16.0
-                                              //   );
-                                              // }
+                        //                       // else  if(_clinicNameControoler.text.isEmpty)
+                        //                       // {
+                        //                       //   Fluttertoast.showToast(
+                        //                       //       msg: "Clinic Name harus diisi",
+                        //                       //       toastLength: Toast.LENGTH_SHORT,
+                        //                       //       gravity: ToastGravity.BOTTOM,
+                        //                       //       timeInSecForIosWeb: 1,
+                        //                       //       backgroundColor: Colors.black,
+                        //                       //       textColor: Colors.white,
+                        //                       //       fontSize: 16.0
+                        //                       //   );
+                        //                       // }
 
-                                              else if (_emailControoler
-                                                  .text.isEmpty) {
-                                                Fluttertoast.showToast(
-                                                    msg:
-                                                        "Email Address harus diisi",
-                                                    toastLength:
-                                                        Toast.LENGTH_SHORT,
-                                                    gravity:
-                                                        ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
-                                              } else if (_phoneControoler
-                                                  .text.isEmpty) {
-                                                Fluttertoast.showToast(
-                                                    msg: "",
-                                                    toastLength:
-                                                        Toast.LENGTH_SHORT,
-                                                    gravity:
-                                                        ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
-                                              } else if (_addressControoler
-                                                  .text.isEmpty) {
-                                                Fluttertoast.showToast(
-                                                    msg: "Address harus diisi",
-                                                    toastLength:
-                                                        Toast.LENGTH_SHORT,
-                                                    gravity:
-                                                        ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
-                                              } else if (_passwordControoler
-                                                  .text.isEmpty) {
-                                                Fluttertoast.showToast(
-                                                    msg: "Password harus diisi",
-                                                    toastLength:
-                                                        Toast.LENGTH_SHORT,
-                                                    gravity:
-                                                        ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
-                                              } else if (_confirmPasswordControoler
-                                                  .text.isEmpty) {
-                                                Fluttertoast.showToast(
-                                                    msg:
-                                                        "Konfirmasi Password harus diisi",
-                                                    toastLength:
-                                                        Toast.LENGTH_SHORT,
-                                                    gravity:
-                                                        ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
-                                              } else if (profileImage == "") {
-                                                Fluttertoast.showToast(
-                                                    msg:
-                                                        "Clinic picture harus diisi",
-                                                    toastLength:
-                                                        Toast.LENGTH_SHORT,
-                                                    gravity:
-                                                        ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
-                                              } else {
-                                                setState(() {
-                                                  _isLoading = true;
-                                                  print('We are in loading');
-                                                  //  state = ButtonState.loading;
-                                                });
+                        //                       else if (_emailControoler
+                        //                           .text.isEmpty) {
+                        //                         Fluttertoast.showToast(
+                        //                             msg:
+                        //                                 "Email Address harus diisi",
+                        //                             toastLength:
+                        //                                 Toast.LENGTH_SHORT,
+                        //                             gravity:
+                        //                                 ToastGravity.BOTTOM,
+                        //                             timeInSecForIosWeb: 1,
+                        //                             backgroundColor:
+                        //                                 Colors.black,
+                        //                             textColor: Colors.white,
+                        //                             fontSize: 16.0);
+                        //                       } else if (_phoneControoler
+                        //                           .text.isEmpty) {
+                        //                         Fluttertoast.showToast(
+                        //                             msg: "",
+                        //                             toastLength:
+                        //                                 Toast.LENGTH_SHORT,
+                        //                             gravity:
+                        //                                 ToastGravity.BOTTOM,
+                        //                             timeInSecForIosWeb: 1,
+                        //                             backgroundColor:
+                        //                                 Colors.black,
+                        //                             textColor: Colors.white,
+                        //                             fontSize: 16.0);
+                        //                       } else if (_addressControoler
+                        //                           .text.isEmpty) {
+                        //                         Fluttertoast.showToast(
+                        //                             msg: "Address harus diisi",
+                        //                             toastLength:
+                        //                                 Toast.LENGTH_SHORT,
+                        //                             gravity:
+                        //                                 ToastGravity.BOTTOM,
+                        //                             timeInSecForIosWeb: 1,
+                        //                             backgroundColor:
+                        //                                 Colors.black,
+                        //                             textColor: Colors.white,
+                        //                             fontSize: 16.0);
+                        //                       } else if (_passwordControoler
+                        //                           .text.isEmpty) {
+                        //                         Fluttertoast.showToast(
+                        //                             msg: "Password harus diisi",
+                        //                             toastLength:
+                        //                                 Toast.LENGTH_SHORT,
+                        //                             gravity:
+                        //                                 ToastGravity.BOTTOM,
+                        //                             timeInSecForIosWeb: 1,
+                        //                             backgroundColor:
+                        //                                 Colors.black,
+                        //                             textColor: Colors.white,
+                        //                             fontSize: 16.0);
+                        //                       } else if (_confirmPasswordControoler
+                        //                           .text.isEmpty) {
+                        //                         Fluttertoast.showToast(
+                        //                             msg:
+                        //                                 "Konfirmasi Password harus diisi",
+                        //                             toastLength:
+                        //                                 Toast.LENGTH_SHORT,
+                        //                             gravity:
+                        //                                 ToastGravity.BOTTOM,
+                        //                             timeInSecForIosWeb: 1,
+                        //                             backgroundColor:
+                        //                                 Colors.black,
+                        //                             textColor: Colors.white,
+                        //                             fontSize: 16.0);
+                        //                       } else if (profileImage == "") {
+                        //                         Fluttertoast.showToast(
+                        //                             msg:
+                        //                                 "Clinic picture harus diisi",
+                        //                             toastLength:
+                        //                                 Toast.LENGTH_SHORT,
+                        //                             gravity:
+                        //                                 ToastGravity.BOTTOM,
+                        //                             timeInSecForIosWeb: 1,
+                        //                             backgroundColor:
+                        //                                 Colors.black,
+                        //                             textColor: Colors.white,
+                        //                             fontSize: 16.0);
+                        //                       } else {
+                        //                         setState(() {
+                        //                           _isLoading = true;
+                        //                           print('We are in loading');
+                        //                           //  state = ButtonState.loading;
+                        //                         });
 
-                                                print(_firstNameControoler.text
-                                                    .toString());
-                                                print(_emailControoler.text
-                                                    .toString());
-                                                print(_passwordControoler.text
-                                                    .toString());
-                                                print(_phoneControoler.text
-                                                    .toString());
-                                                //createAccount();
-                                                //_methodsHandler.createAccount(name: _controllerClinic.text, email: _controller.text, password: _controllerPass.text, context: context);
-                                                SharedPreferences prefs =
-                                                    await SharedPreferences
-                                                        .getInstance();
+                        //                         print(_firstNameControoler.text
+                        //                             .toString());
+                        //                         print(_emailControoler.text
+                        //                             .toString());
+                        //                         print(_passwordControoler.text
+                        //                             .toString());
+                        //                         print(_phoneControoler.text
+                        //                             .toString());
+                        //                         //createAccount();
+                        //                         //_methodsHandler.createAccount(name: _controllerClinic.text, email: _controller.text, password: _controllerPass.text, context: context);
+                        //                         SharedPreferences prefs =
+                        //                             await SharedPreferences
+                        //                                 .getInstance();
 
-                                                FirebaseFirestore.instance
-                                                    .collection(widget.userType
-                                                        .toString())
-                                                    .where("email",
-                                                        isEqualTo:
-                                                            _emailControoler
-                                                                .text
-                                                                .trim())
-                                                    .get()
-                                                    .then((value) async {
-                                                  if (value.docs.isNotEmpty) {
-                                                    setState(() {
-                                                      _isLoading = false;
-                                                    });
-                                                    Fluttertoast.showToast(
-                                                      msg:
-                                                          "Sorry email account already exists",
-                                                      toastLength:
-                                                          Toast.LENGTH_SHORT,
-                                                      gravity:
-                                                          ToastGravity.BOTTOM,
-                                                      timeInSecForIosWeb: 4,
-                                                    );
-                                                  } else {
-                                                    try {
-                                                      User? result = (await _auth
-                                                              .createUserWithEmailAndPassword(
-                                                                  email:
-                                                                      _emailControoler
-                                                                          .text
-                                                                          .trim(),
-                                                                  password:
-                                                                      _passwordControoler
-                                                                          .text
-                                                                          .trim()))
-                                                          .user;
+                        //                         FirebaseFirestore.instance
+                        //                             .collection(widget.userType
+                        //                                 .toString())
+                        //                             .where("email",
+                        //                                 isEqualTo:
+                        //                                     _emailControoler
+                        //                                         .text
+                        //                                         .trim())
+                        //                             .get()
+                        //                             .then((value) async {
+                        //                           if (value.docs.isNotEmpty) {
+                        //                             setState(() {
+                        //                               _isLoading = false;
+                        //                             });
+                        //                             Fluttertoast.showToast(
+                        //                               msg:
+                        //                                   "Sorry email account already exists",
+                        //                               toastLength:
+                        //                                   Toast.LENGTH_SHORT,
+                        //                               gravity:
+                        //                                   ToastGravity.BOTTOM,
+                        //                               timeInSecForIosWeb: 4,
+                        //                             );
+                        //                           } else {
+                        //                             try {
+                        //                               User? result = (await _auth
+                        //                                       .createUserWithEmailAndPassword(
+                        //                                           email:
+                        //                                               _emailControoler
+                        //                                                   .text
+                        //                                                   .trim(),
+                        //                                           password:
+                        //                                               _passwordControoler
+                        //                                                   .text
+                        //                                                   .trim()))
+                        //                                   .user;
 
-                                                      if (result != null) {
-                                                        var user = result;
+                        //                               if (result != null) {
+                        //                                 var user = result;
 
-                                                        FirebaseFirestore
-                                                            .instance
-                                                            .collection(widget
-                                                                .userType
-                                                                .toString())
-                                                            .doc()
-                                                            .set({
-                                                          "email":
-                                                              _emailControoler
-                                                                  .text
-                                                                  .trim(),
-                                                          "password":
-                                                              _passwordControoler
-                                                                  .text
-                                                                  .trim(),
-                                                          "uid": user.uid,
-                                                          "name":
-                                                              _firstNameControoler
-                                                                  .text,
-                                                          "phone":
-                                                              _phoneControoler
-                                                                  .text,
-                                                          "address":
-                                                              _addressControoler
-                                                                  .text,
-                                                          "image": profileImage
-                                                              .toString(),
-                                                          "clinicName":
-                                                              _clinicNameControoler
-                                                                  .text
-                                                                  .toString(),
-                                                        }).then((value) =>
-                                                                print(
-                                                                    'success'));
+                        //                                 FirebaseFirestore
+                        //                                     .instance
+                        //                                     .collection(widget
+                        //                                         .userType
+                        //                                         .toString())
+                        //                                     .doc()
+                        //                                     .set({
+                        //                                   "email":
+                        //                                       _emailControoler
+                        //                                           .text
+                        //                                           .trim(),
+                        //                                   "password":
+                        //                                       _passwordControoler
+                        //                                           .text
+                        //                                           .trim(),
+                        //                                   "uid": user.uid,
+                        //                                   "name":
+                        //                                       _firstNameControoler
+                        //                                           .text,
+                        //                                   "phone":
+                        //                                       _phoneControoler
+                        //                                           .text,
+                        //                                   "address":
+                        //                                       _addressControoler
+                        //                                           .text,
+                        //                                   "image": profileImage
+                        //                                       .toString(),
+                        //                                   "clinicName":
+                        //                                       _clinicNameControoler
+                        //                                           .text
+                        //                                           .toString(),
+                        //                                 }).then((value) =>
+                        //                                         print(
+                        //                                             'success'));
 
-                                                        prefs.setString(
-                                                            'userType',
-                                                            'Users');
-                                                        prefs.setString(
-                                                            'userEmail',
-                                                            _emailControoler
-                                                                .text
-                                                                .trim());
-                                                        prefs.setString(
-                                                            'userPassword',
-                                                            _passwordControoler
-                                                                .text
-                                                                .trim());
-                                                        prefs.setString(
-                                                            'name',
-                                                            _firstNameControoler
-                                                                .text
-                                                                .trim());
-                                                        prefs.setString(
-                                                            'userId', user.uid);
-                                                        print(
-                                                            'Account creation successful');
-                                                        setState(() {
-                                                          _isLoading = false;
-                                                        });
-                                                        Navigator.of(context)
-                                                            .pop();
-                                                        // Navigator.pushReplacement(
-                                                        //   context,
-                                                        //   PageRouteBuilder(
-                                                        //     pageBuilder: (c, a1, a2) => HomeScreen(),
-                                                        //     transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child),
-                                                        //     transitionDuration: Duration(milliseconds: 100),
-                                                        //   ),
-                                                        // );
-                                                        Fluttertoast.showToast(
-                                                          msg:
-                                                              "Account created successfully",
-                                                          toastLength: Toast
-                                                              .LENGTH_SHORT,
-                                                          gravity: ToastGravity
-                                                              .BOTTOM,
-                                                          timeInSecForIosWeb: 4,
-                                                        );
-                                                      } else {
-                                                        setState(() {
-                                                          _isLoading = false;
-                                                        });
-                                                        print('error');
-                                                      }
-                                                    } on FirebaseAuthException catch (e) {
-                                                      setState(() {
-                                                        _isLoading = false;
-                                                      });
-                                                      if (e.code ==
-                                                          'email-already-in-use') {
-                                                        showAlertDialog(
-                                                            context,
-                                                            'Sorry',
-                                                            'The email address is already in use by another account.');
-                                                      }
-                                                      print(e.message);
-                                                      print(e.code);
-                                                    }
+                        //                                 prefs.setString(
+                        //                                     'userType',
+                        //                                     'Users');
+                        //                                 prefs.setString(
+                        //                                     'userEmail',
+                        //                                     _emailControoler
+                        //                                         .text
+                        //                                         .trim());
+                        //                                 prefs.setString(
+                        //                                     'userPassword',
+                        //                                     _passwordControoler
+                        //                                         .text
+                        //                                         .trim());
+                        //                                 prefs.setString(
+                        //                                     'name',
+                        //                                     _firstNameControoler
+                        //                                         .text
+                        //                                         .trim());
+                        //                                 prefs.setString(
+                        //                                     'userId', user.uid);
+                        //                                 print(
+                        //                                     'Account creation successful');
+                        //                                 setState(() {
+                        //                                   _isLoading = false;
+                        //                                 });
+                        //                                 Navigator.of(context)
+                        //                                     .pop();
+                        //                                 // Navigator.pushReplacement(
+                        //                                 //   context,
+                        //                                 //   PageRouteBuilder(
+                        //                                 //     pageBuilder: (c, a1, a2) => HomeScreen(),
+                        //                                 //     transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child),
+                        //                                 //     transitionDuration: Duration(milliseconds: 100),
+                        //                                 //   ),
+                        //                                 // );
+                        //                                 Fluttertoast.showToast(
+                        //                                   msg:
+                        //                                       "Account created successfully",
+                        //                                   toastLength: Toast
+                        //                                       .LENGTH_SHORT,
+                        //                                   gravity: ToastGravity
+                        //                                       .BOTTOM,
+                        //                                   timeInSecForIosWeb: 4,
+                        //                                 );
+                        //                               } else {
+                        //                                 setState(() {
+                        //                                   _isLoading = false;
+                        //                                 });
+                        //                                 print('error');
+                        //                               }
+                        //                             } on FirebaseAuthException catch (e) {
+                        //                               setState(() {
+                        //                                 _isLoading = false;
+                        //                               });
+                        //                               if (e.code ==
+                        //                                   'email-already-in-use') {
+                        //                                 showAlertDialog(
+                        //                                     context,
+                        //                                     'Sorry',
+                        //                                     'The email address is already in use by another account.');
+                        //                               }
+                        //                               print(e.message);
+                        //                               print(e.code);
+                        //                             }
 
-                                                    await Future.delayed(
-                                                        Duration(seconds: 1));
-                                                  }
-                                                });
-                                              }
-                                            }
-                                          },
-                                          child: Text('Sign Up',
-                                              style: buttonStyle)),
-                                    ),
-                                  ),
-                            SizedBox(
-                              height: size.height * .03,
-                            ),
-                            // SizedBox(
-                            //   height: size.height*0.1,
-                            // ),
-                          ],
-                        ),
+                        //                             await Future.delayed(
+                        //                                 Duration(seconds: 1));
+                        //                           }
+                        //                         });
+                        //                       }
+                        //                     }
+                        //                   },
+                        //                   child: Text('Sign Up',
+                        //                       style: buttonStyle)),
+                        //             ),
+                        //           ),
+                        //     SizedBox(
+                        //       height: size.height * .03,
+                        //     ),
+                        //     // SizedBox(
+                        //     //   height: size.height*0.1,
+                        //     // ),
+                        //   ],
+                        // ),
                       ),
                     ),
                   ],
@@ -1145,1058 +1149,1668 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               topLeft: Radius.circular(30))),
                       child: SingleChildScrollView(
                         physics: NeverScrollableScrollPhysics(),
+                        // child: Column(
+                        //   children: [
+                        //     Center(
+                        //       child: SizedBox(
+                        //         child: Image.asset(
+                        //           'assets/logo.png',
+                        //           fit: BoxFit.scaleDown,
+                        //           height: 200,
+                        //           width: 200,
+                        //         ),
+                        //       ),
+                        //     ),
+
+                        //     Center(
+                        //         child: Text(
+                        //       'Buat Akun',
+                        //       style: GoogleFonts.sora(
+                        //           color: blackColor,
+                        //           fontSize: 24,
+                        //           fontWeight: FontWeight.bold),
+                        //     )),
+
+                        //     SizedBox(
+                        //       height: size.height * 0.05,
+                        //     ),
+
+                        //     Container(
+                        //       decoration: BoxDecoration(
+                        //           color: Colors.white,
+                        //           borderRadius: BorderRadius.circular(30)),
+                        //       margin: EdgeInsets.only(
+                        //           left: 16, right: 16, bottom: 0),
+                        //       child: TextFormField(
+                        //         controller: _firstNameControoler,
+                        //         keyboardType: TextInputType.name,
+                        //         style: GoogleFonts.sora(
+                        //           fontSize: 14,
+                        //           color: Colors.black,
+                        //         ),
+                        //         onChanged: (value) {
+                        //           // setState(() {
+                        //           //   userInput.text = value.toString();
+                        //           // });
+                        //         },
+                        //         decoration: InputDecoration(
+                        //           //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+                        //           contentPadding: EdgeInsets.fromLTRB(
+                        //               20.0, 15.0, 20.0, 15.0),
+                        //           focusColor: Colors.white,
+                        //           //add prefix icon
+
+                        //           // errorText: "Error",
+
+                        //           border: OutlineInputBorder(
+                        //             borderRadius: BorderRadius.circular(10.0),
+                        //           ),
+
+                        //           focusedBorder: OutlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: blueColor, width: 1.0),
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+                        //           fillColor: Colors.grey,
+                        //           hintText: "Nama Orang tua",
+
+                        //           //make hint text
+                        //           hintStyle: GoogleFonts.sora(
+                        //             color: darkBlueColor,
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.w400,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: size.height * 0.01,
+                        //     ),
+                        //     Container(
+                        //       decoration: BoxDecoration(
+                        //           color: Colors.white,
+                        //           borderRadius: BorderRadius.circular(30)),
+                        //       margin: EdgeInsets.only(
+                        //           left: 16, right: 16, bottom: 0),
+                        //       child: TextFormField(
+                        //         controller: _emailControoler,
+                        //         keyboardType: TextInputType.emailAddress,
+                        //         style: GoogleFonts.sora(
+                        //           fontSize: 14,
+                        //           color: Colors.black,
+                        //         ),
+                        //         onChanged: (value) {
+                        //           // setState(() {
+                        //           //   userInput.text = value.toString();
+                        //           // });
+                        //         },
+                        //         decoration: InputDecoration(
+                        //           //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+                        //           contentPadding: EdgeInsets.fromLTRB(
+                        //               20.0, 15.0, 20.0, 15.0),
+                        //           focusColor: Colors.white,
+                        //           //add prefix icon
+
+                        //           // errorText: "Error",
+
+                        //           border: OutlineInputBorder(
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+
+                        //           focusedBorder: OutlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: blueColor, width: 1.0),
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+                        //           fillColor: Colors.grey,
+                        //           hintText: "Email Orang tua",
+
+                        //           //make hint text
+                        //           hintStyle: GoogleFonts.sora(
+                        //             color: darkBlueColor,
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.w400,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: size.height * 0.01,
+                        //     ),
+                        //     Container(
+                        //       decoration: BoxDecoration(
+                        //           color: Colors.white,
+                        //           borderRadius: BorderRadius.circular(30)),
+                        //       margin: EdgeInsets.only(
+                        //           left: 16, right: 16, bottom: 0),
+                        //       child: TextFormField(
+                        //         controller: _phoneControoler,
+                        //         keyboardType: TextInputType.phone,
+                        //         style: GoogleFonts.sora(
+                        //           fontSize: 14,
+                        //           color: Colors.black,
+                        //         ),
+                        //         onChanged: (value) {
+                        //           // setState(() {
+                        //           //   userInput.text = value.toString();
+                        //           // });
+                        //         },
+                        //         decoration: InputDecoration(
+                        //           //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+
+                        //           contentPadding: EdgeInsets.fromLTRB(
+                        //               20.0, 15.0, 20.0, 15.0),
+                        //           focusColor: Colors.white,
+                        //           //add prefix icon
+
+                        //           // errorText: "Error",
+
+                        //           border: OutlineInputBorder(
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+
+                        //           focusedBorder: OutlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: blueColor, width: 1.0),
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+                        //           fillColor: Colors.grey,
+                        //           hintText: "Nomor Handphone",
+
+                        //           //make hint text
+                        //           hintStyle: GoogleFonts.sora(
+                        //             color: darkBlueColor,
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.w400,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: size.height * 0.01,
+                        //     ),
+                        //     Container(
+                        //       decoration: BoxDecoration(
+                        //           color: Colors.white,
+                        //           borderRadius: BorderRadius.circular(30)),
+                        //       margin: EdgeInsets.only(
+                        //           left: 16, right: 16, bottom: 0),
+                        //       child: TextFormField(
+                        //         controller: _addressControoler,
+                        //         keyboardType: TextInputType.streetAddress,
+                        //         style: GoogleFonts.sora(
+                        //           fontSize: 14,
+                        //           color: Colors.black,
+                        //         ),
+                        //         onChanged: (value) {
+                        //           // setState(() {
+                        //           //   userInput.text = value.toString();
+                        //           // });
+                        //         },
+                        //         decoration: InputDecoration(
+                        //           //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+                        //           contentPadding: EdgeInsets.fromLTRB(
+                        //               20.0, 15.0, 20.0, 15.0),
+                        //           focusColor: Colors.white,
+                        //           //add prefix icon
+
+                        //           // errorText: "Error",
+
+                        //           border: OutlineInputBorder(
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+
+                        //           focusedBorder: OutlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: blueColor, width: 1.0),
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+                        //           fillColor: Colors.grey,
+                        //           hintText: "Alamat",
+
+                        //           //make hint text
+                        //           hintStyle: GoogleFonts.sora(
+                        //             color: darkBlueColor,
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.w400,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: size.height * 0.01,
+                        //     ),
+                        //     Container(
+                        //       decoration: BoxDecoration(
+                        //           color: Colors.white,
+                        //           borderRadius: BorderRadius.circular(10)),
+                        //       margin:
+                        //           EdgeInsets.only(left: 16, right: 16, top: 0),
+                        //       child: TextFormField(
+                        //         autofocus: true,
+                        //         obscureText: true,
+                        //         keyboardType: TextInputType.text,
+                        //         controller: _passwordControoler,
+                        //         style: GoogleFonts.sora(
+                        //           fontSize: 14,
+                        //           color: Colors.black,
+                        //         ),
+                        //         onChanged: (value) {
+                        //           // setState(() {
+                        //           //   userInput.text = value.toString();
+                        //           // });
+                        //         },
+                        //         decoration: InputDecoration(
+                        //           //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+                        //           focusColor: Colors.white,
+                        //           //add prefix icon
+                        //           contentPadding: EdgeInsets.fromLTRB(
+                        //               20.0, 15.0, 20.0, 15.0),
+
+                        //           // errorText: "Error",
+
+                        //           border: OutlineInputBorder(
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+
+                        //           focusedBorder: OutlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: blueColor, width: 1.0),
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+                        //           fillColor: Colors.grey,
+                        //           hintText: "Password",
+
+                        //           //make hint text
+                        //           hintStyle: GoogleFonts.sora(
+                        //             color: darkBlueColor,
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.w400,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: size.height * 0.01,
+                        //     ),
+                        //     Container(
+                        //       decoration: BoxDecoration(
+                        //           color: Colors.white,
+                        //           borderRadius: BorderRadius.circular(10)),
+                        //       margin:
+                        //           EdgeInsets.only(left: 16, right: 16, top: 0),
+                        //       child: TextFormField(
+                        //         autofocus: true,
+                        //         obscureText: true,
+                        //         keyboardType: TextInputType.text,
+                        //         controller: _confirmPasswordControoler,
+                        //         style: GoogleFonts.sora(
+                        //           fontSize: 14,
+                        //           color: Colors.black,
+                        //         ),
+                        //         onChanged: (value) {
+                        //           // setState(() {
+                        //           //   userInput.text = value.toString();
+                        //           // });
+                        //         },
+                        //         decoration: InputDecoration(
+                        //           //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+                        //           focusColor: Colors.white,
+                        //           //add prefix icon
+                        //           contentPadding: EdgeInsets.fromLTRB(
+                        //               20.0, 15.0, 20.0, 15.0),
+
+                        //           // errorText: "Error",
+
+                        //           border: OutlineInputBorder(
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+
+                        //           focusedBorder: OutlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: blueColor, width: 1.0),
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+                        //           fillColor: Colors.grey,
+                        //           hintText: "Konfirmasi Password",
+
+                        //           //make hint text
+                        //           hintStyle: GoogleFonts.sora(
+                        //             color: darkBlueColor,
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.w400,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: size.height * 0.01,
+                        //     ),
+
+                        //     Container(
+                        //       decoration: BoxDecoration(
+                        //           color: Colors.white,
+                        //           borderRadius: BorderRadius.circular(10)),
+                        //       margin:
+                        //           EdgeInsets.only(left: 16, right: 16, top: 0),
+                        //       child: TextFormField(
+                        //         autofocus: true,
+                        //         keyboardType: TextInputType.name,
+                        //         controller: _childNameControoler,
+                        //         style: GoogleFonts.sora(
+                        //           fontSize: 14,
+                        //           color: Colors.black,
+                        //         ),
+                        //         onChanged: (value) {
+                        //           // setState(() {
+                        //           //   userInput.text = value.toString();
+                        //           // });
+                        //         },
+                        //         decoration: InputDecoration(
+                        //           //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+                        //           focusColor: Colors.white,
+                        //           //add prefix icon
+                        //           contentPadding: EdgeInsets.fromLTRB(
+                        //               20.0, 15.0, 20.0, 15.0),
+
+                        //           // errorText: "Error",
+
+                        //           border: OutlineInputBorder(
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+
+                        //           focusedBorder: OutlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: blueColor, width: 1.0),
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+                        //           fillColor: Colors.grey,
+                        //           hintText: "Nama Anak",
+
+                        //           //make hint text
+                        //           hintStyle: GoogleFonts.sora(
+                        //             color: darkBlueColor,
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.w400,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: size.height * 0.01,
+                        //     ),
+                        //     Container(
+                        //       decoration: BoxDecoration(
+                        //           color: Colors.white,
+                        //           borderRadius: BorderRadius.circular(10)),
+                        //       margin:
+                        //           EdgeInsets.only(left: 16, right: 16, top: 0),
+                        //       child: TextFormField(
+                        //         autofocus: true,
+                        //         keyboardType: TextInputType.number,
+                        //         controller: _childAgeControoler,
+                        //         style: GoogleFonts.sora(
+                        //           fontSize: 14,
+                        //           color: Colors.black,
+                        //         ),
+                        //         onChanged: (value) {
+                        //           // setState(() {
+                        //           //   userInput.text = value.toString();
+                        //           // });
+                        //         },
+                        //         decoration: InputDecoration(
+                        //           //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+                        //           focusColor: Colors.white,
+                        //           //add prefix icon
+                        //           contentPadding: EdgeInsets.fromLTRB(
+                        //               20.0, 15.0, 20.0, 15.0),
+
+                        //           // errorText: "Error",
+
+                        //           border: OutlineInputBorder(
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+
+                        //           focusedBorder: OutlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: blueColor, width: 1.0),
+                        //             borderRadius: BorderRadius.circular(10),
+                        //           ),
+                        //           fillColor: Colors.grey,
+                        //           hintText: "Umur Anak",
+
+                        //           //make hint text
+                        //           hintStyle: GoogleFonts.sora(
+                        //             color: darkBlueColor,
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.w400,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: size.height * 0.01,
+                        //     ),
+
+                        //     Align(
+                        //       alignment: Alignment.center,
+                        //       child: Padding(
+                        //         padding: const EdgeInsets.only(
+                        //           top: 5,
+                        //         ),
+                        //         child: Container(
+                        //           width: size.width * 0.9,
+                        //           height: size.height * 0.06,
+                        //           decoration: BoxDecoration(
+                        //             borderRadius: BorderRadius.circular(10),
+                        //             border:
+                        //                 Border.all(color: darkGreyTextColor1),
+                        //             color: Colors.white,
+                        //             // image: DecorationImage(
+                        //             //   image: AssetImage("assets/images/signin/textfield.png"),
+                        //             //   fit: BoxFit.cover,
+                        //             // ),
+                        //           ),
+                        //           child: DropdownButtonHideUnderline(
+                        //             child: DropdownButton(
+                        //                 value: dropdownvalue,
+                        //                 hint: const Padding(
+                        //                   padding: EdgeInsets.only(left: 8),
+                        //                   child: Text(
+                        //                     'Pilih Spesialis',
+                        //                     style: TextStyle(
+                        //                         color: textColor,
+                        //                         fontWeight: FontWeight.w300,
+                        //                         fontSize: 12),
+                        //                   ),
+                        //                 ),
+                        //                 dropdownColor: Colors.white,
+                        //                 isExpanded: true,
+                        //                 isDense:
+                        //                     true, // Reduces the dropdowns height by +/- 50%
+                        //                 icon: Padding(
+                        //                   padding:
+                        //                       const EdgeInsets.only(right: 8),
+                        //                   child: Icon(
+                        //                     Icons.keyboard_arrow_down,
+                        //                     color: blueColor,
+                        //                   ),
+                        //                 ),
+                        //                 items: items.map((item) {
+                        //                   return DropdownMenuItem(
+                        //                     value: item,
+                        //                     child: Padding(
+                        //                       padding: const EdgeInsets.only(
+                        //                           left: 8),
+                        //                       child: Text(
+                        //                         item,
+                        //                         style: GoogleFonts.sora(
+                        //                             fontWeight: FontWeight.w400,
+                        //                             color: blueColor,
+                        //                             fontSize: 13),
+                        //                       ),
+                        //                     ),
+                        //                   );
+                        //                 }).toList(),
+                        //                 onChanged: (selectedItem) {
+                        //                   setState(() {
+                        //                     dropdownvalue =
+                        //                         selectedItem.toString();
+                        //                   });
+                        //                 }),
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: size.height * .01,
+                        //     ),
+
+                        //     Column(
+                        //       children: [
+                        //         Container(
+                        //           //color: whiteColor,
+                        //           width: size.width * 0.9,
+                        //           height: size.height * 0.055,
+                        //           child: Row(
+                        //             mainAxisAlignment: MainAxisAlignment.center,
+                        //             children: [
+                        //               GestureDetector(
+                        //                 onTap: () {
+                        //                   _showPicker(context, true);
+                        //                 },
+                        //                 child: Container(
+                        //                   width: size.width * 0.9,
+                        //                   decoration: BoxDecoration(
+                        //                       borderRadius:
+                        //                           BorderRadius.circular(10),
+                        //                       border: Border.all(
+                        //                           color: darkBlueColor,
+                        //                           width: 1)),
+                        //                   //  width: size.width*0.15,
+                        //                   alignment: Alignment.centerLeft,
+                        //                   //  height: size.height*0.08,
+                        //                   child: Center(
+                        //                       child: Text(
+                        //                     'Upload foto Anak',
+                        //                     style: GoogleFonts.sora(
+                        //                         color: darkBlueColor,
+                        //                         fontWeight: FontWeight.bold),
+                        //                   )),
+                        //                 ),
+                        //               ),
+                        //             ],
+                        //           ),
+                        //         ),
+                        //       ],
+                        //     ),
+
+                        //     _imageLoading
+                        //         ? Center(
+                        //             child: CircularProgressIndicator(
+                        //             color: Colors.white,
+                        //           ))
+                        //         : Container(),
+
+                        //     profileImage == ""
+                        //         ? Container()
+                        //         : Container(
+                        //             height: 120,
+                        //             width: 120,
+                        //             child: Stack(
+                        //               alignment: Alignment.topRight,
+                        //               children: [
+                        //                 Padding(
+                        //                   padding: const EdgeInsets.all(8.0),
+                        //                   child: ClipRRect(
+                        //                     borderRadius:
+                        //                         BorderRadius.circular(10),
+                        //                     child: Image.network(
+                        //                       profileImage.toString(),
+                        //                       height: 120,
+                        //                       width: 120,
+                        //                       fit: BoxFit.cover,
+                        //                     ),
+                        //                   ),
+                        //                 ),
+                        //                 Container(
+                        //                   // color: Colors.white,
+                        //                   child: IconButton(
+                        //                       onPressed: () {
+                        //                         setState(() {
+                        //                           profileImage = "";
+                        //                         });
+                        //                       },
+                        //                       icon: Icon(
+                        //                         Icons.cancel,
+                        //                         color: Colors.red,
+                        //                         size: 20,
+                        //                       )),
+                        //                 ),
+                        //               ],
+                        //             ),
+                        //           ),
+                        //     SizedBox(
+                        //       height: size.height * .03,
+                        //     ),
+
+                        //     // SizedBox(
+                        //     //   height: size.height*0.05,
+                        //     // ),
+
+                        //     _isLoading
+                        //         ? CircularProgressIndicator(
+                        //             color: darkBlueColor,
+                        //             strokeWidth: 2,
+                        //           )
+                        //         : Padding(
+                        //             padding: const EdgeInsets.only(
+                        //                 left: 16, right: 16),
+                        //             child: Container(
+                        //               decoration: BoxDecoration(
+                        //                 boxShadow: [
+                        //                   BoxShadow(
+                        //                       color: Colors.black26,
+                        //                       offset: Offset(0, 4),
+                        //                       blurRadius: 5.0)
+                        //                 ],
+                        //                 gradient: LinearGradient(
+                        //                   begin: Alignment.topLeft,
+                        //                   end: Alignment.bottomRight,
+                        //                   stops: [0.0, 1.0],
+                        //                   colors: [
+                        //                     darkBlueColor,
+                        //                     darkBlueColor,
+                        //                   ],
+                        //                 ),
+                        //                 borderRadius: BorderRadius.circular(10),
+                        //               ),
+                        //               child: ElevatedButton(
+                        //                   style: ButtonStyle(
+                        //                     shape: MaterialStateProperty.all<
+                        //                         RoundedRectangleBorder>(
+                        //                       RoundedRectangleBorder(
+                        //                         borderRadius:
+                        //                             BorderRadius.circular(10.0),
+                        //                       ),
+                        //                     ),
+                        //                     minimumSize:
+                        //                         MaterialStateProperty.all(
+                        //                             Size(size.width, 50)),
+                        //                     backgroundColor:
+                        //                         MaterialStateProperty.all(
+                        //                             Colors.transparent),
+                        //                     // elevation: MaterialStateProperty.all(3),
+                        //                     shadowColor:
+                        //                         MaterialStateProperty.all(
+                        //                             Colors.transparent),
+                        //                   ),
+                        //                   onPressed: () async {
+                        //                     if (_inputValidator.validateEmail(
+                        //                                 _emailControoler
+                        //                                     .text) !=
+                        //                             'success' &&
+                        //                         _emailControoler
+                        //                             .text.isNotEmpty) {
+                        //                       Fluttertoast.showToast(
+                        //                           msg: "Wrong email address",
+                        //                           toastLength:
+                        //                               Toast.LENGTH_SHORT,
+                        //                           gravity: ToastGravity.BOTTOM,
+                        //                           timeInSecForIosWeb: 1,
+                        //                           backgroundColor: Colors.black,
+                        //                           textColor: Colors.white,
+                        //                           fontSize: 16.0);
+                        //                     }
+
+                        //                     // else if (_inputValidator.validateMobile(
+                        //                     //     _phoneControoler.text) !=
+                        //                     //     'success' &&
+                        //                     //     _phoneControoler.text.isNotEmpty) {
+                        //                     //   Fluttertoast.showToast(
+                        //                     //       msg: "Nomor Handphone Starts with + followed by code then number (Hint +923346567876)",
+                        //                     //       toastLength: Toast.LENGTH_SHORT,
+                        //                     //       gravity: ToastGravity.BOTTOM,
+                        //                     //       timeInSecForIosWeb: 1,
+                        //                     //       backgroundColor: Colors.black,
+                        //                     //       textColor: Colors.white,
+                        //                     //       fontSize: 16.0
+                        //                     //   );
+                        //                     // }
+
+                        //                     else if ((_passwordControoler
+                        //                                     .text.length <
+                        //                                 7 &&
+                        //                             _passwordControoler
+                        //                                 .text.isNotEmpty) &&
+                        //                         (_confirmPasswordControoler
+                        //                                     .text.length <
+                        //                                 7 &&
+                        //                             _confirmPasswordControoler
+                        //                                 .text.isNotEmpty)) {
+                        //                       Fluttertoast.showToast(
+                        //                           msg:
+                        //                               "Password and Confirm Password must be same",
+                        //                           toastLength:
+                        //                               Toast.LENGTH_SHORT,
+                        //                           gravity: ToastGravity.BOTTOM,
+                        //                           timeInSecForIosWeb: 1,
+                        //                           backgroundColor: Colors.black,
+                        //                           textColor: Colors.white,
+                        //                           fontSize: 16.0);
+                        //                     } else if (_passwordControoler
+                        //                             .text !=
+                        //                         _confirmPasswordControoler
+                        //                             .text) {
+                        //                       Fluttertoast.showToast(
+                        //                           msg:
+                        //                               "Password and Confirm Password must be same",
+                        //                           toastLength:
+                        //                               Toast.LENGTH_SHORT,
+                        //                           gravity: ToastGravity.BOTTOM,
+                        //                           timeInSecForIosWeb: 1,
+                        //                           backgroundColor: Colors.black,
+                        //                           textColor: Colors.white,
+                        //                           fontSize: 16.0);
+                        //                     } else {
+                        //                       if (_firstNameControoler
+                        //                           .text.isEmpty) {
+                        //                         Fluttertoast.showToast(
+                        //                             msg:
+                        //                                 "Nama Orangtua harus diharus diisi",
+                        //                             toastLength:
+                        //                                 Toast.LENGTH_SHORT,
+                        //                             gravity:
+                        //                                 ToastGravity.BOTTOM,
+                        //                             timeInSecForIosWeb: 1,
+                        //                             backgroundColor:
+                        //                                 Colors.black,
+                        //                             textColor: Colors.white,
+                        //                             fontSize: 16.0);
+                        //                       } else if (_emailControoler
+                        //                           .text.isEmpty) {
+                        //                         Fluttertoast.showToast(
+                        //                             msg:
+                        //                                 "Email Address harus diisi",
+                        //                             toastLength:
+                        //                                 Toast.LENGTH_SHORT,
+                        //                             gravity:
+                        //                                 ToastGravity.BOTTOM,
+                        //                             timeInSecForIosWeb: 1,
+                        //                             backgroundColor:
+                        //                                 Colors.black,
+                        //                             textColor: Colors.white,
+                        //                             fontSize: 16.0);
+                        //                       } else if (_phoneControoler
+                        //                           .text.isEmpty) {
+                        //                         Fluttertoast.showToast(
+                        //                             msg:
+                        //                                 "Nomor Handphone harus diisi",
+                        //                             toastLength:
+                        //                                 Toast.LENGTH_SHORT,
+                        //                             gravity:
+                        //                                 ToastGravity.BOTTOM,
+                        //                             timeInSecForIosWeb: 1,
+                        //                             backgroundColor:
+                        //                                 Colors.black,
+                        //                             textColor: Colors.white,
+                        //                             fontSize: 16.0);
+                        //                       } else if (_addressControoler
+                        //                           .text.isEmpty) {
+                        //                         Fluttertoast.showToast(
+                        //                             msg: "Alamat harus diisi",
+                        //                             toastLength:
+                        //                                 Toast.LENGTH_SHORT,
+                        //                             gravity:
+                        //                                 ToastGravity.BOTTOM,
+                        //                             timeInSecForIosWeb: 1,
+                        //                             backgroundColor:
+                        //                                 Colors.black,
+                        //                             textColor: Colors.white,
+                        //                             fontSize: 16.0);
+                        //                       } else if (_passwordControoler
+                        //                           .text.isEmpty) {
+                        //                         Fluttertoast.showToast(
+                        //                             msg: "Password harus diisi",
+                        //                             toastLength:
+                        //                                 Toast.LENGTH_SHORT,
+                        //                             gravity:
+                        //                                 ToastGravity.BOTTOM,
+                        //                             timeInSecForIosWeb: 1,
+                        //                             backgroundColor:
+                        //                                 Colors.black,
+                        //                             textColor: Colors.white,
+                        //                             fontSize: 16.0);
+                        //                       } else if (_confirmPasswordControoler
+                        //                           .text.isEmpty) {
+                        //                         Fluttertoast.showToast(
+                        //                             msg:
+                        //                                 "Konfirmasi Password harus diisi",
+                        //                             toastLength:
+                        //                                 Toast.LENGTH_SHORT,
+                        //                             gravity:
+                        //                                 ToastGravity.BOTTOM,
+                        //                             timeInSecForIosWeb: 1,
+                        //                             backgroundColor:
+                        //                                 Colors.black,
+                        //                             textColor: Colors.white,
+                        //                             fontSize: 16.0);
+                        //                       } else if (_childNameControoler
+                        //                           .text.isEmpty) {
+                        //                         Fluttertoast.showToast(
+                        //                             msg:
+                        //                                 "Nama Anak harus diisi",
+                        //                             toastLength:
+                        //                                 Toast.LENGTH_SHORT,
+                        //                             gravity:
+                        //                                 ToastGravity.BOTTOM,
+                        //                             timeInSecForIosWeb: 1,
+                        //                             backgroundColor:
+                        //                                 Colors.black,
+                        //                             textColor: Colors.white,
+                        //                             fontSize: 16.0);
+                        //                       } else if (_childAgeControoler
+                        //                           .text.isEmpty) {
+                        //                         Fluttertoast.showToast(
+                        //                             msg:
+                        //                                 "Umur Anak harus diisi",
+                        //                             toastLength:
+                        //                                 Toast.LENGTH_SHORT,
+                        //                             gravity:
+                        //                                 ToastGravity.BOTTOM,
+                        //                             timeInSecForIosWeb: 1,
+                        //                             backgroundColor:
+                        //                                 Colors.black,
+                        //                             textColor: Colors.white,
+                        //                             fontSize: 16.0);
+                        //                       } else if (dropdownvalue ==
+                        //                           "Pilih Jenis Kelamin") {
+                        //                         Fluttertoast.showToast(
+                        //                             msg:
+                        //                                 "Child gender harus diisi",
+                        //                             toastLength:
+                        //                                 Toast.LENGTH_SHORT,
+                        //                             gravity:
+                        //                                 ToastGravity.BOTTOM,
+                        //                             timeInSecForIosWeb: 1,
+                        //                             backgroundColor:
+                        //                                 Colors.black,
+                        //                             textColor: Colors.white,
+                        //                             fontSize: 16.0);
+                        //                       } else if (profileImage == "") {
+                        //                         Fluttertoast.showToast(
+                        //                             msg:
+                        //                                 "Child picture harus diisi",
+                        //                             toastLength:
+                        //                                 Toast.LENGTH_SHORT,
+                        //                             gravity:
+                        //                                 ToastGravity.BOTTOM,
+                        //                             timeInSecForIosWeb: 1,
+                        //                             backgroundColor:
+                        //                                 Colors.black,
+                        //                             textColor: Colors.white,
+                        //                             fontSize: 16.0);
+                        //                       } else {
+                        //                         setState(() {
+                        //                           _isLoading = true;
+                        //                           print('We are in loading');
+                        //                           //  state = ButtonState.loading;
+                        //                         });
+
+                        //                         print(_firstNameControoler.text
+                        //                             .toString());
+                        //                         print(_emailControoler.text
+                        //                             .toString());
+                        //                         print(_passwordControoler.text
+                        //                             .toString());
+                        //                         print(_phoneControoler.text
+                        //                             .toString());
+                        //                         //createAccount();
+                        //                         //_methodsHandler.createAccount(name: _controllerClinic.text, email: _controller.text, password: _controllerPass.text, context: context);
+                        //                         SharedPreferences prefs =
+                        //                             await SharedPreferences
+                        //                                 .getInstance();
+
+                        //                         FirebaseFirestore.instance
+                        //                             .collection(widget.userType
+                        //                                 .toString())
+                        //                             .where("email",
+                        //                                 isEqualTo:
+                        //                                     _emailControoler
+                        //                                         .text
+                        //                                         .trim())
+                        //                             .get()
+                        //                             .then((value) async {
+                        //                           if (value.docs.isNotEmpty) {
+                        //                             setState(() {
+                        //                               _isLoading = false;
+                        //                             });
+                        //                             Fluttertoast.showToast(
+                        //                               msg:
+                        //                                   "Sorry email account already exists",
+                        //                               toastLength:
+                        //                                   Toast.LENGTH_SHORT,
+                        //                               gravity:
+                        //                                   ToastGravity.BOTTOM,
+                        //                               timeInSecForIosWeb: 4,
+                        //                             );
+                        //                           } else {
+                        //                             try {
+                        //                               User? result = (await _auth
+                        //                                       .createUserWithEmailAndPassword(
+                        //                                           email:
+                        //                                               _emailControoler
+                        //                                                   .text
+                        //                                                   .trim(),
+                        //                                           password:
+                        //                                               _passwordControoler
+                        //                                                   .text
+                        //                                                   .trim()))
+                        //                                   .user;
+
+                        //                               if (result != null) {
+                        //                                 var user = result;
+
+                        //                                 FirebaseFirestore
+                        //                                     .instance
+                        //                                     .collection(widget
+                        //                                         .userType
+                        //                                         .toString())
+                        //                                     .doc()
+                        //                                     .set({
+                        //                                   "email":
+                        //                                       _emailControoler
+                        //                                           .text
+                        //                                           .trim(),
+                        //                                   "password":
+                        //                                       _passwordControoler
+                        //                                           .text
+                        //                                           .trim(),
+                        //                                   "uid": user.uid,
+                        //                                   "name":
+                        //                                       _firstNameControoler
+                        //                                           .text,
+                        //                                   "phone":
+                        //                                       _phoneControoler
+                        //                                           .text,
+                        //                                   "address":
+                        //                                       _addressControoler
+                        //                                           .text,
+                        //                                   "childImage":
+                        //                                       profileImage
+                        //                                           .toString(),
+                        //                                   "childName":
+                        //                                       _childNameControoler
+                        //                                           .text
+                        //                                           .toString(),
+                        //                                   "childAge":
+                        //                                       _childAgeControoler
+                        //                                           .text
+                        //                                           .toString(),
+                        //                                   "gender":
+                        //                                       dropdownvalue
+                        //                                           .toString(),
+                        //                                 }).then((value) =>
+                        //                                         print(
+                        //                                             'success'));
+
+                        //                                 prefs.setString(
+                        //                                     'userType',
+                        //                                     'Users');
+                        //                                 prefs.setString(
+                        //                                     'userEmail',
+                        //                                     _emailControoler
+                        //                                         .text
+                        //                                         .trim());
+                        //                                 prefs.setString(
+                        //                                     'userPassword',
+                        //                                     _passwordControoler
+                        //                                         .text
+                        //                                         .trim());
+                        //                                 prefs.setString(
+                        //                                     'name',
+                        //                                     _firstNameControoler
+                        //                                         .text
+                        //                                         .trim());
+                        //                                 prefs.setString(
+                        //                                     'userId', user.uid);
+                        //                                 print(
+                        //                                     'Account creation successful');
+                        //                                 setState(() {
+                        //                                   _isLoading = false;
+                        //                                 });
+                        //                                 Navigator.of(context)
+                        //                                     .pop();
+                        //                                 // Navigator.pushReplacement(
+                        //                                 //   context,
+                        //                                 //   PageRouteBuilder(
+                        //                                 //     pageBuilder: (c, a1, a2) => HomeScreen(),
+                        //                                 //     transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child),
+                        //                                 //     transitionDuration: Duration(milliseconds: 100),
+                        //                                 //   ),
+                        //                                 // );
+                        //                                 Fluttertoast.showToast(
+                        //                                   msg:
+                        //                                       "Account created successfully",
+                        //                                   toastLength: Toast
+                        //                                       .LENGTH_SHORT,
+                        //                                   gravity: ToastGravity
+                        //                                       .BOTTOM,
+                        //                                   timeInSecForIosWeb: 4,
+                        //                                 );
+                        //                               } else {
+                        //                                 setState(() {
+                        //                                   _isLoading = false;
+                        //                                 });
+                        //                                 print('error');
+                        //                               }
+                        //                             } on FirebaseAuthException catch (e) {
+                        //                               setState(() {
+                        //                                 _isLoading = false;
+                        //                               });
+                        //                               if (e.code ==
+                        //                                   'email-already-in-use') {
+                        //                                 showAlertDialog(
+                        //                                     context,
+                        //                                     'Sorry',
+                        //                                     'The email address is already in use by another account.');
+                        //                               }
+                        //                               print(e.message);
+                        //                               print(e.code);
+                        //                             }
+
+                        //                             await Future.delayed(
+                        //                                 Duration(seconds: 1));
+                        //                           }
+                        //                         });
+                        //                       }
+                        //                     }
+                        //                   },
+                        //                   child: Text('Daftar',
+                        //                       style: GoogleFonts.sora(
+                        //                           fontSize: 20,
+                        //                           fontWeight:
+                        //                               FontWeight.w600))),
+                        //             ),
+                        //           ),
+                        //     SizedBox(
+                        //       height: size.height * .03,
+                        //     ),
+                        //     // SizedBox(
+                        //     //   height: size.height*0.1,
+                        //     // ),
+                        //   ],
+                        // ),
                         child: Column(
-                          children: [
-                            Center(
-                              child: SizedBox(
-                                child: Image.asset(
-                                  'assets/logo.png',
-                                  fit: BoxFit.scaleDown,
-                                  height: 200,
-                                  width: 200,
-                                ),
+                  children: [
+                    Center(
+                      child: SizedBox(
+                        child: Image.asset(
+                          'assets/logo.png',
+                          fit: BoxFit.scaleDown,
+                          height: 100,
+                          width: 100,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15.0, bottom: 10.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Welcome Back!',
+                            style: GoogleFonts.sora(
+                              color: blackColor,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Fill your detail or continue with \n social media',
+                            style: GoogleFonts.sora(
+                              color: blackColor,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0, bottom: 5.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Email',
+                            style: GoogleFonts.sora(
+                              color: blackColor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(30)),
+                      //  color: Colors.white,
+                      margin: EdgeInsets.only(left: 16, right: 16, bottom: 0),
+                      child: TextFormField(
+                        controller: _emailControoler,
+                        keyboardType: TextInputType.emailAddress,
+                        style: GoogleFonts.sora(
+                          fontSize: 14,
+                          color: Colors.black,
+                        ),
+                        onChanged: (value) {
+                          // setState(() {
+                          //   userInput.text = value.toString();
+                          // });
+                        },
+                        decoration: InputDecoration(
+                          //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+                          contentPadding:
+                              EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                          focusColor: Colors.white,
+                          //add prefix icon
+                          prefixIcon: Icon(Icons.email_outlined),
+
+                          // errorText: "Error",
+
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: blueColor, width: 1.0),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          fillColor: Colors.white,
+                          hintText: "Email Address",
+
+                          //make hint text
+                          hintStyle: GoogleFonts.sora(
+                            color: blueColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: size.height * 0.02,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.only(right: 20),
+                            child: Text(
+                              'Forgot Password?',
+                              textAlign: TextAlign.right,
+                              style: GoogleFonts.sora(
+                                color: Color(0xFF005BAC),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
-
-                            Center(
-                                child: Text(
-                              'Buat Akun',
-                              style: GoogleFonts.nunito(
-                                  color: blackColor,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold),
-                            )),
-
-                            SizedBox(
-                              height: size.height * 0.05,
-                            ),
-
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(30)),
-                              margin: EdgeInsets.only(
-                                  left: 16, right: 16, bottom: 0),
-                              child: TextFormField(
-                                controller: _firstNameControoler,
-                                keyboardType: TextInputType.name,
-                                style: GoogleFonts.nunito(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                ),
-                                onChanged: (value) {
-                                  // setState(() {
-                                  //   userInput.text = value.toString();
-                                  // });
-                                },
-                                decoration: InputDecoration(
-                                  //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
-                                  contentPadding: EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
-                                  focusColor: Colors.white,
-                                  //add prefix icon
-
-                                  // errorText: "Error",
-
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: blueColor, width: 1.0),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  fillColor: Colors.grey,
-                                  hintText: "Nama Orang tua",
-
-                                  //make hint text
-                                  hintStyle: GoogleFonts.nunito(
-                                    color: darkBlueColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: size.height * 0.01,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(30)),
-                              margin: EdgeInsets.only(
-                                  left: 16, right: 16, bottom: 0),
-                              child: TextFormField(
-                                controller: _emailControoler,
-                                keyboardType: TextInputType.emailAddress,
-                                style: GoogleFonts.nunito(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                ),
-                                onChanged: (value) {
-                                  // setState(() {
-                                  //   userInput.text = value.toString();
-                                  // });
-                                },
-                                decoration: InputDecoration(
-                                  //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
-                                  contentPadding: EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
-                                  focusColor: Colors.white,
-                                  //add prefix icon
-
-                                  // errorText: "Error",
-
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: blueColor, width: 1.0),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  fillColor: Colors.grey,
-                                  hintText: "Email Orang tua",
-
-                                  //make hint text
-                                  hintStyle: GoogleFonts.nunito(
-                                    color: darkBlueColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: size.height * 0.01,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(30)),
-                              margin: EdgeInsets.only(
-                                  left: 16, right: 16, bottom: 0),
-                              child: TextFormField(
-                                controller: _phoneControoler,
-                                keyboardType: TextInputType.phone,
-                                style: GoogleFonts.nunito(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                ),
-                                onChanged: (value) {
-                                  // setState(() {
-                                  //   userInput.text = value.toString();
-                                  // });
-                                },
-                                decoration: InputDecoration(
-                                  //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
-
-                                  contentPadding: EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
-                                  focusColor: Colors.white,
-                                  //add prefix icon
-
-                                  // errorText: "Error",
-
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: blueColor, width: 1.0),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  fillColor: Colors.grey,
-                                  hintText: "Nomor Handphone",
-
-                                  //make hint text
-                                  hintStyle: GoogleFonts.nunito(
-                                    color: darkBlueColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: size.height * 0.01,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(30)),
-                              margin: EdgeInsets.only(
-                                  left: 16, right: 16, bottom: 0),
-                              child: TextFormField(
-                                controller: _addressControoler,
-                                keyboardType: TextInputType.streetAddress,
-                                style: GoogleFonts.nunito(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                ),
-                                onChanged: (value) {
-                                  // setState(() {
-                                  //   userInput.text = value.toString();
-                                  // });
-                                },
-                                decoration: InputDecoration(
-                                  //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
-                                  contentPadding: EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
-                                  focusColor: Colors.white,
-                                  //add prefix icon
-
-                                  // errorText: "Error",
-
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: blueColor, width: 1.0),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  fillColor: Colors.grey,
-                                  hintText: "Alamat",
-
-                                  //make hint text
-                                  hintStyle: GoogleFonts.nunito(
-                                    color: darkBlueColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: size.height * 0.01,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10)),
-                              margin:
-                                  EdgeInsets.only(left: 16, right: 16, top: 0),
-                              child: TextFormField(
-                                autofocus: true,
-                                obscureText: true,
-                                keyboardType: TextInputType.text,
-                                controller: _passwordControoler,
-                                style: GoogleFonts.nunito(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                ),
-                                onChanged: (value) {
-                                  // setState(() {
-                                  //   userInput.text = value.toString();
-                                  // });
-                                },
-                                decoration: InputDecoration(
-                                  //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
-                                  focusColor: Colors.white,
-                                  //add prefix icon
-                                  contentPadding: EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
-
-                                  // errorText: "Error",
-
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: blueColor, width: 1.0),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  fillColor: Colors.grey,
-                                  hintText: "Password",
-
-                                  //make hint text
-                                  hintStyle: GoogleFonts.nunito(
-                                    color: darkBlueColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: size.height * 0.01,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10)),
-                              margin:
-                                  EdgeInsets.only(left: 16, right: 16, top: 0),
-                              child: TextFormField(
-                                autofocus: true,
-                                obscureText: true,
-                                keyboardType: TextInputType.text,
-                                controller: _confirmPasswordControoler,
-                                style: GoogleFonts.nunito(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                ),
-                                onChanged: (value) {
-                                  // setState(() {
-                                  //   userInput.text = value.toString();
-                                  // });
-                                },
-                                decoration: InputDecoration(
-                                  //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
-                                  focusColor: Colors.white,
-                                  //add prefix icon
-                                  contentPadding: EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
-
-                                  // errorText: "Error",
-
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: blueColor, width: 1.0),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  fillColor: Colors.grey,
-                                  hintText: "Konfirmasi Password",
-
-                                  //make hint text
-                                  hintStyle: GoogleFonts.nunito(
-                                    color: darkBlueColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: size.height * 0.01,
-                            ),
-
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10)),
-                              margin:
-                                  EdgeInsets.only(left: 16, right: 16, top: 0),
-                              child: TextFormField(
-                                autofocus: true,
-                                keyboardType: TextInputType.name,
-                                controller: _childNameControoler,
-                                style: GoogleFonts.nunito(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                ),
-                                onChanged: (value) {
-                                  // setState(() {
-                                  //   userInput.text = value.toString();
-                                  // });
-                                },
-                                decoration: InputDecoration(
-                                  //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
-                                  focusColor: Colors.white,
-                                  //add prefix icon
-                                  contentPadding: EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
-
-                                  // errorText: "Error",
-
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: blueColor, width: 1.0),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  fillColor: Colors.grey,
-                                  hintText: "Nama Anak",
-
-                                  //make hint text
-                                  hintStyle: GoogleFonts.nunito(
-                                    color: darkBlueColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: size.height * 0.01,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10)),
-                              margin:
-                                  EdgeInsets.only(left: 16, right: 16, top: 0),
-                              child: TextFormField(
-                                autofocus: true,
-                                keyboardType: TextInputType.number,
-                                controller: _childAgeControoler,
-                                style: GoogleFonts.nunito(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                ),
-                                onChanged: (value) {
-                                  // setState(() {
-                                  //   userInput.text = value.toString();
-                                  // });
-                                },
-                                decoration: InputDecoration(
-                                  //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
-                                  focusColor: Colors.white,
-                                  //add prefix icon
-                                  contentPadding: EdgeInsets.fromLTRB(
-                                      20.0, 15.0, 20.0, 15.0),
-
-                                  // errorText: "Error",
-
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: blueColor, width: 1.0),
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  fillColor: Colors.grey,
-                                  hintText: "Umur Anak",
-
-                                  //make hint text
-                                  hintStyle: GoogleFonts.nunito(
-                                    color: darkBlueColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: size.height * 0.01,
-                            ),
-
-                            Align(
-                              alignment: Alignment.center,
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                  top: 5,
-                                ),
-                                child: Container(
-                                  width: size.width * 0.9,
-                                  height: size.height * 0.06,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    border:
-                                        Border.all(color: darkGreyTextColor1),
-                                    color: Colors.white,
-                                    // image: DecorationImage(
-                                    //   image: AssetImage("assets/images/signin/textfield.png"),
-                                    //   fit: BoxFit.cover,
-                                    // ),
-                                  ),
-                                  child: DropdownButtonHideUnderline(
-                                    child: DropdownButton(
-                                        value: dropdownvalue,
-                                        hint: const Padding(
-                                          padding: EdgeInsets.only(left: 8),
-                                          child: Text(
-                                            'Pilih Spesialis',
-                                            style: TextStyle(
-                                                color: textColor,
-                                                fontWeight: FontWeight.w300,
-                                                fontSize: 12),
-                                          ),
-                                        ),
-                                        dropdownColor: Colors.white,
-                                        isExpanded: true,
-                                        isDense:
-                                            true, // Reduces the dropdowns height by +/- 50%
-                                        icon: Padding(
-                                          padding:
-                                              const EdgeInsets.only(right: 8),
-                                          child: Icon(
-                                            Icons.keyboard_arrow_down,
-                                            color: blueColor,
-                                          ),
-                                        ),
-                                        items: items.map((item) {
-                                          return DropdownMenuItem(
-                                            value: item,
-                                            child: Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 8),
-                                              child: Text(
-                                                item,
-                                                style: GoogleFonts.nunito(
-                                                    fontWeight: FontWeight.w400,
-                                                    color: blueColor,
-                                                    fontSize: 13),
-                                              ),
-                                            ),
-                                          );
-                                        }).toList(),
-                                        onChanged: (selectedItem) {
-                                          setState(() {
-                                            dropdownvalue =
-                                                selectedItem.toString();
-                                          });
-                                        }),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: size.height * .01,
-                            ),
-
-                            Column(
-                              children: [
-                                Container(
-                                  //color: whiteColor,
-                                  width: size.width * 0.9,
-                                  height: size.height * 0.055,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      GestureDetector(
-                                        onTap: () {
-                                          _showPicker(context, true);
-                                        },
-                                        child: Container(
-                                          width: size.width * 0.9,
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              border: Border.all(
-                                                  color: darkBlueColor,
-                                                  width: 1)),
-                                          //  width: size.width*0.15,
-                                          alignment: Alignment.centerLeft,
-                                          //  height: size.height*0.08,
-                                          child: Center(
-                                              child: Text(
-                                            'Upload foto Anak',
-                                            style: GoogleFonts.nunito(
-                                                color: darkBlueColor,
-                                                fontWeight: FontWeight.bold),
-                                          )),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-
-                            _imageLoading
-                                ? Center(
-                                    child: CircularProgressIndicator(
-                                    color: Colors.white,
-                                  ))
-                                : Container(),
-
-                            profileImage == ""
-                                ? Container()
-                                : Container(
-                                    height: 120,
-                                    width: 120,
-                                    child: Stack(
-                                      alignment: Alignment.topRight,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            child: Image.network(
-                                              profileImage.toString(),
-                                              height: 120,
-                                              width: 120,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          // color: Colors.white,
-                                          child: IconButton(
-                                              onPressed: () {
-                                                setState(() {
-                                                  profileImage = "";
-                                                });
-                                              },
-                                              icon: Icon(
-                                                Icons.cancel,
-                                                color: Colors.red,
-                                                size: 20,
-                                              )),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                            SizedBox(
-                              height: size.height * .03,
-                            ),
-
-                            // SizedBox(
-                            //   height: size.height*0.05,
+                            // decoration: BoxDecoration(
+                            //   border: Border(
+                            //     bottom: BorderSide(
+                            //       color: blueColor,
+                            //       width: 2.0,
+                            //     ),
+                            //   ),
                             // ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0, bottom: 5.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Password',
+                            style: GoogleFonts.sora(
+                              color: blackColor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(30)),
+                      margin: EdgeInsets.only(left: 16, right: 16, top: 0),
+                      child: TextFormField(
+                        autofocus: true,
+                        controller: _passwordControoler,
+                        obscureText: true,
+                        style: GoogleFonts.sora(
+                          fontSize: 14,
+                          color: Colors.black,
+                        ),
+                        onChanged: (value) {
+                          // setState(() {
+                          //   userInput.text = value.toString();
+                          // });
+                        },
+                        decoration: InputDecoration(
+                          //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+                          focusColor: Colors.white,
+                          //add prefix icon
+                          prefixIcon: Icon(Icons.key),
 
-                            _isLoading
-                                ? CircularProgressIndicator(
-                                    color: darkBlueColor,
-                                    strokeWidth: 2,
-                                  )
-                                : Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 16, right: 16),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        boxShadow: [
-                                          BoxShadow(
-                                              color: Colors.black26,
-                                              offset: Offset(0, 4),
-                                              blurRadius: 5.0)
-                                        ],
-                                        gradient: LinearGradient(
-                                          begin: Alignment.topLeft,
-                                          end: Alignment.bottomRight,
-                                          stops: [0.0, 1.0],
-                                          colors: [
-                                            darkBlueColor,
-                                            darkBlueColor,
-                                          ],
-                                        ),
+                          contentPadding:
+                              EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+
+                          // errorText: "Error",
+
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(color: blueColor, width: 1.0),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          fillColor: Colors.grey,
+                          hintText: "Enter Your Password",
+
+                          //make hint text
+                          hintStyle: GoogleFonts.sora(
+                            color: blueColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: size.height * 0.05,
+                    ),
+                    _isLoading
+                        ? CircularProgressIndicator(
+                            color: blueColor,
+                            strokeWidth: 2,
+                          )
+                        : Padding(
+                            padding: const EdgeInsets.only(left: 16, right: 16),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Colors.black26,
+                                      offset: Offset(0, 4),
+                                      blurRadius: 5.0)
+                                ],
+                                border: Border.all(
+                                    color: Colors.white.withOpacity(0.5)),
+                                gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  stops: [0.0, 1.0],
+                                  colors: [
+                                    blueColor,
+                                    blueColor,
+                                  ],
+                                ),
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              child: ElevatedButton(
+                                  style: ButtonStyle(
+                                    shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                      RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                      child: ElevatedButton(
-                                          style: ButtonStyle(
-                                            shape: MaterialStateProperty.all<
-                                                RoundedRectangleBorder>(
-                                              RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(10.0),
-                                              ),
-                                            ),
-                                            minimumSize:
-                                                MaterialStateProperty.all(
-                                                    Size(size.width, 50)),
-                                            backgroundColor:
-                                                MaterialStateProperty.all(
-                                                    Colors.transparent),
-                                            // elevation: MaterialStateProperty.all(3),
-                                            shadowColor:
-                                                MaterialStateProperty.all(
-                                                    Colors.transparent),
-                                          ),
-                                          onPressed: () async {
-                                            if (_inputValidator.validateEmail(
-                                                        _emailControoler
-                                                            .text) !=
-                                                    'success' &&
-                                                _emailControoler
-                                                    .text.isNotEmpty) {
-                                              Fluttertoast.showToast(
-                                                  msg: "Wrong email address",
-                                                  toastLength:
-                                                      Toast.LENGTH_SHORT,
-                                                  gravity: ToastGravity.BOTTOM,
-                                                  timeInSecForIosWeb: 1,
-                                                  backgroundColor: Colors.black,
-                                                  textColor: Colors.white,
-                                                  fontSize: 16.0);
-                                            }
+                                    ),
+                                    minimumSize: MaterialStateProperty.all(
+                                        Size(size.width, 50)),
+                                    backgroundColor:
+                                        MaterialStateProperty.all(blueColor),
+                                    // elevation: MaterialStateProperty.all(3),
+                                    shadowColor: MaterialStateProperty.all(
+                                        Colors.transparent),
+                                  ),
+                                  onPressed: () async {
+                                    print(_emailControoler.text);
+                                    print(_passwordControoler.text);
+                                    print(widget.userType.toString());
+                                    if (_inputValidator.validateEmail(
+                                                _emailControoler.text) !=
+                                            'success' &&
+                                        _emailControoler
+                                            .text.isNotEmpty) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(const SnackBar(
+                                              content: Text(
+                                                  'Wrong email, please use a correct email')));
+                                    } else {
+                                      if (_emailControoler
+                                          .text.isEmpty) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(const SnackBar(
+                                                content: Text(
+                                                    'Enter Email Address')));
+                                      } else if (_passwordControoler
+                                          .text.isEmpty) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(const SnackBar(
+                                                content:
+                                                    Text('Enter Password')));
+                                      } else {
+                                        setState(() {
+                                          _isLoading = true;
+                                        });
+                                        SharedPreferences prefs =
+                                            await SharedPreferences
+                                                .getInstance();
 
-                                            // else if (_inputValidator.validateMobile(
-                                            //     _phoneControoler.text) !=
-                                            //     'success' &&
-                                            //     _phoneControoler.text.isNotEmpty) {
-                                            //   Fluttertoast.showToast(
-                                            //       msg: "Nomor Handphone Starts with + followed by code then number (Hint +923346567876)",
-                                            //       toastLength: Toast.LENGTH_SHORT,
-                                            //       gravity: ToastGravity.BOTTOM,
-                                            //       timeInSecForIosWeb: 1,
-                                            //       backgroundColor: Colors.black,
-                                            //       textColor: Colors.white,
-                                            //       fontSize: 16.0
-                                            //   );
-                                            // }
-
-                                            else if ((_passwordControoler
-                                                            .text.length <
-                                                        7 &&
-                                                    _passwordControoler
-                                                        .text.isNotEmpty) &&
-                                                (_confirmPasswordControoler
-                                                            .text.length <
-                                                        7 &&
-                                                    _confirmPasswordControoler
-                                                        .text.isNotEmpty)) {
-                                              Fluttertoast.showToast(
-                                                  msg:
-                                                      "Password and Confirm Password must be same",
-                                                  toastLength:
-                                                      Toast.LENGTH_SHORT,
-                                                  gravity: ToastGravity.BOTTOM,
-                                                  timeInSecForIosWeb: 1,
-                                                  backgroundColor: Colors.black,
-                                                  textColor: Colors.white,
-                                                  fontSize: 16.0);
-                                            } else if (_passwordControoler
-                                                    .text !=
-                                                _confirmPasswordControoler
-                                                    .text) {
-                                              Fluttertoast.showToast(
-                                                  msg:
-                                                      "Password and Confirm Password must be same",
-                                                  toastLength:
-                                                      Toast.LENGTH_SHORT,
-                                                  gravity: ToastGravity.BOTTOM,
-                                                  timeInSecForIosWeb: 1,
-                                                  backgroundColor: Colors.black,
-                                                  textColor: Colors.white,
-                                                  fontSize: 16.0);
-                                            } else {
-                                              if (_firstNameControoler
-                                                  .text.isEmpty) {
-                                                Fluttertoast.showToast(
-                                                    msg:
-                                                        "Nama Orangtua harus diharus diisi",
-                                                    toastLength:
-                                                        Toast.LENGTH_SHORT,
-                                                    gravity:
-                                                        ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
-                                              } else if (_emailControoler
-                                                  .text.isEmpty) {
-                                                Fluttertoast.showToast(
-                                                    msg:
-                                                        "Email Address harus diisi",
-                                                    toastLength:
-                                                        Toast.LENGTH_SHORT,
-                                                    gravity:
-                                                        ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
-                                              } else if (_phoneControoler
-                                                  .text.isEmpty) {
-                                                Fluttertoast.showToast(
-                                                    msg:
-                                                        "Nomor Handphone harus diisi",
-                                                    toastLength:
-                                                        Toast.LENGTH_SHORT,
-                                                    gravity:
-                                                        ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
-                                              } else if (_addressControoler
-                                                  .text.isEmpty) {
-                                                Fluttertoast.showToast(
-                                                    msg: "Alamat harus diisi",
-                                                    toastLength:
-                                                        Toast.LENGTH_SHORT,
-                                                    gravity:
-                                                        ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
-                                              } else if (_passwordControoler
-                                                  .text.isEmpty) {
-                                                Fluttertoast.showToast(
-                                                    msg: "Password harus diisi",
-                                                    toastLength:
-                                                        Toast.LENGTH_SHORT,
-                                                    gravity:
-                                                        ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
-                                              } else if (_confirmPasswordControoler
-                                                  .text.isEmpty) {
-                                                Fluttertoast.showToast(
-                                                    msg:
-                                                        "Konfirmasi Password harus diisi",
-                                                    toastLength:
-                                                        Toast.LENGTH_SHORT,
-                                                    gravity:
-                                                        ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
-                                              } else if (_childNameControoler
-                                                  .text.isEmpty) {
-                                                Fluttertoast.showToast(
-                                                    msg:
-                                                        "Nama Anak harus diisi",
-                                                    toastLength:
-                                                        Toast.LENGTH_SHORT,
-                                                    gravity:
-                                                        ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
-                                              } else if (_childAgeControoler
-                                                  .text.isEmpty) {
-                                                Fluttertoast.showToast(
-                                                    msg:
-                                                        "Umur Anak harus diisi",
-                                                    toastLength:
-                                                        Toast.LENGTH_SHORT,
-                                                    gravity:
-                                                        ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
-                                              } else if (dropdownvalue ==
-                                                  "Pilih Jenis Kelamin") {
-                                                Fluttertoast.showToast(
-                                                    msg:
-                                                        "Child gender harus diisi",
-                                                    toastLength:
-                                                        Toast.LENGTH_SHORT,
-                                                    gravity:
-                                                        ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
-                                              } else if (profileImage == "") {
-                                                Fluttertoast.showToast(
-                                                    msg:
-                                                        "Child picture harus diisi",
-                                                    toastLength:
-                                                        Toast.LENGTH_SHORT,
-                                                    gravity:
-                                                        ToastGravity.BOTTOM,
-                                                    timeInSecForIosWeb: 1,
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    textColor: Colors.white,
-                                                    fontSize: 16.0);
-                                              } else {
+                                        try {
+                                          if (widget.userType == 'Doctors') {
+                                            final snapshot =
+                                                await FirebaseFirestore.instance
+                                                    .collection('Doctors')
+                                                    .get();
+                                            snapshot.docs.forEach((element) {
+                                              print('user data');
+                                              if (element['email'] ==
+                                                  _emailControoler.text
+                                                      .toString()
+                                                      .trim()) {
+                                                print(
+                                                    'user age in if of current user ');
+                                                //   print(element['age']);
                                                 setState(() {
-                                                  _isLoading = true;
-                                                  print('We are in loading');
-                                                  //  state = ButtonState.loading;
-                                                });
-
-                                                print(_firstNameControoler.text
-                                                    .toString());
-                                                print(_emailControoler.text
-                                                    .toString());
-                                                print(_passwordControoler.text
-                                                    .toString());
-                                                print(_phoneControoler.text
-                                                    .toString());
-                                                //createAccount();
-                                                //_methodsHandler.createAccount(name: _controllerClinic.text, email: _controller.text, password: _controllerPass.text, context: context);
-                                                SharedPreferences prefs =
-                                                    await SharedPreferences
-                                                        .getInstance();
-
-                                                FirebaseFirestore.instance
-                                                    .collection(widget.userType
-                                                        .toString())
-                                                    .where("email",
-                                                        isEqualTo:
-                                                            _emailControoler
-                                                                .text
-                                                                .trim())
-                                                    .get()
-                                                    .then((value) async {
-                                                  if (value.docs.isNotEmpty) {
-                                                    setState(() {
-                                                      _isLoading = false;
-                                                    });
-                                                    Fluttertoast.showToast(
-                                                      msg:
-                                                          "Sorry email account already exists",
-                                                      toastLength:
-                                                          Toast.LENGTH_SHORT,
-                                                      gravity:
-                                                          ToastGravity.BOTTOM,
-                                                      timeInSecForIosWeb: 4,
-                                                    );
-                                                  } else {
-                                                    try {
-                                                      User? result = (await _auth
-                                                              .createUserWithEmailAndPassword(
-                                                                  email:
-                                                                      _emailControoler
-                                                                          .text
-                                                                          .trim(),
-                                                                  password:
-                                                                      _passwordControoler
-                                                                          .text
-                                                                          .trim()))
-                                                          .user;
-
-                                                      if (result != null) {
-                                                        var user = result;
-
-                                                        FirebaseFirestore
-                                                            .instance
-                                                            .collection(widget
-                                                                .userType
-                                                                .toString())
-                                                            .doc()
-                                                            .set({
-                                                          "email":
-                                                              _emailControoler
-                                                                  .text
-                                                                  .trim(),
-                                                          "password":
-                                                              _passwordControoler
-                                                                  .text
-                                                                  .trim(),
-                                                          "uid": user.uid,
-                                                          "name":
-                                                              _firstNameControoler
-                                                                  .text,
-                                                          "phone":
-                                                              _phoneControoler
-                                                                  .text,
-                                                          "address":
-                                                              _addressControoler
-                                                                  .text,
-                                                          "childImage":
-                                                              profileImage
-                                                                  .toString(),
-                                                          "childName":
-                                                              _childNameControoler
-                                                                  .text
-                                                                  .toString(),
-                                                          "childAge":
-                                                              _childAgeControoler
-                                                                  .text
-                                                                  .toString(),
-                                                          "gender":
-                                                              dropdownvalue
-                                                                  .toString(),
-                                                        }).then((value) =>
-                                                                print(
-                                                                    'success'));
-
-                                                        prefs.setString(
-                                                            'userType',
-                                                            'Users');
-                                                        prefs.setString(
-                                                            'userEmail',
-                                                            _emailControoler
-                                                                .text
-                                                                .trim());
-                                                        prefs.setString(
-                                                            'userPassword',
-                                                            _passwordControoler
-                                                                .text
-                                                                .trim());
-                                                        prefs.setString(
-                                                            'name',
-                                                            _firstNameControoler
-                                                                .text
-                                                                .trim());
-                                                        prefs.setString(
-                                                            'userId', user.uid);
-                                                        print(
-                                                            'Account creation successful');
-                                                        setState(() {
-                                                          _isLoading = false;
-                                                        });
-                                                        Navigator.of(context)
-                                                            .pop();
-                                                        // Navigator.pushReplacement(
-                                                        //   context,
-                                                        //   PageRouteBuilder(
-                                                        //     pageBuilder: (c, a1, a2) => HomeScreen(),
-                                                        //     transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child),
-                                                        //     transitionDuration: Duration(milliseconds: 100),
-                                                        //   ),
-                                                        // );
-                                                        Fluttertoast.showToast(
-                                                          msg:
-                                                              "Account created successfully",
-                                                          toastLength: Toast
-                                                              .LENGTH_SHORT,
-                                                          gravity: ToastGravity
-                                                              .BOTTOM,
-                                                          timeInSecForIosWeb: 4,
-                                                        );
-                                                      } else {
-                                                        setState(() {
-                                                          _isLoading = false;
-                                                        });
-                                                        print('error');
-                                                      }
-                                                    } on FirebaseAuthException catch (e) {
-                                                      setState(() {
-                                                        _isLoading = false;
-                                                      });
-                                                      if (e.code ==
-                                                          'email-already-in-use') {
-                                                        showAlertDialog(
-                                                            context,
-                                                            'Sorry',
-                                                            'The email address is already in use by another account.');
-                                                      }
-                                                      print(e.message);
-                                                      print(e.code);
-                                                    }
-
-                                                    await Future.delayed(
-                                                        Duration(seconds: 1));
-                                                  }
+                                                  isCreated = 'yes';
                                                 });
                                               }
+                                            });
+
+                                            if (isCreated == 'yes') {
+                                              final result = await _auth
+                                                  .signInWithEmailAndPassword(
+                                                      email:
+                                                          _emailControoler
+                                                              .text
+                                                              .trim()
+                                                              .toString(),
+                                                      password:
+                                                          _passwordControoler
+                                                              .text);
+                                              final user = result.user;
+
+                                              prefs.setString('userEmail',
+                                                  _emailControoler.text);
+                                              prefs.setString('userPassword',
+                                                  _passwordControoler.text);
+                                              prefs.setString(
+                                                  'userId', user!.uid);
+                                              prefs.setString('userType',
+                                                  widget.userType.toString());
+                                              print(
+                                                  'Account creation successful');
+                                              setState(() {
+                                                _isLoading = false;
+                                              });
+                                              Navigator.pushReplacement(
+                                                context,
+                                                PageRouteBuilder(
+                                                  pageBuilder: (c, a1, a2) =>
+                                                      AppDoctorBottomNavBarScreen(
+                                                    index: 0,
+                                                    title: '',
+                                                    subTitle: '',
+                                                  ),
+                                                  transitionsBuilder:
+                                                      (c, anim, a2, child) =>
+                                                          FadeTransition(
+                                                              opacity: anim,
+                                                              child: child),
+                                                  transitionDuration: Duration(
+                                                      milliseconds: 100),
+                                                ),
+                                              );
+                                              // ScaffoldMessenger.of(context).showSnackBar(
+                                              //     const  SnackBar(
+                                              //         content:  Text('Successfully Login')
+                                              //     )
+                                              // );
+                                            } else {
+                                              setState(() {
+                                                _isLoading = false;
+                                              });
+                                              _methodsHandler.showAlertDialog(
+                                                  context,
+                                                  'Sorry',
+                                                  'User Not Found');
                                             }
-                                          },
-                                          child: Text('Daftar',
-                                              style: GoogleFonts.nunito(
-                                                  fontSize: 20,
-                                                  fontWeight:
-                                                      FontWeight.w600))),
-                                    ),
-                                  ),
-                            SizedBox(
-                              height: size.height * .03,
+                                          } else if (widget.userType ==
+                                              'Parents') {
+                                            final snapshot =
+                                                await FirebaseFirestore.instance
+                                                    .collection('Parents')
+                                                    .get();
+                                            snapshot.docs.forEach((element) {
+                                              print('user data');
+                                              if (element['email'] ==
+                                                  _emailControoler.text
+                                                      .toString()
+                                                      .trim()) {
+                                                print(
+                                                    'user age in if of current user ');
+                                                //   print(element['age']);
+                                                setState(() {
+                                                  isCreated = 'yes';
+                                                });
+                                              }
+                                            });
+
+                                            if (isCreated == 'yes') {
+                                              final result = await _auth
+                                                  .signInWithEmailAndPassword(
+                                                      email:
+                                                          _emailControoler
+                                                              .text
+                                                              .trim()
+                                                              .toString(),
+                                                      password:
+                                                          _passwordControoler
+                                                              .text);
+                                              final user = result.user;
+
+                                              prefs.setString('userEmail',
+                                                  _emailControoler.text);
+                                              prefs.setString('userPassword',
+                                                  _passwordControoler.text);
+                                              prefs.setString(
+                                                  'userId', user!.uid);
+                                              prefs.setString('userType',
+                                                  widget.userType.toString());
+                                              print(
+                                                  'Account creation successful');
+                                              setState(() {
+                                                _isLoading = false;
+                                              });
+                                              Navigator.pushReplacement(
+                                                context,
+                                                PageRouteBuilder(
+                                                  pageBuilder: (c, a1, a2) =>
+                                                      AppBottomNavBarScreen(
+                                                    index: 0,
+                                                    title: '',
+                                                    subTitle: '',
+                                                  ),
+                                                  transitionsBuilder:
+                                                      (c, anim, a2, child) =>
+                                                          FadeTransition(
+                                                              opacity: anim,
+                                                              child: child),
+                                                  transitionDuration: Duration(
+                                                      milliseconds: 100),
+                                                ),
+                                              );
+                                              // ScaffoldMessenger.of(context).showSnackBar(
+                                              //     const  SnackBar(
+                                              //         content:  Text('Successfully Login')
+                                              //     )
+                                              // );
+                                            } else {
+                                              setState(() {
+                                                _isLoading = false;
+                                              });
+                                              _methodsHandler.showAlertDialog(
+                                                  context,
+                                                  'Sorry',
+                                                  'User Not Found');
+                                            }
+                                          } else {
+                                            if (widget.userType == 'Admin' &&
+                                                _emailControoler.text ==
+                                                    'admin@gmail.com' &&
+                                                _passwordControoler.text ==
+                                                    '12345678') {
+                                              setState(() {
+                                                _isLoading = false;
+                                              });
+                                              prefs.setString('userEmail',
+                                                  _emailControoler.text);
+                                              prefs.setString('userPassword',
+                                                  _passwordControoler.text);
+                                              print(widget.userType.toString());
+                                              prefs.setString('userType',
+                                                  widget.userType.toString());
+
+                                              // Navigator.pushReplacement(
+                                              //   context,
+                                              //   PageRouteBuilder(
+                                              //     pageBuilder: (c, a1, a2) => AdminHomeScreen(),
+                                              //     transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child),
+                                              //     transitionDuration: Duration(milliseconds: 100),
+                                              //   ),
+                                              // );
+                                            } else {
+                                              setState(() {
+                                                _isLoading = false;
+                                              });
+                                              _methodsHandler.showAlertDialog(
+                                                  context,
+                                                  'Sorry',
+                                                  'User Not Found');
+                                            }
+                                          }
+                                        } on FirebaseAuthException catch (e) {
+                                          setState(() {
+                                            _isLoading = false;
+                                          });
+                                          print(e.code);
+                                          switch (e.code) {
+                                            case 'invalid-email':
+                                              _methodsHandler.showAlertDialog(
+                                                  context,
+                                                  'Sorry',
+                                                  'Invalid Email Address');
+
+                                              setState(() {
+                                                _isLoading = false;
+                                              });
+                                              break;
+                                            case 'wrong-password':
+                                              _methodsHandler.showAlertDialog(
+                                                  context,
+                                                  'Sorry',
+                                                  'Wrong Password');
+                                              setState(() {
+                                                _isLoading = false;
+                                              });
+                                              break;
+                                            case 'user-not-found':
+                                              _methodsHandler.showAlertDialog(
+                                                  context,
+                                                  'Sorry',
+                                                  'User Not Found');
+                                              setState(() {
+                                                _isLoading = false;
+                                              });
+                                              break;
+                                            case 'user-disabled':
+                                              _methodsHandler.showAlertDialog(
+                                                  context,
+                                                  'Sorry',
+                                                  'User Disabled');
+                                              setState(() {
+                                                _isLoading = false;
+                                              });
+                                              break;
+                                          }
+                                          setState(() {
+                                            _isLoading = false;
+                                          });
+                                        }
+                                      }
+                                    }
+
+                                    // Navigator.push(
+                                    //   context,
+                                    //   MaterialPageRoute(builder: (context) => HomeScreen()),
+                                    // );
+                                  },
+                                  child: Text('SIGN IN',
+                                      style: GoogleFonts.sora(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w600))),
                             ),
-                            // SizedBox(
-                            //   height: size.height*0.1,
-                            // ),
-                          ],
+                          ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Divider(
+                            color: Colors.black,
+                            height: 36,
+                          ),
                         ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                          child: Text(
+                            'Or',
+                            style: GoogleFonts.sora(fontSize: 14),
+                          ),
+                        ),
+                        Expanded(
+                          child: Divider(
+                            color: Colors.black,
+                            height: 36,
+                          ),
+                        ),
+                      ],
+                    ),
+                    GoogleSignupButtonWidget(),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    widget.userType == "Admin" || widget.userType == "Clinic"
+                        ? Container()
+                        : Padding(
+                            padding: const EdgeInsets.only(left: 16, right: 16),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SignUpScreen(
+                                            userType: widget.userType,
+                                          )),
+                                );
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Don't have an account? ",
+                                    style: GoogleFonts.sora(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                  Text(
+                                    ' Register',
+                                    style: GoogleFonts.sora(
+                                        color: blueColor,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+                            )),
+                  ],
+                ),
                       ),
                     ),
                   ],

@@ -1,4 +1,4 @@
-import 'package:serenity/view/gamification/components/custom_container.dart';
+import 'package:aksonhealth/view/gamification/components/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,10 +21,10 @@ class MentalDisorders extends StatelessWidget {
                           color: Colors.lightBlue[50],
                           borderRadius:
                               const BorderRadius.all(Radius.circular(10))),
-                      child: Column(children:  [
+                      child: Column(children: [
                         Text("Information About Mental Diorders",
                             textAlign: TextAlign.center,
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                               fontWeight: FontWeight.bold,
                               fontSize: 23,
                             )),
@@ -38,7 +38,7 @@ class MentalDisorders extends StatelessWidget {
                       child: Column(children: [
                         Text("1. Autism Spectrum Disorder (ASD)",
                             textAlign: TextAlign.left,
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                               fontSize: 20,
                               fontWeight: FontWeight.w600,
                             )),
@@ -49,7 +49,7 @@ class MentalDisorders extends StatelessWidget {
                             "        Early diagnosis and intervention can improve outcomes and increase opportunities for success and independence for individuals with ASD. Access to resources and support is also essential in improving quality of life for individuals with ASD and their families. Families and caregivers may experience financial and emotional strain related to managing challenging behaviors and providing ongoing care, and it is important to provide them with the necessary resources and support to alleviate these challenges. With early"
                             " diagnosis, intervention, and access to resources, individuals with ASD can thrive and achieve their full potential.\n",
                             textAlign: TextAlign.left,
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
                             )),
@@ -63,7 +63,7 @@ class MentalDisorders extends StatelessWidget {
                       child: Column(children: [
                         Text("2. Dyslexia",
                             textAlign: TextAlign.left,
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                               fontSize: 20,
                               fontWeight: FontWeight.w600,
                             )),
@@ -74,7 +74,7 @@ class MentalDisorders extends StatelessWidget {
                             "        The impact of dyslexia is not limited to the individual. It can also affect the quality of life of their families and caregivers. For instance, families and caregivers may face financial and emotional strain as they manage the condition and seek access to resources.\n\n"
                             "        However, early diagnosis and intervention can improve outcomes, offering more opportunities for success and independence to those with dyslexia. Access to resources and support is also crucial in enhancing the quality of life of individuals with dyslexia and their families. With early diagnosis, intervention, and support, people with dyslexia can achieve their full potential and lead successful lives.\n",
                             textAlign: TextAlign.left,
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
                             )),
@@ -85,10 +85,10 @@ class MentalDisorders extends StatelessWidget {
                           color: Colors.lightBlue[50],
                           borderRadius:
                               const BorderRadius.all(Radius.circular(10))),
-                      child: Column(children:  [
+                      child: Column(children: [
                         Text("For more information on Mental Disorders",
                             textAlign: TextAlign.left,
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                               fontSize: 20,
                               fontWeight: FontWeight.w600,
                             )),
@@ -98,7 +98,7 @@ class MentalDisorders extends StatelessWidget {
                             "Contact SAMSHA's National Helpline Number 1-800-662-4357\n"
                             "Or visit https://www.nimh.nih.gov/health/topics\n to learn more about health disorders.\n",
                             textAlign: TextAlign.left,
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
                               fontStyle: FontStyle.italic,

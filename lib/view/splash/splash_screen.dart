@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:serenity/constants.dart';
-import 'package:serenity/view/onboarding/onboarding_screen.dart';
+import 'package:aksonhealth/constants.dart';
+import 'package:aksonhealth/view/onboarding/onboarding_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //import 'package:mec/constants.dart';
@@ -77,7 +77,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   'assets/logo.png',
                   fit: BoxFit.scaleDown,
                 )),
-            //     Text('Autism', style: GoogleFonts.nunito(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 32),textAlign: TextAlign.center),
+            //     Text('Autism', style: GoogleFonts.sora(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 32),textAlign: TextAlign.center),
           ],
         ),
       ),

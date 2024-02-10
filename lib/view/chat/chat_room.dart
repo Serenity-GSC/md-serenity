@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:serenity/theme.dart';
+import 'package:aksonhealth/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
@@ -202,7 +202,7 @@ class MessageWidget extends StatelessWidget {
         ),
         child: Text(
           message,
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.sora(
               fontSize: 16,
               color: isMe ? Colors.white : Colors.black,
               fontWeight: FontWeight.w600),

@@ -1,6 +1,6 @@
-import 'package:serenity/constants.dart';
-import 'package:serenity/model/firebase_auth.dart';
-import 'package:serenity/view/doctor/doctorReportDetail/doctor_report_detail_screen.dart';
+import 'package:aksonhealth/constants.dart';
+import 'package:aksonhealth/model/firebase_auth.dart';
+import 'package:aksonhealth/view/doctor/doctorReportDetail/doctor_report_detail_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -154,7 +154,7 @@ class _ParentBookingDetailScreenState extends State<ParentBookingDetailScreen> {
         backgroundColor: appBarColor,
         title: Text(
           'Janji',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.sora(
               fontSize: 19, fontWeight: FontWeight.w600, color: Colors.white),
         ),
         centerTitle: true,
@@ -189,21 +189,21 @@ class _ParentBookingDetailScreenState extends State<ParentBookingDetailScreen> {
                     children: [
                       Text(
                         widget.childName,
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                             color: Colors.white),
                       ),
                       Text(
                         widget.age,
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                             fontSize: 14,
                             fontWeight: FontWeight.w300,
                             color: Colors.white),
                       ),
                       Text(
                         widget.gender,
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                             fontSize: 14,
                             fontWeight: FontWeight.w300,
                             color: Colors.white),
@@ -233,7 +233,7 @@ class _ParentBookingDetailScreenState extends State<ParentBookingDetailScreen> {
                   widget.evaluation == 0
                       ? 'Belum ada Evaluasi'
                       : 'Evaluasi dari Dokter diberikan hasil',
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.sora(
                       color: Colors.blue,
                       fontWeight: FontWeight.w600,
                       fontSize: 15),
@@ -298,14 +298,14 @@ class _ParentBookingDetailScreenState extends State<ParentBookingDetailScreen> {
                                   children: [
                                     Text(
                                       'Nama Orang Tua',
-                                      style: GoogleFonts.nunito(
+                                      style: GoogleFonts.sora(
                                           color: Colors.black,
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500),
                                     ),
                                     Text(
                                       widget.parentName.toString(),
-                                      style: GoogleFonts.nunito(
+                                      style: GoogleFonts.sora(
                                           color: Colors.black,
                                           fontSize: 16,
                                           fontWeight: FontWeight.w400),
@@ -331,14 +331,14 @@ class _ParentBookingDetailScreenState extends State<ParentBookingDetailScreen> {
                                   children: [
                                     Text(
                                       'Email ',
-                                      style: GoogleFonts.nunito(
+                                      style: GoogleFonts.sora(
                                           color: Colors.black,
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500),
                                     ),
                                     Text(
                                       widget.parentEmail.toString(),
-                                      style: GoogleFonts.nunito(
+                                      style: GoogleFonts.sora(
                                           color: Colors.black,
                                           fontSize: 16,
                                           fontWeight: FontWeight.w400),

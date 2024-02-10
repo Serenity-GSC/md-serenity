@@ -1,6 +1,6 @@
-import 'package:serenity/view/course/components/rounded_sidebar_button.dart';
-import 'package:serenity/view/course/components/searchfield_widget.dart';
-import 'package:serenity/view/parents/profile/profile_screen.dart';
+import 'package:aksonhealth/view/course/components/rounded_sidebar_button.dart';
+import 'package:aksonhealth/view/course/components/searchfield_widget.dart';
+import 'package:aksonhealth/view/parents/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';

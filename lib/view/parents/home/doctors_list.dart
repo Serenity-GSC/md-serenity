@@ -1,11 +1,11 @@
-import 'package:serenity/constants.dart';
-import 'package:serenity/data/data.dart';
-import 'package:serenity/model/doctor_model.dart';
-import 'package:serenity/size_config.dart';
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/chatbot/chat_screen.dart';
-import 'package:serenity/view/gamification/pages/home_page.dart';
-import 'package:serenity/view/parenting/grid.dart';
+import 'package:aksonhealth/constants.dart';
+import 'package:aksonhealth/data/data.dart';
+import 'package:aksonhealth/model/doctor_model.dart';
+import 'package:aksonhealth/size_config.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/chatbot/chat_screen.dart';
+import 'package:aksonhealth/view/gamification/pages/home_page.dart';
+import 'package:aksonhealth/view/parenting/grid.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -27,8 +27,7 @@ class DoctorsList extends StatelessWidget {
     }
 
     void navigateScreenParenting(Doctor doctor) {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => Grid()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Grid()));
     }
 
     void featuresAction(Doctor doctor) {
@@ -101,7 +100,7 @@ class DoctorsList extends StatelessWidget {
                                             decoration: BoxDecoration(
                                               border: Border.all(
                                                   width: 15,
-                                                  color: darkBlueColor 
+                                                  color: darkBlueColor
                                                       .withOpacity(0.25)),
                                               shape: BoxShape.circle,
                                             ),
@@ -149,7 +148,7 @@ class DoctorsList extends StatelessWidget {
                                 children: [
                                   Text(
                                     doctor.name,
-                                    style: GoogleFonts.nunito(
+                                    style: GoogleFonts.sora(
                                         fontWeight: FontWeight.bold,
                                         color: blueColor,
                                         fontSize: getRelativeWidth(0.041)),
@@ -157,7 +156,7 @@ class DoctorsList extends StatelessWidget {
                                   SizedBox(height: getRelativeHeight(0.005)),
                                   Text(
                                     doctor.speciality,
-                                    style: GoogleFonts.nunito(
+                                    style: GoogleFonts.sora(
                                         color: Colors.black.withOpacity(0.8),
                                         fontSize: getRelativeWidth(0.032)),
                                   ),

@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:serenity/theme.dart';
+import 'package:aksonhealth/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 class Onboarding3Screen extends StatelessWidget {
   const Onboarding3Screen({Key? key, this.color}) : super(key: key);
   final Color? color;
@@ -80,7 +81,7 @@ class Onboarding3Screen extends StatelessWidget {
                     ),
                     Text(
                       'Kami akan memandu Anda untuk memanfaatkan kecerdasan buatan (AI) dalam mengatasi tantangan autisme dan disleksia. Dengan panduan langkah demi langkah, Anda akan memahami bagaimana AI dapat menjadi mitra Anda dalam perjalanan di aplikasi ini"',
-                      style: GoogleFonts.nunito(
+                      style: GoogleFonts.sora(
                         fontSize: 15,
                         fontWeight: FontWeight.w400,
                         color: grayColor,

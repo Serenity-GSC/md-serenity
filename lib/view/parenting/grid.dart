@@ -1,11 +1,10 @@
-import 'package:serenity/constants.dart';
-import 'package:serenity/data/parent_data.dart';
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/parenting/parenting.dart';
+import 'package:aksonhealth/constants.dart';
+import 'package:aksonhealth/data/parent_data.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/parenting/parenting.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 
 class Grid extends StatefulWidget {
   @override
@@ -18,20 +17,21 @@ class _GridState extends State<Grid> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: darkBlueColor,
-        title: Text("Parenting", style: GoogleFonts.nunito(
-          fontWeight: FontWeight.bold
-        ),),
+        title: Text(
+          "Parenting",
+          style: GoogleFonts.sora(fontWeight: FontWeight.bold),
+        ),
       ),
       backgroundColor: Colors.white,
       body: Container(
-        decoration: BoxDecoration(
-            ),
+        decoration: BoxDecoration(),
         child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
                 child: Column(
                   children: <Widget>[
                     SizedBox(
@@ -83,7 +83,7 @@ class _GridState extends State<Grid> {
                                       SizedBox(height: 100),
                                       Text(
                                         planets[index].name,
-                                        style: GoogleFonts.nunito(
+                                        style: GoogleFonts.sora(
                                           fontSize: 20,
                                           color: const Color(0xff47455f),
                                           fontWeight: FontWeight.w900,
@@ -95,7 +95,7 @@ class _GridState extends State<Grid> {
                                         children: <Widget>[
                                           Text(
                                             'Selengkapnya',
-                                            style: GoogleFonts.nunito(),
+                                            style: GoogleFonts.sora(),
                                           ),
                                           Icon(
                                             Icons.arrow_forward,
@@ -111,10 +111,10 @@ class _GridState extends State<Grid> {
                           ),
                           Hero(
                             tag: planets[index].position,
-                            child: Image.asset(planets[index].iconImage,
-                                height: 250,
-                                
-                              ),
+                            child: Image.asset(
+                              planets[index].iconImage,
+                              height: 250,
+                            ),
                           ),
                         ],
                       ),

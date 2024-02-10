@@ -1,4 +1,4 @@
-import 'package:serenity/theme.dart';
+import 'package:aksonhealth/theme.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -30,9 +30,12 @@ class AnimalTest extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: darkBlueColor,
-        title: Text('Tebak hewan untuk Autisme', style: GoogleFonts.nunito(
-          fontWeight: FontWeight.bold,
-        ),),
+        title: Text(
+          'Tebak hewan untuk Autisme',
+          style: GoogleFonts.sora(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(

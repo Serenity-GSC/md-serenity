@@ -1,8 +1,8 @@
-import 'package:serenity/data/data.dart';
-import 'package:serenity/size_config.dart';
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/parents/clinic/clinic_screen.dart';
-import 'package:serenity/view/parents/clinic/clinic_test.dart';
+import 'package:aksonhealth/data/data.dart';
+import 'package:aksonhealth/size_config.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/parents/clinic/clinic_screen.dart';
+import 'package:aksonhealth/view/parents/clinic/clinic_test.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -61,14 +61,14 @@ class CategoriesList extends StatelessWidget {
                           children: [
                             Text(
                               category.title,
-                              style: GoogleFonts.nunito(
+                              style: GoogleFonts.sora(
                                   fontSize: getRelativeWidth(0.038),
                                   fontWeight: FontWeight.bold),
                             ),
                             SizedBox(height: getRelativeHeight(0.005)),
                             Text(
-                             " Akan ada fitur baru",
-                              style: GoogleFonts.nunito(
+                              " Akan ada fitur baru",
+                              style: GoogleFonts.sora(
                                   color: Colors.black.withOpacity(0.48),
                                   fontSize: getRelativeWidth(0.03)),
                             ),
@@ -78,9 +78,14 @@ class CategoriesList extends StatelessWidget {
                     ),
                   ),
                 ),
-                ElevatedButton(onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ClinicTesting()));
-                }, child: const Text('Testing')),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ClinicTesting()));
+                    },
+                    child: const Text('Testing')),
                 SizedBox(width: getRelativeWidth(0.04))
               ],
             );

@@ -1,6 +1,6 @@
-import 'package:serenity/size_config.dart';
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/parents/questionare/questionare_screen.dart';
+import 'package:aksonhealth/size_config.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/parents/questionare/questionare_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -73,7 +73,7 @@ class DoctorBanner extends StatelessWidget {
                               children: [
                                 Text(
                                   "Skrining Autisme",
-                                  style: GoogleFonts.nunito(
+                                  style: GoogleFonts.sora(
                                     color: darkBlueColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: getRelativeWidth(0.055),
@@ -85,7 +85,7 @@ class DoctorBanner extends StatelessWidget {
                                     Flexible(
                                       child: Text(
                                         "Test berdasarkan studi kasus yang kami buat dari survey MCHAT dengan keakuratan sangat baik",
-                                        style: GoogleFonts.nunito(
+                                        style: GoogleFonts.sora(
                                             color: Color.fromARGB(255, 0, 0, 0)
                                                 .withOpacity(0.85),
                                             fontSize: getRelativeWidth(0.033)),

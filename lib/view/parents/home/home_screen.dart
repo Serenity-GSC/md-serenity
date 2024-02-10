@@ -1,19 +1,19 @@
 import 'dart:math';
 
-import 'package:serenity/constants.dart';
-import 'package:serenity/model/firebase_auth.dart';
-import 'package:serenity/size_config.dart';
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/campaign/campaign_banner.dart';
-import 'package:serenity/view/course/components/cards/course_sections_card.dart';
-import 'package:serenity/view/course/components/list/course_sections_list.dart';
-import 'package:serenity/view/course/components/list/explore_course_list.dart';
-import 'package:serenity/view/course/screens/course_sections_screen.dart';
-import 'package:serenity/view/doctor/home/categories_list.dart';
-import 'package:serenity/view/parents/home/banner.dart';
-import 'package:serenity/view/parents/home/doctors_list.dart';
-import 'package:serenity/view/parents/home/features_appbar.dart';
-import 'package:serenity/view/parents/home/menu.dart';
+import 'package:aksonhealth/constants.dart';
+import 'package:aksonhealth/model/firebase_auth.dart';
+import 'package:aksonhealth/size_config.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/campaign/campaign_banner.dart';
+import 'package:aksonhealth/view/course/components/cards/course_sections_card.dart';
+import 'package:aksonhealth/view/course/components/list/course_sections_list.dart';
+import 'package:aksonhealth/view/course/components/list/explore_course_list.dart';
+import 'package:aksonhealth/view/course/screens/course_sections_screen.dart';
+import 'package:aksonhealth/view/doctor/home/categories_list.dart';
+import 'package:aksonhealth/view/parents/home/banner.dart';
+import 'package:aksonhealth/view/parents/home/doctors_list.dart';
+import 'package:aksonhealth/view/parents/home/features_appbar.dart';
+import 'package:aksonhealth/view/parents/home/menu.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +28,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   String name = '', email = '', uid = '', userType = '';
 
   MethodsHandler _methodsHandler = MethodsHandler();
@@ -71,11 +70,9 @@ class _HomeScreenState extends State<HomeScreen> {
       driverName = '';
     });
     getDriver();
-    setState(() {
-    });
+    setState(() {});
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -87,24 +84,24 @@ class _HomeScreenState extends State<HomeScreen> {
         body: NestedScrollView(
           floatHeaderSlivers: true,
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-          return <Widget>[
-            ExpandingAppBar(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                 Text(
-              "Hi ${name}, bagaimana harimu", 
-              style: GoogleFonts.nunito(
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                fontSize: 20,
-              ),
-            ),
-              SizedBox(height: 5),
-                Flexible(child: ExploreCourseList())
-              ],
-            )
-          ];
-        },
+            return <Widget>[
+              ExpandingAppBar(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    "Hi ${name}, bagaimana harimu",
+                    style: GoogleFonts.sora(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  Flexible(child: ExploreCourseList())
+                ],
+              )
+            ];
+          },
           body: SingleChildScrollView(
             child: Column(
               children: [
@@ -141,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: primaryColor,
-                    textStyle: GoogleFonts.nunito(
+                    textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
                 onPressed: () => Navigator.of(context).pop(false),
                 //return false when click on "NO"
@@ -152,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 //return true when click on "Yes"
                 style: ElevatedButton.styleFrom(
                     primary: Colors.red,
-                    textStyle: GoogleFonts.nunito(
+                    textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
                 child: Text('Ya'),
               ),
@@ -164,11 +161,11 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class ExpandingAppBar extends ConsumerWidget {
-  const ExpandingAppBar({
-    Key? key,
-    this.children = const <Widget>[],
-    this.mainAxisAlignment = MainAxisAlignment.start
-  }) : super(key: key);
+  const ExpandingAppBar(
+      {Key? key,
+      this.children = const <Widget>[],
+      this.mainAxisAlignment = MainAxisAlignment.start})
+      : super(key: key);
 
   final List<Widget> children;
   final MainAxisAlignment mainAxisAlignment;
@@ -185,35 +182,33 @@ class ExpandingAppBar extends ConsumerWidget {
       forceElevated: true,
       title: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            children: [
-              Text(
-              "Akson",
-              style: GoogleFonts.sourceSerif4(
-                fontSize: 30,
-                color: Color.fromARGB(255, 236, 236, 236)
-              ),
-            ),
-           
-            ]
+        child: Column(children: [
+          Text(
+            "Akson",
+            style: GoogleFonts.sourceSerif4(
+                fontSize: 30, color: Color.fromARGB(255, 236, 236, 236)),
           ),
+        ]),
       ),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(bottom: Radius.circular(state.radius)),
+        borderRadius:
+            BorderRadius.vertical(bottom: Radius.circular(state.radius)),
       ),
       flexibleSpace: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           // We update the state here.
-          ref.read(roundedHeaderProvider.notifier).updateHeight(constraints.maxHeight);
+          ref
+              .read(roundedHeaderProvider.notifier)
+              .updateHeight(constraints.maxHeight);
 
           return Opacity(
             opacity: state.scrollFraction,
             child: Padding(
               padding: EdgeInsets.only(top: state.smallestHeight),
-              child: Column(mainAxisAlignment: mainAxisAlignment, children: children),
+              child: Column(
+                  mainAxisAlignment: mainAxisAlignment, children: children),
             ),
           );
-          
         },
       ),
     );
@@ -229,19 +224,21 @@ class RoundedHeaderState {
 
   const RoundedHeaderState({this.currentHeight = 256});
 
-  double get scrollFraction => min(max((currentHeight - smallestHeight) / (highestHeight - smallestHeight), 0), 1);
+  double get scrollFraction => min(
+      max((currentHeight - smallestHeight) / (highestHeight - smallestHeight),
+          0),
+      1);
   double get radius => 130 * scrollFraction;
 }
 
 class RoundedHeaderNotifier extends StateNotifier<RoundedHeaderState> {
-  RoundedHeaderNotifier(): super(const RoundedHeaderState());
+  RoundedHeaderNotifier() : super(const RoundedHeaderState());
 
   updateHeight(double currentHeight) {
     final newState = RoundedHeaderState(currentHeight: currentHeight);
 
     // Check that the new state is not equal to the next (prevents rebuild loop)
-    if(state.currentHeight != newState.currentHeight) {
-
+    if (state.currentHeight != newState.currentHeight) {
       // Setting state triggers an rebuild, the PostFrameCallback let Flutter
       // postpone the upcoming rebuild at a later time.
       WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
@@ -251,7 +248,8 @@ class RoundedHeaderNotifier extends StateNotifier<RoundedHeaderState> {
   }
 }
 
-final roundedHeaderProvider = StateNotifierProvider<RoundedHeaderNotifier, RoundedHeaderState>((ref) {
+final roundedHeaderProvider =
+    StateNotifierProvider<RoundedHeaderNotifier, RoundedHeaderState>((ref) {
   return RoundedHeaderNotifier();
 });
 

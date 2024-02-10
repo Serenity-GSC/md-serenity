@@ -1,4 +1,4 @@
-import 'package:serenity/size_config.dart';
+import 'package:aksonhealth/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -21,7 +21,7 @@ class DoctorAppBar extends StatelessWidget {
             children: [
               Text(
                 "Hi Akson",
-                style: GoogleFonts.nunito(
+                style: GoogleFonts.sora(
                     color: Colors.black,
                     fontWeight: FontWeight.w800,
                     fontSize: getRelativeWidth(0.09)),
@@ -29,7 +29,7 @@ class DoctorAppBar extends StatelessWidget {
               SizedBox(height: getRelativeHeight(0.003)),
               Text(
                 "Kamu bisa prediksi disini",
-                style: GoogleFonts.nunito(
+                style: GoogleFonts.sora(
                     color: Colors.blueGrey[400],
                     fontSize: getRelativeWidth(0.036)),
               ),

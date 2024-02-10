@@ -1,4 +1,4 @@
-import 'package:serenity/view/gamification/components/custom_container.dart';
+import 'package:aksonhealth/view/gamification/components/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -80,7 +80,7 @@ class _SpeechPracticeState extends State<SpeechPractice> {
                 const SizedBox(height: 15),
                 Text(
                   "Text-To-Speech",
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.sora(
                     fontSize: 30,
                     fontWeight: FontWeight.w900,
                   ),

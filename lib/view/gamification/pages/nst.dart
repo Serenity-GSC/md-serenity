@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quickalert/quickalert.dart';
 
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/parents/home/home_screen.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/parents/home/home_screen.dart';
 
 class NST extends StatefulWidget {
   @override
@@ -110,9 +110,10 @@ class _NSTState extends State<NST> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: darkBlueColor,
-        title: Text("NST untuk Disleksia", style: GoogleFonts.nunito(
-          fontWeight: FontWeight.bold
-        ),),
+        title: Text(
+          "NST untuk Disleksia",
+          style: GoogleFonts.sora(fontWeight: FontWeight.bold),
+        ),
       ),
       body: WillPopScope(
         onWillPop: showExitPopup,
@@ -120,10 +121,12 @@ class _NSTState extends State<NST> {
           body: SafeArea(
             child: Column(
               children: [
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
                 Text(
                   'Temukan Gambar yang Sama',
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.sora(
                     fontWeight: FontWeight.bold,
                     fontSize: 24,
                   ),
@@ -139,7 +142,7 @@ class _NSTState extends State<NST> {
                 ),
                 Text(
                   '${answer}',
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.sora(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -160,7 +163,7 @@ class _NSTState extends State<NST> {
                             answerRight++;
                             showSnackBarResult();
                             randomizeGrid();
-    
+
                             answer = 1;
                             answerRight = 0;
                             answerWrong = 0;
@@ -181,7 +184,7 @@ class _NSTState extends State<NST> {
                             answerWrong++;
                             answer++;
                           }
-    
+
                           print('Answerd: $answer');
                           print('Right: $answerRight');
                           print('Wrong: $answerWrong');
@@ -222,7 +225,7 @@ class _NSTState extends State<NST> {
                 ),
               ),
               textStyle: MaterialStateProperty.all(
-                GoogleFonts.nunito(
+                GoogleFonts.sora(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -234,11 +237,11 @@ class _NSTState extends State<NST> {
             ),
             child: Text(
               'Kembali',
-              style: GoogleFonts.nunito(color: Colors.white),
+              style: GoogleFonts.sora(color: Colors.white),
             ),
             onPressed: () {
               audioPlayer.stop();
-                  Navigator.of(context).pop();
+              Navigator.of(context).pop();
             },
           ),
         ),
@@ -256,7 +259,7 @@ class _NSTState extends State<NST> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: greenColor,
-                    textStyle: GoogleFonts.nunito(
+                    textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
                 onPressed: () => Navigator.of(context).pop(false),
                 child: Text('Tidak'),
@@ -265,7 +268,7 @@ class _NSTState extends State<NST> {
                 onPressed: () => Navigator.of(context).pop(true),
                 style: ElevatedButton.styleFrom(
                     primary: redColor,
-                    textStyle: GoogleFonts.nunito(
+                    textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
                 child: Text('Ya'),
               ),

@@ -1,11 +1,11 @@
 // <<<<<<< HEAD
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/course/screens/home_screen.dart';
-import 'package:serenity/view/gamification/pages/home_page.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/course/screens/home_screen.dart';
+import 'package:aksonhealth/view/gamification/pages/home_page.dart';
 // >>>>>>> 7c011123d9d6daca0b7e98595e0539787a0de769
-import 'package:serenity/view/parenting/grid.dart';
-import 'package:serenity/view/parents/clinic/clinic_test.dart';
-import 'package:serenity/view/parents/schools/schools.dart';
+import 'package:aksonhealth/view/parenting/grid.dart';
+import 'package:aksonhealth/view/parents/clinic/clinic_test.dart';
+import 'package:aksonhealth/view/parents/schools/schools.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../donasi/donasi.dart';
@@ -112,35 +112,37 @@ class Menu extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => AlertDialog(
-          backgroundColor: const Color.fromARGB(255, 255, 255, 255), // Warna biru
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.asset(
-                'assets/images/development.png', // Ganti dengan path gambar yang sesuai
-                width: 200,
-                height: 200,
-              ),
-              SizedBox(height: 16),
-              Text(
-                'Maaf fitur ini sedang dikembangkan ke tahap lanjut',
-                style: GoogleFonts.nunito(color: darkBlueColor, fontSize: 20),
-              ),
-              SizedBox(height: 20),
-            ],
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text(
-                'Oke',
-                style: TextStyle(color: darkBlueColor),
-              ),
-            ),
-          ],
-        ),
+                          backgroundColor: const Color.fromARGB(
+                              255, 255, 255, 255), // Warna biru
+                          content: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Image.asset(
+                                'assets/images/development.png', // Ganti dengan path gambar yang sesuai
+                                width: 200,
+                                height: 200,
+                              ),
+                              SizedBox(height: 16),
+                              Text(
+                                'Maaf fitur ini sedang dikembangkan ke tahap lanjut',
+                                style: GoogleFonts.sora(
+                                    color: darkBlueColor, fontSize: 20),
+                              ),
+                              SizedBox(height: 20),
+                            ],
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text(
+                                'Oke',
+                                style: TextStyle(color: darkBlueColor),
+                              ),
+                            ),
+                          ],
+                        ),
                       ), // Replace "Donasi()" with your actual page route
                     );
                   }
@@ -210,7 +212,7 @@ class CategoryCard extends StatelessWidget {
             SizedBox(height: 10), // Mengubah jarak antara ikon dan teks
             Text(
               text!,
-              style: GoogleFonts.nunito(
+              style: GoogleFonts.sora(
                 color: Color.fromARGB(255, 113, 113, 113),
                 fontSize: 13, // Mengubah ukuran teks
                 fontWeight: FontWeight.bold, // Menambah tebal pada teks
@@ -223,4 +225,3 @@ class CategoryCard extends StatelessWidget {
     );
   }
 }
-

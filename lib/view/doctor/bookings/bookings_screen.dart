@@ -1,7 +1,7 @@
-import 'package:serenity/constants.dart';
-import 'package:serenity/model/firebase_auth.dart';
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/detail/bookingDetail/booking_detail_screen.dart';
+import 'package:aksonhealth/constants.dart';
+import 'package:aksonhealth/model/firebase_auth.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/detail/bookingDetail/booking_detail_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -200,7 +200,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                                             .docs[index]
                                                                 ["childName"]
                                                             .toString(),
-                                                    style: GoogleFonts.nunito(
+                                                    style: GoogleFonts.sora(
                                                         color: Colors.black,
                                                         fontSize: 12,
                                                         fontWeight:
@@ -235,7 +235,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                                                 .docs[index][
                                                                     "evaluation"]
                                                                 .toString(),
-                                                    style: GoogleFonts.nunito(
+                                                    style: GoogleFonts.sora(
                                                         color: Colors.black,
                                                         fontSize: 12,
                                                         fontWeight:
@@ -261,7 +261,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                                             .docs[index][
                                                                 "appointmentTime"]
                                                             .toString(),
-                                                    style: GoogleFonts.nunito(
+                                                    style: GoogleFonts.sora(
                                                         color: Colors.red,
                                                         fontSize: 12,
                                                         fontWeight:
@@ -315,12 +315,13 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                                                     child:
                                                                         Padding(
                                                                       padding:
-                                                                          const EdgeInsets.all(
+                                                                          const EdgeInsets
+                                                                              .all(
                                                                               8),
                                                                       child:
                                                                           Text(
                                                                         'No',
-                                                                        style: GoogleFonts.nunito(
+                                                                        style: GoogleFonts.sora(
                                                                             color: Colors
                                                                                 .white,
                                                                             fontSize:
@@ -374,12 +375,13 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                                                     child:
                                                                         Padding(
                                                                       padding:
-                                                                          const EdgeInsets.all(
+                                                                          const EdgeInsets
+                                                                              .all(
                                                                               8),
                                                                       child:
                                                                           Text(
                                                                         'Yes',
-                                                                        style: GoogleFonts.nunito(
+                                                                        style: GoogleFonts.sora(
                                                                             color: Colors
                                                                                 .white,
                                                                             fontSize:
@@ -426,17 +428,14 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                                                   .all(8),
                                                           child: Text(
                                                             'Terima',
-                                                            style: GoogleFonts
-                                                                .nunito(
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    height:
-                                                                        1.3),
+                                                            style: GoogleFonts.sora(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                height: 1.3),
                                                           ),
                                                         ),
                                                       ),
@@ -523,17 +522,14 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                                                   .all(8),
                                                           child: Text(
                                                             'Cancel',
-                                                            style: GoogleFonts
-                                                                .nunito(
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    height:
-                                                                        1.3),
+                                                            style: GoogleFonts.sora(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                height: 1.3),
                                                           ),
                                                         ),
                                                       ),
@@ -703,7 +699,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                                             .docs[index]
                                                                 ["childName"]
                                                             .toString(),
-                                                    style: GoogleFonts.nunito(
+                                                    style: GoogleFonts.sora(
                                                         color: Colors.black,
                                                         fontSize: 12,
                                                         fontWeight:
@@ -740,7 +736,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                                                 .docs[index][
                                                                     "evaluation"]
                                                                 .toString(),
-                                                    style: GoogleFonts.nunito(
+                                                    style: GoogleFonts.sora(
                                                         color: Colors.black,
                                                         fontSize: 12,
                                                         fontWeight:
@@ -767,7 +763,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                                             .docs[index][
                                                                 "appointmentTime"]
                                                             .toString(),
-                                                    style: GoogleFonts.nunito(
+                                                    style: GoogleFonts.sora(
                                                         color: Colors.red,
                                                         fontSize: 12,
                                                         fontWeight:
@@ -787,7 +783,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                               //     padding: const EdgeInsets.only(left: 8,),
                                               //     child: Text(
                                               //       "Specialization : " + snapshot.data!.docs[index]["doctorSpec"].toString() + " "
-                                              //       , style: GoogleFonts.nunito(
+                                              //       , style: GoogleFonts.sora(
                                               //         color: Colors.green, fontSize: 12, fontWeight: FontWeight.w500, height: 1.3),),
                                               //   ),
                                               // ),
@@ -835,17 +831,14 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                                                 .docs[index][
                                                                     "bookingStatus"]
                                                                 .toString(),
-                                                            style: GoogleFonts
-                                                                .nunito(
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    height:
-                                                                        1.3),
+                                                            style: GoogleFonts.sora(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                height: 1.3),
                                                           ),
                                                         ),
                                                       ),
@@ -1004,9 +997,8 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                                       const EdgeInsets.only(
                                                           left: 8, top: 8),
                                                   child: Text(
-                                                    "Nomor : " +
-                                                        "${index + 1}",
-                                                    style: GoogleFonts.nunito(
+                                                    "Nomor : " + "${index + 1}",
+                                                    style: GoogleFonts.sora(
                                                         color: Colors.black,
                                                         fontSize: 14,
                                                         fontWeight:
@@ -1034,7 +1026,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                                             .docs[index]
                                                                 ["clinicName"]
                                                             .toString(),
-                                                    style: GoogleFonts.nunito(
+                                                    style: GoogleFonts.sora(
                                                         color: Colors.black,
                                                         fontSize: 12,
                                                         fontWeight:
@@ -1069,7 +1061,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                                                 .docs[index][
                                                                     "evaluation"]
                                                                 .toString(),
-                                                    style: GoogleFonts.nunito(
+                                                    style: GoogleFonts.sora(
                                                         color: Colors.black,
                                                         fontSize: 12,
                                                         fontWeight:
@@ -1095,7 +1087,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                                             .docs[index][
                                                                 "appointmentTime"]
                                                             .toString(),
-                                                    style: GoogleFonts.nunito(
+                                                    style: GoogleFonts.sora(
                                                         color: Colors.red,
                                                         fontSize: 12,
                                                         fontWeight:
@@ -1122,7 +1114,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                                                 ["doctorSpec"]
                                                             .toString() +
                                                         " ",
-                                                    style: GoogleFonts.nunito(
+                                                    style: GoogleFonts.sora(
                                                         color: Colors.green,
                                                         fontSize: 12,
                                                         fontWeight:
@@ -1172,17 +1164,14 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                                                                 .docs[index][
                                                                     "bookingStatus"]
                                                                 .toString(),
-                                                            style: GoogleFonts
-                                                                .nunito(
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    height:
-                                                                        1.3),
+                                                            style: GoogleFonts.sora(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                height: 1.3),
                                                           ),
                                                         ),
                                                       ),

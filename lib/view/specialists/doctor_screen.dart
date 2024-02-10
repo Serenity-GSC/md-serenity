@@ -1,5 +1,5 @@
-import 'package:serenity/constants.dart';
-import 'package:serenity/view/detail/specialistDetail/specialist_detail_screen.dart';
+import 'package:aksonhealth/constants.dart';
+import 'package:aksonhealth/view/detail/specialistDetail/specialist_detail_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -122,8 +122,8 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
                                     Column(
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsets.only(
-                                              bottom: 5),
+                                          padding:
+                                              const EdgeInsets.only(bottom: 5),
                                           child: ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(15),
@@ -155,7 +155,7 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
                                                 .toString(),
                                             overflow: TextOverflow.fade,
                                             maxLines: 1,
-                                            style: GoogleFonts.nunito(
+                                            style: GoogleFonts.sora(
                                               fontSize: 18,
                                               fontWeight: FontWeight.bold,
                                               color: Colors.black,
@@ -173,14 +173,16 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
                                                   height: 30,
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsets.only(left: 10),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 10),
                                                   child: Text(
-                                                    snapshot
-                                                        .data!.docs[index]["phone"]
+                                                    snapshot.data!
+                                                        .docs[index]["phone"]
                                                         .toString(),
                                                     overflow: TextOverflow.fade,
                                                     maxLines: 1,
-                                                    style: GoogleFonts.nunito(
+                                                    style: GoogleFonts.sora(
                                                       fontSize: 15,
                                                       color: Colors.black,
                                                     ),

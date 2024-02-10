@@ -1,4 +1,4 @@
-import 'package:serenity/theme.dart';
+import 'package:aksonhealth/theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
@@ -176,10 +176,11 @@ class _CardWithMapState extends State<CardWithMap> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ListTile(
-                title: Text(widget.nameSchool, style: GoogleFonts.nunito(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20
-                ),),
+                title: Text(
+                  widget.nameSchool,
+                  style: GoogleFonts.sora(
+                      fontWeight: FontWeight.bold, fontSize: 20),
+                ),
                 subtitle: Text(
                   '${widget.province} (${widget.city})',
                 ),
@@ -207,10 +208,11 @@ class _CardWithMapState extends State<CardWithMap> {
               SizedBox(height: 16),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Text("Alamat", style: GoogleFonts.nunito(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20
-                ),),
+                child: Text(
+                  "Alamat",
+                  style: GoogleFonts.sora(
+                      fontWeight: FontWeight.bold, fontSize: 20),
+                ),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),

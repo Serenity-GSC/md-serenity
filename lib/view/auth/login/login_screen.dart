@@ -1,11 +1,12 @@
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/auth/login/doctor_login_screen.dart';
-import 'package:serenity/view/doctor/bottomNavBarDoctor/doctor_nav_bar_screen.dart';
-import 'package:serenity/view/parents/bottomNavBar/app_bottom_nav_bar_screen.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/auth/login/doctor_login_screen.dart';
+import 'package:aksonhealth/view/doctor/bottomNavBarDoctor/doctor_nav_bar_screen.dart';
+import 'package:aksonhealth/view/parents/bottomNavBar/app_bottom_nav_bar_screen.dart';
+import 'package:aksonhealth/widgets/google_signup_button_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:serenity/model/firebase_auth.dart';
-import 'package:serenity/model/input_validator.dart';
-import 'package:serenity/view/auth/signUp/sign_up_screen.dart';
+import 'package:aksonhealth/model/firebase_auth.dart';
+import 'package:aksonhealth/model/input_validator.dart';
+import 'package:aksonhealth/view/auth/signUp/sign_up_screen.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -83,24 +84,59 @@ class _LoginScreenState extends State<LoginScreen> {
                           'assets/hero_login.png',
                           fit: BoxFit.scaleDown,
                           height: 200,
-                          width: 200,
+                          width: 1000,
                         ),
                       ),
                     ),
-                    Text(
-                      'Welcome Back!',
-                      style: GoogleFonts.nunito(
-                        color: blueColor,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15.0, bottom: 10.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Welcome Back!',
+                            style: GoogleFonts.sora(
+                              color: blackColor,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
                       ),
                     ),
-                    Text(
-                      'Fill your detail or continue with social media',
-                      style: GoogleFonts.nunito(
-                        color: blueColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Fill your detail or continue with \n social media',
+                            style: GoogleFonts.sora(
+                              color: blackColor,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0, bottom: 5.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Email',
+                            style: GoogleFonts.sora(
+                              color: blackColor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
                       ),
                     ),
                     Container(
@@ -112,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: TextFormField(
                         controller: _emailAddressController,
                         keyboardType: TextInputType.emailAddress,
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                           fontSize: 14,
                           color: Colors.black,
                         ),
@@ -127,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                           focusColor: Colors.white,
                           //add prefix icon
-                          prefixIcon: Icon(Icons.email),
+                          prefixIcon: Icon(Icons.email_outlined),
 
                           // errorText: "Error",
 
@@ -144,7 +180,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           hintText: "Email Address",
 
                           //make hint text
-                          hintStyle: GoogleFonts.nunito(
+                          hintStyle: GoogleFonts.sora(
                             color: blueColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
@@ -155,6 +191,49 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(
                       height: size.height * 0.02,
                     ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.only(right: 20),
+                            child: Text(
+                              'Forgot Password?',
+                              textAlign: TextAlign.right,
+                              style: GoogleFonts.sora(
+                                color: Color(0xFF005BAC),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            // decoration: BoxDecoration(
+                            //   border: Border(
+                            //     bottom: BorderSide(
+                            //       color: blueColor,
+                            //       width: 2.0,
+                            //     ),
+                            //   ),
+                            // ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0, bottom: 5.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Password',
+                            style: GoogleFonts.sora(
+                              color: blackColor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
+                      ),
+                    ),
                     Container(
                       decoration: BoxDecoration(
                           color: Colors.white,
@@ -164,7 +243,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         autofocus: true,
                         controller: _passwordController,
                         obscureText: true,
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                           fontSize: 14,
                           color: Colors.black,
                         ),
@@ -197,7 +276,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           hintText: "Enter Your Password",
 
                           //make hint text
-                          hintStyle: GoogleFonts.nunito(
+                          hintStyle: GoogleFonts.sora(
                             color: blueColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
@@ -246,8 +325,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                     minimumSize: MaterialStateProperty.all(
                                         Size(size.width, 50)),
-                                    backgroundColor: MaterialStateProperty.all(
-                                        blueColor),
+                                    backgroundColor:
+                                        MaterialStateProperty.all(blueColor),
                                     // elevation: MaterialStateProperty.all(3),
                                     shadowColor: MaterialStateProperty.all(
                                         Colors.transparent),
@@ -536,15 +615,41 @@ class _LoginScreenState extends State<LoginScreen> {
                                     // );
                                   },
                                   child: Text('SIGN IN',
-                                      style: GoogleFonts.nunito(
+                                      style: GoogleFonts.sora(
                                           fontSize: 15,
                                           fontWeight: FontWeight.w600))),
                             ),
                           ),
                     SizedBox(
-                      height: size.height * 0.1,
+                      height: 10,
                     ),
-                    
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Divider(
+                            color: Colors.black,
+                            height: 36,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                          child: Text(
+                            'Or',
+                            style: GoogleFonts.sora(fontSize: 14),
+                          ),
+                        ),
+                        Expanded(
+                          child: Divider(
+                            color: Colors.black,
+                            height: 36,
+                          ),
+                        ),
+                      ],
+                    ),
+                    GoogleSignupButtonWidget(),
+                    SizedBox(
+                      height: 20,
+                    ),
                     widget.userType == "Admin" || widget.userType == "Clinic"
                         ? Container()
                         : Padding(
@@ -564,14 +669,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                 children: [
                                   Text(
                                     "Don't have an account? ",
-                                    style: GoogleFonts.nunito(
+                                    style: GoogleFonts.sora(
                                         color: Colors.black,
                                         fontSize: 16,
                                         fontWeight: FontWeight.w500),
                                   ),
                                   Text(
                                     ' Register',
-                                    style: GoogleFonts.nunito(
+                                    style: GoogleFonts.sora(
                                         color: blueColor,
                                         fontSize: 16,
                                         fontWeight: FontWeight.w500),

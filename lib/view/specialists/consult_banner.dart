@@ -1,5 +1,5 @@
-import 'package:serenity/size_config.dart';
-import 'package:serenity/theme.dart';
+import 'package:aksonhealth/size_config.dart';
+import 'package:aksonhealth/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -44,7 +44,7 @@ class ConsultBanner extends StatelessWidget {
                               children: [
                                 Text(
                                   "Apa kamu masih bingung? konsultasi dengan Dokter Langsung melalui chat",
-                                  style: GoogleFonts.nunito(
+                                  style: GoogleFonts.sora(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 18,

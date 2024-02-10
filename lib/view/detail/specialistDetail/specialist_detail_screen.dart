@@ -1,9 +1,9 @@
-import 'package:serenity/constants.dart';
-import 'package:serenity/model/firebase_auth.dart';
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/chat/chat_dao.dart';
-import 'package:serenity/view/chat/chat_room.dart';
-import 'package:serenity/view/reports/report_detail_screen.dart';
+import 'package:aksonhealth/constants.dart';
+import 'package:aksonhealth/model/firebase_auth.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/chat/chat_dao.dart';
+import 'package:aksonhealth/view/chat/chat_room.dart';
+import 'package:aksonhealth/view/reports/report_detail_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -194,7 +194,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
               backgroundColor: darkBlueColor,
               title: Text(
                 'Konsultasi',
-                style: GoogleFonts.nunito(
+                style: GoogleFonts.sora(
                     fontSize: 19,
                     fontWeight: FontWeight.w600,
                     color: Colors.white),
@@ -231,21 +231,21 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                           children: [
                             Text(
                               widget.name,
-                              style: GoogleFonts.nunito(
+                              style: GoogleFonts.sora(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                   color: Colors.white),
                             ),
                             Text(
                               widget.email,
-                              style: GoogleFonts.nunito(
+                              style: GoogleFonts.sora(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w300,
                                   color: Colors.white),
                             ),
                             Text(
                               widget.phone,
-                              style: GoogleFonts.nunito(
+                              style: GoogleFonts.sora(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w300,
                                   color: Colors.white),
@@ -297,14 +297,14 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                                           children: [
                                             Text(
                                               'Patient Name ',
-                                              style: GoogleFonts.nunito(
+                                              style: GoogleFonts.sora(
                                                   color: Colors.black,
                                                   fontSize: 16,
                                                   fontWeight: FontWeight.w500),
                                             ),
                                             Text(
                                               widget.userName.toString(),
-                                              style: GoogleFonts.nunito(
+                                              style: GoogleFonts.sora(
                                                   color: Colors.black,
                                                   fontSize: 16,
                                                   fontWeight: FontWeight.w400),
@@ -326,14 +326,14 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                                           children: [
                                             Text(
                                               'Patient Email ',
-                                              style: GoogleFonts.nunito(
+                                              style: GoogleFonts.sora(
                                                   color: Colors.black,
                                                   fontSize: 16,
                                                   fontWeight: FontWeight.w500),
                                             ),
                                             Text(
                                               widget.userEmail.toString(),
-                                              style: GoogleFonts.nunito(
+                                              style: GoogleFonts.sora(
                                                   color: Colors.black,
                                                   fontSize: 16,
                                                   fontWeight: FontWeight.w400),
@@ -378,7 +378,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                                             width: size.width * .9,
                                             child: Text(
                                               'Janji Tanggal dan Waktu',
-                                              style: GoogleFonts.nunito(
+                                              style: GoogleFonts.sora(
                                                   fontSize: 18,
                                                   color: Colors.black,
                                                   fontWeight: FontWeight.w600),
@@ -398,7 +398,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                                                   builder: (_) => Container(
                                                         height: 500,
                                                         color: const Color
-                                                                .fromARGB(
+                                                            .fromARGB(
                                                             255, 255, 255, 255),
                                                         child: Column(
                                                           children: [
@@ -482,7 +482,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                                                       : endTime.toString(),
                                                   //time.toString(),
                                                   //' 07 : 10 ',
-                                                  style: GoogleFonts.nunito(
+                                                  style: GoogleFonts.sora(
                                                       color: endTime == ''
                                                           ? Colors.grey
                                                               .withOpacity(0.5)
@@ -802,7 +802,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
               backgroundColor: darkBlueColor,
               title: Text(
                 'Konsultasi',
-                style: GoogleFonts.nunito(
+                style: GoogleFonts.sora(
                     fontSize: 19,
                     fontWeight: FontWeight.w600,
                     color: Colors.white),
@@ -842,21 +842,21 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                             children: [
                               Text(
                                 widget.name,
-                                style: GoogleFonts.nunito(
+                                style: GoogleFonts.sora(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
                                     color: Colors.white),
                               ),
                               Text(
                                 widget.email,
-                                style: GoogleFonts.nunito(
+                                style: GoogleFonts.sora(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w300,
                                     color: Colors.white),
                               ),
                               Text(
                                 widget.phone,
-                                style: GoogleFonts.nunito(
+                                style: GoogleFonts.sora(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w300,
                                     color: Colors.white),
@@ -894,7 +894,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                                   ),
                                   Text(
                                     "Chat",
-                                    style: GoogleFonts.nunito(
+                                    style: GoogleFonts.sora(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold),
                                   )
@@ -931,7 +931,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                                       child: Center(
                                         child: Text(
                                           'Kalender',
-                                          style: GoogleFonts.nunito(
+                                          style: GoogleFonts.sora(
                                               fontSize: 18,
                                               color: Colors.black,
                                               fontWeight: FontWeight.w800),
@@ -1036,7 +1036,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                                           endTime.toString() == ''
                                               ? 'Pilih Tanggal dan Jam'
                                               : endTime.toString(),
-                                          style: GoogleFonts.nunito(
+                                          style: GoogleFonts.sora(
                                               color: endTime == ''
                                                   ? Colors.grey.withOpacity(0.5)
                                                   : Colors.black,
@@ -1212,7 +1212,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                                                         child: Padding(
                                                           padding:
                                                               const EdgeInsets
-                                                                      .only(
+                                                                  .only(
                                                                   top: 8,
                                                                   bottom: 8),
                                                           child: Row(
@@ -1273,7 +1273,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                                                                                 child: Text(
                                                                                   snapshot.data!.docs[index]["childName"].toString() + " (" + snapshot.data!.docs[index]["type"].toString() + " Report) ",
                                                                                   overflow: TextOverflow.ellipsis,
-                                                                                  style: GoogleFonts.nunito(color: secondaryColor1, fontSize: 13, fontWeight: FontWeight.w800, height: 1.3),
+                                                                                  style: GoogleFonts.sora(color: secondaryColor1, fontSize: 13, fontWeight: FontWeight.w800, height: 1.3),
                                                                                 ),
                                                                               ),
                                                                               Container(
@@ -1282,7 +1282,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                                                                                 child: Text(
                                                                                   snapshot.data!.docs[index]["date"].toString(),
                                                                                   overflow: TextOverflow.ellipsis,
-                                                                                  style: GoogleFonts.nunito(color: secondaryColor1, fontSize: 12, fontWeight: FontWeight.w400, height: 1.3),
+                                                                                  style: GoogleFonts.sora(color: secondaryColor1, fontSize: 12, fontWeight: FontWeight.w400, height: 1.3),
                                                                                 ),
                                                                               ),
                                                                             ],
@@ -1344,7 +1344,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                                                                                       )
                                                                                     : Text(
                                                                                         "Select",
-                                                                                        style: GoogleFonts.nunito(fontSize: 13, fontWeight: FontWeight.w500, color: Colors.white),
+                                                                                        style: GoogleFonts.sora(fontSize: 13, fontWeight: FontWeight.w500, color: Colors.white),
                                                                                       ),
                                                                               )),
                                                                         ),

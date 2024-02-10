@@ -1,6 +1,6 @@
-import 'package:serenity/widgets/widgets/chat_item.dart';
-import 'package:serenity/widgets/widgets/my_app_bar.dart';
-import 'package:serenity/widgets/widgets/text_and_voice_field.dart';
+import 'package:aksonhealth/widgets/widgets/chat_item.dart';
+import 'package:aksonhealth/widgets/widgets/my_app_bar.dart';
+import 'package:aksonhealth/widgets/widgets/text_and_voice_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../providers/chats_provider.dart';

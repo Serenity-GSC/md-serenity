@@ -1,8 +1,8 @@
-import 'package:serenity/view/course/components/home_screen_navbar.dart';
-import 'package:serenity/view/course/components/list/explore_course_list.dart';
-import 'package:serenity/view/course/components/list/recent_course_list.dart';
-import 'package:serenity/view/course/screens/continue_watching_screen.dart';
-import 'package:serenity/view/parents/home/features_appbar.dart';
+import 'package:aksonhealth/view/course/components/home_screen_navbar.dart';
+import 'package:aksonhealth/view/course/components/list/explore_course_list.dart';
+import 'package:aksonhealth/view/course/components/list/recent_course_list.dart';
+import 'package:aksonhealth/view/course/screens/continue_watching_screen.dart';
+import 'package:aksonhealth/view/parents/home/features_appbar.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';

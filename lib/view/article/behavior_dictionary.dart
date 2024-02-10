@@ -1,6 +1,6 @@
-import 'package:serenity/model/behavior_models.dart';
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/article/behavior_list_item.dart';
+import 'package:aksonhealth/model/behavior_models.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/article/behavior_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -43,7 +43,7 @@ class _BehaviorDictionaryPageState extends State<BehaviorDictionaryPage> {
               children: [
                 Text(
                   'Artikel',
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.sora(
                       fontSize: 30, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -71,7 +71,7 @@ class _BehaviorDictionaryPageState extends State<BehaviorDictionaryPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text('Cari Artikel',
-                              style: GoogleFonts.nunito(fontSize: 15)),
+                              style: GoogleFonts.sora(fontSize: 15)),
                           const Icon(Icons.search),
                         ],
                       ),
@@ -103,6 +103,7 @@ class _BehaviorDictionaryPageState extends State<BehaviorDictionaryPage> {
       ),
     );
   }
+
   Future<bool> showExitPopup() async {
     return await showDialog(
           //show confirm dialogue
@@ -115,7 +116,7 @@ class _BehaviorDictionaryPageState extends State<BehaviorDictionaryPage> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: greenColor,
-                    textStyle: GoogleFonts.nunito(
+                    textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
                 onPressed: () => Navigator.of(context).pop(false),
                 //return false when click on "NO
@@ -126,7 +127,7 @@ class _BehaviorDictionaryPageState extends State<BehaviorDictionaryPage> {
                 //return true when click on "Yes"
                 style: ElevatedButton.styleFrom(
                     primary: redColor,
-                    textStyle: GoogleFonts.nunito(
+                    textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
                 child: Text('Ya'),
               ),

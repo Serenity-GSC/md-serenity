@@ -1,6 +1,6 @@
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/chat/chat_dao.dart';
-import 'package:serenity/view/chat/chat_room.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/chat/chat_dao.dart';
+import 'package:aksonhealth/view/chat/chat_room.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +46,7 @@ class _ChatsState extends State<Chats> {
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: Text(
               'Chat',
-              style: GoogleFonts.nunito(
+              style: GoogleFonts.sora(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
@@ -133,7 +133,7 @@ class ChatCard extends StatelessWidget {
                   children: [
                     Text(
                       userName,
-                      style: GoogleFonts.nunito(
+                      style: GoogleFonts.sora(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                         color: Colors.black,
@@ -141,7 +141,7 @@ class ChatCard extends StatelessWidget {
                     ),
                     Text(
                       "Dokter",
-                      style: GoogleFonts.nunito(
+                      style: GoogleFonts.sora(
                         fontWeight: FontWeight.w500,
                         fontSize: 15,
                         color: Colors.black,

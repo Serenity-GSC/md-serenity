@@ -1,7 +1,7 @@
-import 'package:serenity/constants.dart';
-import 'package:serenity/data/data.dart';
-import 'package:serenity/size_config.dart';
-import 'package:serenity/theme.dart';
+import 'package:aksonhealth/constants.dart';
+import 'package:aksonhealth/data/data.dart';
+import 'package:aksonhealth/size_config.dart';
+import 'package:aksonhealth/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -118,7 +118,7 @@ class DoctorsList extends StatelessWidget {
                               children: [
                                 Text(
                                   doctor.name,
-                                  style: GoogleFonts.nunito(
+                                  style: GoogleFonts.sora(
                                       fontWeight: FontWeight.bold,
                                       color: blueColor,
                                       fontSize: getRelativeWidth(0.041)),
@@ -126,7 +126,7 @@ class DoctorsList extends StatelessWidget {
                                 SizedBox(height: getRelativeHeight(0.005)),
                                 Text(
                                   doctor.speciality,
-                                  style: GoogleFonts.nunito(
+                                  style: GoogleFonts.sora(
                                       color: Colors.black.withOpacity(0.8),
                                       fontSize: getRelativeWidth(0.032)),
                                 ),

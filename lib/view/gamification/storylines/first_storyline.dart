@@ -1,7 +1,7 @@
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/gamification/components/base_storyline.dart';
-import 'package:serenity/view/gamification/components/from_index.dart';
-import 'package:serenity/view/gamification/db.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/gamification/components/base_storyline.dart';
+import 'package:aksonhealth/view/gamification/components/from_index.dart';
+import 'package:aksonhealth/view/gamification/db.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +51,7 @@ class FirstStoryLine extends HookWidget {
               speed: const Duration(milliseconds: 75),
               textAlign: TextAlign.center,
               textStyle:
-                  GoogleFonts.nunito(fontSize: 20, fontWeight: FontWeight.w400),
+                  GoogleFonts.sora(fontSize: 20, fontWeight: FontWeight.w400),
             ))
         .toList();
     List<ListTile> options = [];
@@ -65,7 +65,7 @@ class FirstStoryLine extends HookWidget {
             Text(
               parsableOptions[i - 1],
               style:
-                  GoogleFonts.nunito(fontSize: 20, fontWeight: FontWeight.w400),
+                  GoogleFonts.sora(fontSize: 20, fontWeight: FontWeight.w400),
             ),
             const Divider(
               height: 10,
@@ -79,8 +79,7 @@ class FirstStoryLine extends HookWidget {
       Padding(
         padding: EdgeInsets.only(right: 100),
         child: Text("Claudio: The Dyslexic Turtle",
-            style:
-                GoogleFonts.nunito(fontSize: 20, fontWeight: FontWeight.w700)),
+            style: GoogleFonts.sora(fontSize: 20, fontWeight: FontWeight.w700)),
       ),
       const SizedBox(height: 70),
       Image.asset(
@@ -144,7 +143,7 @@ class FirstStoryLine extends HookWidget {
                                 cursor: '',
                                 speed: const Duration(milliseconds: 75),
                                 textAlign: TextAlign.center,
-                                textStyle: GoogleFonts.nunito(
+                                textStyle: GoogleFonts.sora(
                                     fontSize: 20, fontWeight: FontWeight.w400),
                                 replyFromIndex(1, selectedOption.value,
                                     correctOption.value, questionIndex.value))
@@ -192,9 +191,9 @@ class FirstStoryLine extends HookWidget {
                               submitted.value = false;
                             },
                             child: Text(displayText.value,
-                                style: GoogleFonts.nunito(
+                                style: GoogleFonts.sora(
                                     backgroundColor: Colors.transparent,
-                                    textStyle: GoogleFonts.nunito(
+                                    textStyle: GoogleFonts.sora(
                                       fontSize: 20,
                                     )))),
                       )
@@ -242,9 +241,9 @@ class FirstStoryLine extends HookWidget {
                               }
                             },
                             child: Text("Submit",
-                                style: GoogleFonts.nunito(
+                                style: GoogleFonts.sora(
                                     backgroundColor: Colors.transparent,
-                                    textStyle: GoogleFonts.nunito(
+                                    textStyle: GoogleFonts.sora(
                                       fontSize: 20,
                                     )))),
                       )
@@ -321,7 +320,7 @@ class FirstStoryLine extends HookWidget {
                         },
                         child: Text(
                             (questionIndex.value + 1 <= 5) ? "Next" : "Finish",
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                                 backgroundColor: Colors.transparent))),
               ]),
             ])
@@ -347,7 +346,7 @@ class FirstStoryLine extends HookWidget {
                   child: Text(
                       "\nDiagnosis dengan autisme dan kesulitan serta hal positif yang dialami sepanjang hidupnya. Kami belajar bagaimana orang dengan autisme terpengaruh dari cerita ini.",
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.nunito(
+                      style: GoogleFonts.sora(
                           fontWeight: FontWeight.w400, fontSize: 20))),
               const SizedBox(height: 20),
               SizedBox(
@@ -363,7 +362,7 @@ class FirstStoryLine extends HookWidget {
                       },
                       child: Text(
                         "Mulai",
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.sora(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ))),
             ])

@@ -1,5 +1,5 @@
-import 'package:serenity/constants.dart';
-import 'package:serenity/view/reports/report_detail_screen.dart';
+import 'package:aksonhealth/constants.dart';
+import 'package:aksonhealth/view/reports/report_detail_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +26,7 @@ class _ReportScreenState extends State<ReportScreen> {
         backgroundColor: appBarColor,
         title: Text(
           'Laporan',
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.sora(
               fontSize: 19, fontWeight: FontWeight.w600, color: Colors.white),
         ),
         centerTitle: true,
@@ -151,7 +151,7 @@ class _ReportScreenState extends State<ReportScreen> {
                                                         " Report) ",
                                                     overflow:
                                                         TextOverflow.ellipsis,
-                                                    style: GoogleFonts.nunito(
+                                                    style: GoogleFonts.sora(
                                                         color: secondaryColor1,
                                                         fontSize: 13,
                                                         fontWeight:
@@ -168,7 +168,7 @@ class _ReportScreenState extends State<ReportScreen> {
                                                         .toString(),
                                                     overflow:
                                                         TextOverflow.ellipsis,
-                                                    style: GoogleFonts.nunito(
+                                                    style: GoogleFonts.sora(
                                                         color: secondaryColor1,
                                                         fontSize: 12,
                                                         fontWeight:
@@ -233,7 +233,7 @@ class _ReportScreenState extends State<ReportScreen> {
                                                 child: Center(
                                                   child: Text(
                                                     "Lihat",
-                                                    style: GoogleFonts.nunito(
+                                                    style: GoogleFonts.sora(
                                                         fontSize: 13,
                                                         fontWeight:
                                                             FontWeight.w500,

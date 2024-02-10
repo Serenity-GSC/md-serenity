@@ -1,5 +1,5 @@
-import 'package:serenity/size_config.dart';
-import 'package:serenity/theme.dart';
+import 'package:aksonhealth/size_config.dart';
+import 'package:aksonhealth/theme.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
@@ -178,13 +178,11 @@ class _CardWithMapState extends State<CardWithMap> {
             children: [
               ListTile(
                 title: Text(widget.nameClinic,
-                style: GoogleFonts.nunito(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20
-                )),
+                    style: GoogleFonts.sora(
+                        fontWeight: FontWeight.bold, fontSize: 20)),
                 subtitle: Text(
                   '${widget.province} (${widget.city})',
-                  style: GoogleFonts.nunito(),
+                  style: GoogleFonts.sora(),
                 ),
                 trailing: IconButton(
                   icon: Icon(
@@ -210,15 +208,15 @@ class _CardWithMapState extends State<CardWithMap> {
               SizedBox(height: 16),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Text("Alamat", style: GoogleFonts.nunito(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20
-                ),),
+                child: Text(
+                  "Alamat",
+                  style: GoogleFonts.sora(
+                      fontWeight: FontWeight.bold, fontSize: 20),
+                ),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
-                child: Text(widget.address,
-                style: GoogleFonts.nunito()),
+                child: Text(widget.address, style: GoogleFonts.sora()),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -272,7 +270,7 @@ class ContactnWebsite extends StatelessWidget {
           onPressed: () {},
           child: Text(
             widget.telephone,
-            style: GoogleFonts.nunito(color: Colors.blue),
+            style: GoogleFonts.sora(color: Colors.blue),
           ),
         ),
         FilledButton(
@@ -282,9 +280,7 @@ class ContactnWebsite extends StatelessWidget {
           onPressed: () {
             _launchMap(widget.gMapAddress);
           },
-          child: Text('Petunjuk Arah', 
-          style: GoogleFonts.nunito()
-          ),
+          child: Text('Petunjuk Arah', style: GoogleFonts.sora()),
         )
       ],
     );

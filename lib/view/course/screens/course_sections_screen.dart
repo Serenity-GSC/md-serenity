@@ -1,5 +1,5 @@
-import 'package:serenity/size_config.dart';
-import 'package:serenity/view/course/components/list/course_sections_list.dart';
+import 'package:aksonhealth/size_config.dart';
+import 'package:aksonhealth/view/course/components/list/course_sections_list.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';

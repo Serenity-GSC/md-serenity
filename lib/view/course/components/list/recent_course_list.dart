@@ -1,5 +1,5 @@
-import 'package:serenity/model/course_model.dart';
-import 'package:serenity/view/course/screens/course_screen.dart';
+import 'package:aksonhealth/model/course_model.dart';
+import 'package:aksonhealth/view/course/screens/course_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../cards/recent_course_card.dart';

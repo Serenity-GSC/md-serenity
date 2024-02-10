@@ -1,5 +1,5 @@
-import 'package:serenity/view/course/components/certificate_viewer.dart';
-import 'package:serenity/view/course/components/list/continue_watching_list.dart';
+import 'package:aksonhealth/view/course/components/certificate_viewer.dart';
+import 'package:aksonhealth/view/course/components/list/continue_watching_list.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 

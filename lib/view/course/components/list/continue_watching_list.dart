@@ -1,5 +1,5 @@
-import 'package:serenity/model/course_model.dart';
-import 'package:serenity/view/course/components/cards/continue_watching_card.dart';
+import 'package:aksonhealth/model/course_model.dart';
+import 'package:aksonhealth/view/course/components/cards/continue_watching_card.dart';
 import 'package:flutter/material.dart';
 
 class ContinueWatchingList extends StatefulWidget {

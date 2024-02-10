@@ -1,7 +1,7 @@
-import 'package:serenity/size_config.dart';
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/specialists/consult_banner.dart';
-import 'package:serenity/view/specialists/doctor_screen.dart';
+import 'package:aksonhealth/size_config.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/specialists/consult_banner.dart';
+import 'package:aksonhealth/view/specialists/doctor_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -25,7 +25,7 @@ class _ConsultScreenState extends State<ConsultScreen> {
               children: [
                 AppBar(
                   title: Text("Konsultasi",
-                      style: GoogleFonts.nunito(color: darkBlueColor)),
+                      style: GoogleFonts.sora(color: darkBlueColor)),
                   backgroundColor: Colors.white,
                 ),
                 SizedBox(height: 30),
@@ -51,7 +51,7 @@ class _ConsultScreenState extends State<ConsultScreen> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: greenColor,
-                    textStyle: GoogleFonts.nunito(
+                    textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
                 onPressed: () => Navigator.of(context).pop(false),
                 //return false when click on "NO"
@@ -62,7 +62,7 @@ class _ConsultScreenState extends State<ConsultScreen> {
                 //return true when click on "Yes"
                 style: ElevatedButton.styleFrom(
                     primary: redColor,
-                    textStyle: GoogleFonts.nunito(
+                    textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
                 child: Text('Ya'),
               ),
@@ -72,4 +72,3 @@ class _ConsultScreenState extends State<ConsultScreen> {
         false; //if showDialouge had returned null, then return false
   }
 }
-

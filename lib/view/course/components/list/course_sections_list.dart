@@ -1,6 +1,6 @@
-import 'package:serenity/model/course_model.dart';
-import 'package:serenity/size_config.dart';
-import 'package:serenity/view/course/components/cards/course_sections_card.dart';
+import 'package:aksonhealth/model/course_model.dart';
+import 'package:aksonhealth/size_config.dart';
+import 'package:aksonhealth/view/course/components/cards/course_sections_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';

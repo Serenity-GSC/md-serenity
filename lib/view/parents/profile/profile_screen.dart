@@ -1,11 +1,11 @@
-import 'package:serenity/constants.dart';
-import 'package:serenity/model/firebase_auth.dart';
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/aboutUs/about_us_screen.dart';
-import 'package:serenity/view/doctor/bookings/bookings_screen.dart';
-import 'package:serenity/view/parents/myBookings/my_bookings_screen.dart';
-import 'package:serenity/view/parents/profile/update_profile_screen.dart';
-import 'package:serenity/view/reports/reports_screen.dart';
+import 'package:aksonhealth/constants.dart';
+import 'package:aksonhealth/model/firebase_auth.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/aboutUs/about_us_screen.dart';
+import 'package:aksonhealth/view/doctor/bookings/bookings_screen.dart';
+import 'package:aksonhealth/view/parents/myBookings/my_bookings_screen.dart';
+import 'package:aksonhealth/view/parents/profile/update_profile_screen.dart';
+import 'package:aksonhealth/view/reports/reports_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -80,7 +80,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           backgroundColor: darkBlueColor,
           title: Text(
             'Pengaturan',
-            style: GoogleFonts.nunito(
+            style: GoogleFonts.sora(
                 fontSize: 19, fontWeight: FontWeight.w600, color: Colors.white),
           ),
           centerTitle: true,
@@ -95,18 +95,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 height: size.height * 0.02,
               ),
               Padding(
-                padding:
-                    const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
+                padding: const EdgeInsets.only(
+                    top: 4, bottom: 4, left: 10, right: 10),
                 child: ListTile(
                   shape: RoundedRectangleBorder(
                     //<-- SEE HERE
-    
+
                     borderRadius: BorderRadius.circular(10),
                   ),
                   tileColor: Colors.white,
                   leading: Container(
-                      decoration: BoxDecoration(
-                         ),
+                      decoration: BoxDecoration(),
                       width: 40,
                       height: 40, //devSize.height*0.05,
                       child: Image.asset("assets/icons/edit.png")),
@@ -137,7 +136,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   : Padding(
                       padding: const EdgeInsets.only(
                           top: 4, bottom: 4, left: 10, right: 10),
-                      
                     ),
               userType == 'Doctors'
                   ? Container()
@@ -153,8 +151,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         tileColor: Colors.white,
                         leading: Container(
                             decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                ),
+                              shape: BoxShape.circle,
+                            ),
                             width: 40,
                             height: 40, //devSize.height*0.05,
                             child: Image.asset("assets/icons/laporan.png")),
@@ -178,8 +176,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
               Padding(
-                padding:
-                    const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
+                padding: const EdgeInsets.only(
+                    top: 4, bottom: 4, left: 10, right: 10),
                 child: ListTile(
                   shape: RoundedRectangleBorder(
                     //<-- SEE HERE
@@ -189,8 +187,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   tileColor: Colors.white,
                   leading: Container(
                       decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          ),
+                        shape: BoxShape.circle,
+                      ),
                       width: 40,
                       height: 40, //devSize.height*0.05,
                       child: Image.asset("assets/icons/janji.png")),
@@ -232,8 +230,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           top: 4, bottom: 4, left: 10, right: 10),
                     ),
               Padding(
-                padding:
-                    const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
+                padding: const EdgeInsets.only(
+                    top: 4, bottom: 4, left: 10, right: 10),
                 child: ListTile(
                   shape: RoundedRectangleBorder(
                     //<-- SEE HERE
@@ -243,8 +241,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   tileColor: Colors.white,
                   leading: Container(
                       decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          ),
+                        shape: BoxShape.circle,
+                      ),
                       width: 40,
                       height: 40, //devSize.height*0.05,
                       child: Image.asset("assets/icons/about.png")),
@@ -268,8 +266,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               Padding(
-                padding:
-                    const EdgeInsets.only(top: 4, bottom: 4, left: 10, right: 10),
+                padding: const EdgeInsets.only(
+                    top: 4, bottom: 4, left: 10, right: 10),
                 child: ListTile(
                   shape: RoundedRectangleBorder(
                     //<-- SEE HERE
@@ -279,8 +277,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   tileColor: Colors.white,
                   leading: Container(
                       decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                         ),
+                        shape: BoxShape.circle,
+                      ),
                       width: 40,
                       height: 40, //devSize.height*0.05,
                       child: Image.asset(
@@ -309,7 +307,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-   Future<bool> showExitPopup() async {
+  Future<bool> showExitPopup() async {
     return await showDialog(
           //show confirm dialogue
           //the return value will be from "Yes" or "No" options
@@ -321,7 +319,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: greenColor,
-                    textStyle: GoogleFonts.nunito(
+                    textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
                 onPressed: () => Navigator.of(context).pop(false),
                 //return false when click on "NO"
@@ -332,7 +330,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 //return true when click on "Yes"
                 style: ElevatedButton.styleFrom(
                     primary: Colors.red,
-                    textStyle: GoogleFonts.nunito(
+                    textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
                 child: Text('Ya'),
               ),
@@ -341,5 +339,4 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ) ??
         false; //if showDialouge had returned null, then return false
   }
-  
 }

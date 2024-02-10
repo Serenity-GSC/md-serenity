@@ -1,9 +1,9 @@
-import 'package:serenity/constants.dart';
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/chat/chats.dart';
-import 'package:serenity/view/doctor/bookings/bookings_screen.dart';
-import 'package:serenity/view/parents/home/home_screen.dart';
-import 'package:serenity/view/parents/profile/profile_screen.dart';
+import 'package:aksonhealth/constants.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/chat/chats.dart';
+import 'package:aksonhealth/view/doctor/bookings/bookings_screen.dart';
+import 'package:aksonhealth/view/parents/home/home_screen.dart';
+import 'package:aksonhealth/view/parents/profile/profile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

@@ -1,5 +1,5 @@
-import 'package:serenity/model/behavior_models.dart';
-import 'package:serenity/theme.dart';
+import 'package:aksonhealth/model/behavior_models.dart';
+import 'package:aksonhealth/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 // import 'package:markdown_viewer/markdown_viewer.dart';
@@ -48,7 +48,7 @@ class _BehaviorContentPageState extends State<BehaviorContentPage>
       appBar: AppBar(
         backgroundColor: darkBlueColor,
         title: Text('Artikel',
-            style: GoogleFonts.nunito(
+            style: GoogleFonts.sora(
               fontSize: 25,
             )),
         leading: IconButton(
@@ -101,7 +101,7 @@ class _BehaviorContentPageState extends State<BehaviorContentPage>
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(widget.behaviorOverview.title,
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.sora(
                                 fontSize: 30, color: Colors.white)),
                         SizedBox(
                           height: 130,
@@ -124,13 +124,13 @@ class _BehaviorContentPageState extends State<BehaviorContentPage>
                 Tab(
                   child: Text(
                     "Deskripsi",
-                    style: GoogleFonts.nunito(fontWeight: FontWeight.w500),
+                    style: GoogleFonts.sora(fontWeight: FontWeight.w500),
                   ),
                 ),
                 Tab(
                   child: Text(
                     "Bagaimana",
-                    style: GoogleFonts.nunito(fontWeight: FontWeight.w500),
+                    style: GoogleFonts.sora(fontWeight: FontWeight.w500),
                   ),
                 )
               ],

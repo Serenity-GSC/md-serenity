@@ -1,5 +1,5 @@
-import 'package:serenity/model/behavior_models.dart';
-import 'package:serenity/view/article/behavior_content.dart';
+import 'package:aksonhealth/model/behavior_models.dart';
+import 'package:aksonhealth/view/article/behavior_content.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,11 +23,11 @@ class BehaviorListItem extends StatelessWidget {
       ),
       title: Text(
         behaviorOverview.title,
-        style: GoogleFonts.nunito(fontSize: 18, fontWeight: FontWeight.w600),
+        style: GoogleFonts.sora(fontSize: 18, fontWeight: FontWeight.w600),
       ),
       subtitle: Text(
         behaviorOverview.description,
-        style: GoogleFonts.nunito(fontSize: 15),
+        style: GoogleFonts.sora(fontSize: 15),
         overflow: TextOverflow.ellipsis,
         maxLines: 2,
       ),

@@ -1,5 +1,5 @@
-import 'package:serenity/size_config.dart';
-import 'package:serenity/theme.dart';
+import 'package:aksonhealth/size_config.dart';
+import 'package:aksonhealth/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -22,7 +22,7 @@ class FeaturesAppBar extends StatelessWidget {
             children: [
               Text(
                 "Campaign",
-                style: GoogleFonts.nunito(
+                style: GoogleFonts.sora(
                     color: darkBlueColor,
                     fontWeight: FontWeight.w800,
                     fontSize: getRelativeWidth(0.06)),
@@ -30,7 +30,7 @@ class FeaturesAppBar extends StatelessWidget {
               SizedBox(height: getRelativeHeight(0.003)),
               Text(
                 "Saling peduli untuk memahami mereka lebih dalam",
-                style: GoogleFonts.nunito(
+                style: GoogleFonts.sora(
                     color: Colors.blueGrey[400],
                     fontSize: getRelativeWidth(0.036)),
               ),

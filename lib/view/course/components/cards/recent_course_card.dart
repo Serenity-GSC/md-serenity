@@ -1,4 +1,4 @@
-import 'package:serenity/model/course_model.dart';
+import 'package:aksonhealth/model/course_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';

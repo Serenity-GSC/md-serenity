@@ -1,5 +1,5 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:serenity/theme.dart';
+import 'package:aksonhealth/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -81,7 +81,7 @@ class Onboarding2Screen extends StatelessWidget {
                     ),
                     Text(
                       'Di sini, kami bukan hanya sekadar aplikasi, tetapi sahabat yang akan mendampingi Anda dalam perjalanan menuju pulih. Anda akan merasakan kehangatan dan panduan yang kami tawarkan',
-                      style: GoogleFonts.nunito(
+                      style: GoogleFonts.sora(
                         fontSize: 15,
                         fontWeight: FontWeight.w400,
                         color: grayColor,

@@ -1,5 +1,5 @@
-import 'package:serenity/constants.dart';
-import 'package:serenity/data/parent_data.dart';
+import 'package:aksonhealth/constants.dart';
+import 'package:aksonhealth/data/parent_data.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -27,7 +27,7 @@ class ParentingHome extends StatelessWidget {
                         SizedBox(height: 100),
                         Text(
                           planetInfo.name,
-                          style: GoogleFonts.nunito(
+                          style: GoogleFonts.sora(
                             fontSize: 56,
                             color: primaryTextColor,
                             fontWeight: FontWeight.w900,
@@ -38,7 +38,7 @@ class ParentingHome extends StatelessWidget {
                         SizedBox(height: 32),
                         Text(
                           planetInfo.description ?? '',
-                          style: GoogleFonts.nunito(
+                          style: GoogleFonts.sora(
                             fontSize: 20,
                             color: contentTextColor,
                             fontWeight: FontWeight.w500,
@@ -53,7 +53,7 @@ class ParentingHome extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 32.0),
                     child: Text(
                       'Gallery',
-                      style: GoogleFonts.nunito(
+                      style: GoogleFonts.sora(
                         fontSize: 25,
                         color: const Color(0xff47455f),
                         fontWeight: FontWeight.w300,

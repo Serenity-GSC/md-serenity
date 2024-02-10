@@ -3,11 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import 'package:serenity/view/auth/login/login_screen.dart';
-import 'package:serenity/view/onboarding/onboarding_1.dart';
-import 'package:serenity/view/onboarding/onboarding_2.dart';
-import 'package:serenity/view/onboarding/onboarding_3.dart';
-import 'package:serenity/theme.dart';
+import 'package:aksonhealth/view/auth/login/login_screen.dart';
+import 'package:aksonhealth/view/onboarding/onboarding_1.dart';
+import 'package:aksonhealth/view/onboarding/onboarding_2.dart';
+import 'package:aksonhealth/view/onboarding/onboarding_3.dart';
+import 'package:aksonhealth/theme.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -83,7 +83,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           child: Center(
                             child: Text(
                               'Lets Get Started',
-                              style: GoogleFonts.nunito(
+                              style: GoogleFonts.sora(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w600,
                                 color: whiteColor,
@@ -109,7 +109,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   //         },
                   //         child: Text(
                   //           'Lewati',
-                  //           style: GoogleFonts.nunito(
+                  //           style: GoogleFonts.sora(
                   //             color: blueColor,
                   //             fontSize: 15,
                   //             fontWeight: FontWeight.w600,

@@ -1,5 +1,5 @@
-import 'package:serenity/model/course_model.dart';
-import 'package:serenity/view/parents/questionare/questionare_screen.dart';
+import 'package:aksonhealth/model/course_model.dart';
+import 'package:aksonhealth/view/parents/questionare/questionare_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';

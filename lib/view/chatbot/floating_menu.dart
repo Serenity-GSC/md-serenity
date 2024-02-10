@@ -1,9 +1,9 @@
-import 'package:serenity/data/data.dart';
-import 'package:serenity/model/doctor_model.dart';
-import 'package:serenity/size_config.dart';
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/chatbot/chat_screen.dart';
-import 'package:serenity/view/gamification/pages/home_page.dart';
+import 'package:aksonhealth/data/data.dart';
+import 'package:aksonhealth/model/doctor_model.dart';
+import 'package:aksonhealth/size_config.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/chatbot/chat_screen.dart';
+import 'package:aksonhealth/view/gamification/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -24,7 +24,6 @@ class FloatingMenu extends StatelessWidget {
           context, MaterialPageRoute(builder: (context) => HomePage()));
     }
 
-
     void featuresAction(Doctor doctor) {
       if (doctor.name == "Tanya Autism bot") {
         navigateScreenAutism(doctor);
@@ -40,10 +39,7 @@ class FloatingMenu extends StatelessWidget {
         backgroundColor: darkBlueColor,
         title: Text(
           "Tanya Ai",
-          style: GoogleFonts.nunito(
-            fontWeight: FontWeight.bold,
-            fontSize: 24
-          ),
+          style: GoogleFonts.sora(fontWeight: FontWeight.bold, fontSize: 24),
         ),
       ),
       body: Container(
@@ -105,7 +101,7 @@ class FloatingMenu extends StatelessWidget {
                                               decoration: BoxDecoration(
                                                 border: Border.all(
                                                     width: 15,
-                                                    color: darkBlueColor 
+                                                    color: darkBlueColor
                                                         .withOpacity(0.25)),
                                                 shape: BoxShape.circle,
                                               ),
@@ -153,7 +149,7 @@ class FloatingMenu extends StatelessWidget {
                                   children: [
                                     Text(
                                       doctor.name,
-                                      style: GoogleFonts.nunito(
+                                      style: GoogleFonts.sora(
                                           fontWeight: FontWeight.bold,
                                           color: blueColor,
                                           fontSize: getRelativeWidth(0.041)),
@@ -161,7 +157,7 @@ class FloatingMenu extends StatelessWidget {
                                     SizedBox(height: getRelativeHeight(0.005)),
                                     Text(
                                       doctor.speciality,
-                                      style: GoogleFonts.nunito(
+                                      style: GoogleFonts.sora(
                                           color: Colors.black.withOpacity(0.8),
                                           fontSize: getRelativeWidth(0.032)),
                                     ),
@@ -183,6 +179,5 @@ class FloatingMenu extends StatelessWidget {
         ),
       ),
     );
-    
   }
 }

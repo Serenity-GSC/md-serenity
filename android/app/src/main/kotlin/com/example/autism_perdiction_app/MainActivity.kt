@@ -1,4 +1,4 @@
-package com.serenity
+package com.aksonhealth
 
 import io.flutter.embedding.android.FlutterActivity
 

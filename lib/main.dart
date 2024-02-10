@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'package:serenity/view/doctor/bottomNavBarDoctor/doctor_nav_bar_screen.dart';
-import 'package:serenity/view/parents/bottomNavBar/app_bottom_nav_bar_screen.dart';
-import 'package:serenity/view/splash/splash_screen.dart';
+import 'package:aksonhealth/view/doctor/bottomNavBarDoctor/doctor_nav_bar_screen.dart';
+import 'package:aksonhealth/view/parents/bottomNavBar/app_bottom_nav_bar_screen.dart';
+import 'package:aksonhealth/view/splash/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

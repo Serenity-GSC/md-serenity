@@ -1,8 +1,8 @@
-import 'package:serenity/data/data.dart';
-import 'package:serenity/size_config.dart';
-import 'package:serenity/theme.dart';
-import 'package:serenity/view/chatbot/chat_screen.dart';
-import 'package:serenity/view/parents/home/home_screen.dart';
+import 'package:aksonhealth/data/data.dart';
+import 'package:aksonhealth/size_config.dart';
+import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/chatbot/chat_screen.dart';
+import 'package:aksonhealth/view/parents/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -58,21 +58,21 @@ class CategoriesList extends StatelessWidget {
                           children: [
                             Text(
                               category.title,
-                              style: GoogleFonts.nunito(
+                              style: GoogleFonts.sora(
                                   fontSize: getRelativeWidth(0.038),
                                   fontWeight: FontWeight.bold),
                             ),
                             SizedBox(height: getRelativeHeight(0.005)),
                           ],
                         ),
-                        SizedBox(width: getRelativeWidth(0.02)), 
+                        SizedBox(width: getRelativeWidth(0.02)),
                         Text(
-                              "*free",
-                              style: GoogleFonts.nunito(
-                                  fontSize: 18,
-                                  color: Colors.red,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                          "*free",
+                          style: GoogleFonts.sora(
+                              fontSize: 18,
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold),
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 50),
                           child: ElevatedButton(
@@ -95,7 +95,7 @@ class CategoriesList extends StatelessWidget {
                             ),
                             child: Text(
                               'Mulai Chat',
-                              style: GoogleFonts.nunito(
+                              style: GoogleFonts.sora(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 13, // Ukuran teks
                               ),

@@ -16,7 +16,7 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
-      {"icon": "assets/icons/home.png", "text": "Home"},
+      {"icon": "assets/icons/homeactive.png", "text": "Home"},
       {"icon": "assets/icons/alarm.png", "text": "Alarm"},
       {"icon": "assets/icons/community.png", "text": "Community"},
       {"icon": "assets/icons/settings.png", "text": "Settings"},

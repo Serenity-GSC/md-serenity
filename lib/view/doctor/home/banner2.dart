@@ -1,6 +1,7 @@
 import 'package:aksonhealth/size_config.dart';
 import 'package:aksonhealth/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Banner2 extends StatefulWidget {
   const Banner2({super.key});
@@ -32,11 +33,16 @@ class _Banner2State extends State<Banner2> {
             children: [
               Image.asset('assets/banner-content.png'),
               Container(
-                  width: 205,
+                  width: 235,
                   child: Padding(
                     padding: const EdgeInsets.only(left: 10, top: 13),
                     child: Text(
-                        'Cara mengurangi resiko stress dan mengatur waktu tidur'),
+                      'Cara mengurangi resiko stress dan mengatur waktu tidur',
+                      style: GoogleFonts.sora(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w300,
+                          color: blackColor),
+                    ),
                   ))
             ],
           ),

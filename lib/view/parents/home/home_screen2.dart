@@ -96,7 +96,7 @@ class _HomeScreen2State extends State<HomeScreen2> {
                                       color: greenColor),
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: 20, vertical: 5),
+                                        horizontal: 18, vertical: 5),
                                     child: Text(
                                       'Join Now',
                                       style: GoogleFonts.sora(
@@ -110,7 +110,7 @@ class _HomeScreen2State extends State<HomeScreen2> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 25),
+                    SizedBox(height: 15),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -124,7 +124,7 @@ class _HomeScreen2State extends State<HomeScreen2> {
                                 color: blueColor),
                           ),
                         ),
-                        SizedBox(height: 21),
+                        SizedBox(height: 11),
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Padding(
@@ -143,10 +143,17 @@ class _HomeScreen2State extends State<HomeScreen2> {
                   ],
                 ),
               ),
-              Container(
+              SizedBox(height: 11),
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: Container(
                   decoration: BoxDecoration(
                       border: Border(top: BorderSide(color: greyColor))),
-                  child: Menu())
+                  child: Menu(),
+                ),
+              ),
             ],
           ),
         ),

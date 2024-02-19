@@ -194,6 +194,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
     if (snapshot.state == TaskState.success) {
       return await snapshot.ref.getDownloadURL();
     }
+    return null;
   }
 
   @override

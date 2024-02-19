@@ -141,6 +141,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if (snapshot.state == TaskState.success) {
       return await snapshot.ref.getDownloadURL();
     }
+    return null;
   }
 
   List items = [

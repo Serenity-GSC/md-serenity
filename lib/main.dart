@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:aksonhealth/view/doctor/bottomNavBarDoctor/doctor_nav_bar_screen.dart';
 import 'package:aksonhealth/view/parents/bottomNavBar/app_bottom_nav_bar_screen.dart';
+import 'package:aksonhealth/view/parents/home/home_screen2.dart';
 import 'package:aksonhealth/view/splash/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -91,7 +92,7 @@ class _MyAppState extends State<MyApp> {
                   title: '',
                   subTitle: '',
                 )
-              : SplashScreen(),
+              : HomeScreen2(),
     );
   }
 }

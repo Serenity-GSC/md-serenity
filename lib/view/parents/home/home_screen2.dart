@@ -1,6 +1,7 @@
 import 'package:aksonhealth/constants.dart';
 import 'package:aksonhealth/size_config.dart';
 import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/alarm/alarm.dart';
 import 'package:aksonhealth/view/course/components/list/explore_course_list.dart';
 import 'package:aksonhealth/view/doctor/home/assesment.dart';
 import 'package:aksonhealth/view/doctor/home/banner2.dart';
@@ -22,141 +23,196 @@ class _HomeScreen2State extends State<HomeScreen2> {
     SizeConfig.init(context);
     return WillPopScope(
         child: Scaffold(
-          backgroundColor: Colors.white,
-          body: Column(
-            children: [
-              SingleChildScrollView(
-                child: Column(
-                  children: [
-                    SizedBox(height: 50),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 31, right: 31),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            width: 280,
-                            child: RichText(
-                              text: TextSpan(
-                                style: GoogleFonts.sora(
-                                    fontWeight: FontWeight.w600,
-                                    color: blueColor,
-                                    fontSize: 26),
-                                children: [
-                                  TextSpan(
-                                    text: 'Let`s strengthen our ',
-                                  ),
-                                  TextSpan(
-                                    text: 'mentality',
-                                    style: TextStyle(
-                                        color:
-                                            greenColor), // Mengubah warna menjadi greenColor
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 10),
-                            child: Image.asset(
-                              'assets/icons/Bell2.png',
-                              width: 18.5,
-                              height: 23,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Assesment(),
-                    SizedBox(height: 26),
-                    Progress(),
-                    SizedBox(height: 28),
-                    Container(
-                      width: getRelativeWidth(0.8),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: blackColor),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 14),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                                width: getRelativeWidth(0.4),
-                                child: Text(
-                                    'Need counseling help? make a schedule here')),
-                            GestureDetector(
-                              onTap: () {},
-                              child: Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: greenColor),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 18, vertical: 5),
-                                    child: Text(
-                                      'Join Now',
-                                      style: GoogleFonts.sora(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w400,
-                                          color: Colors.white),
-                                    ),
-                                  )),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 15),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+            backgroundColor: Colors.white,
+            body: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SingleChildScrollView(
+                    child: Column(
                       children: [
+                        SizedBox(height: 50),
                         Padding(
-                          padding: const EdgeInsets.only(left: 40),
-                          child: Text(
-                            'Tips',
-                            style: GoogleFonts.sora(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: blueColor),
+                          padding: const EdgeInsets.only(left: 31, right: 31),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: 280,
+                                child: RichText(
+                                  text: TextSpan(
+                                    style: GoogleFonts.sora(
+                                        fontWeight: FontWeight.w600,
+                                        color: blueColor,
+                                        fontSize: 26),
+                                    children: [
+                                      TextSpan(
+                                        text: 'Let`s strengthen our ',
+                                      ),
+                                      TextSpan(
+                                        text: 'mentality',
+                                        style: TextStyle(
+                                            color:
+                                                greenColor), // Mengubah warna menjadi greenColor
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Image.asset(
+                                  'assets/icons/Bell2.png',
+                                  width: 18.5,
+                                  height: 23,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        SizedBox(height: 11),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
+                        SizedBox(height: 20),
+                        Assesment(),
+                        SizedBox(height: 26),
+                        Progress(),
+                        SizedBox(height: 28),
+                        Container(
+                          width: getRelativeWidth(0.8),
+                          decoration: BoxDecoration(
+                              border: Border.all(color: blackColor),
+                              borderRadius: BorderRadius.circular(10)),
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 40),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 30, vertical: 14),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Banner2(),
-                                SizedBox(width: 12),
-                                Banner2()
+                                Container(
+                                    width: getRelativeWidth(0.4),
+                                    child: Text(
+                                        'Need counseling help? make a schedule here')),
+                                GestureDetector(
+                                  onTap: () {},
+                                  child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(10),
+                                          color: greenColor),
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 18, vertical: 5),
+                                        child: Text(
+                                          'Join Now',
+                                          style: GoogleFonts.sora(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400,
+                                              color: Colors.white),
+                                        ),
+                                      )),
+                                )
                               ],
                             ),
                           ),
-                        )
+                        ),
+                        SizedBox(height: 15),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 40),
+                              child: Text(
+                                'Tips',
+                                style: GoogleFonts.sora(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    color: blueColor),
+                              ),
+                            ),
+                            SizedBox(height: 11),
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 40),
+                                child: Row(
+                                  children: [
+                                    Banner2(),
+                                    SizedBox(width: 12),
+                                    Banner2()
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ],
                     ),
+                  ),
+                  SizedBox(height: 11),
+                ],
+              ),
+            ),
+            bottomNavigationBar: Container(
+              margin: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                  color: greyColor, borderRadius: BorderRadius.circular(20)),
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 40),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    HomeScreen2()), // Replace "Donasi()" with your actual page route
+                          );
+                        },
+                        child: Image.asset(
+                          'assets/icons/homeactive.png',
+                          width: 35,
+                          height: 35,
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  Alarm()), // Replace "Donasi()" with your actual page route
+                        );
+                      },
+                      child: Image.asset(
+                        'assets/icons/alarm.png',
+                        width: 35,
+                        height: 35,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 40),
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Image.asset(
+                          'assets/icons/community.png',
+                          width: 35,
+                          height: 35,
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Image.asset(
+                        'assets/icons/settings.png',
+                        width: 35,
+                        height: 35,
+                      ),
+                    )
                   ],
                 ),
               ),
-              SizedBox(height: 11),
-              Positioned(
-                top: 0,
-                left: 0,
-                right: 0,
-                child: Container(
-                  decoration: BoxDecoration(
-                      border: Border(top: BorderSide(color: greyColor))),
-                  child: Menu(),
-                ),
-              ),
-            ],
-          ),
-        ),
+            )),
         onWillPop: showExitPopup);
   }
 

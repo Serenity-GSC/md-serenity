@@ -1,5 +1,6 @@
 import 'package:aksonhealth/size_config.dart';
 import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/parents/assessment/assesment.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -33,7 +34,14 @@ class Assesment extends StatelessWidget {
                 ),
                 SizedBox(height: 17),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AssesmentQuestion(),
+                      ), // Replace "Donasi()" with your actual page route
+                    );
+                  },
                   child: Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),

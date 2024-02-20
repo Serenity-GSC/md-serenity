@@ -1,10 +1,12 @@
 // <<<<<<< HEAD
 import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/alarm/alarm.dart';
 import 'package:aksonhealth/view/course/screens/home_screen.dart';
 import 'package:aksonhealth/view/gamification/pages/home_page.dart';
 // >>>>>>> 7c011123d9d6daca0b7e98595e0539787a0de769
 import 'package:aksonhealth/view/parenting/grid.dart';
 import 'package:aksonhealth/view/parents/clinic/clinic_test.dart';
+import 'package:aksonhealth/view/parents/home/home_screen2.dart';
 import 'package:aksonhealth/view/parents/schools/schools.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -41,18 +43,18 @@ class Menu extends StatelessWidget {
                 icon: categories[index]["icon"],
                 text: categories[index]["text"],
                 press: () {
-                  if (categories[index]["text"] == "Klinik") {
+                  if (categories[index]["text"] == "Home") {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              ClinicTesting()), // Replace "Donasi()" with your actual page route
+                              HomeScreen2()), // Replace "Donasi()" with your actual page route
                     );
-                  } else if (categories[index]["text"] == "Sekolah") {
+                  } else if (categories[index]["text"] == "Alarm") {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SchoolsForChildren(),
+                        builder: (context) => Alarm(),
                       ), // Replace "Donasi()" with your actual page route
                     );
                   } else if (categories[index]["text"] == "Permainan") {

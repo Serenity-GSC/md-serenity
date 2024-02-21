@@ -6,6 +6,7 @@ import 'package:aksonhealth/view/course/components/list/explore_course_list.dart
 import 'package:aksonhealth/view/doctor/home/assesment.dart';
 import 'package:aksonhealth/view/doctor/home/banner2.dart';
 import 'package:aksonhealth/view/doctor/home/progress.dart';
+import 'package:aksonhealth/view/parents/home/bottomnavbar.dart';
 import 'package:aksonhealth/view/parents/home/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -94,7 +95,8 @@ class _HomeScreen2State extends State<HomeScreen2> {
                                   onTap: () {},
                                   child: Container(
                                       decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                           color: greenColor),
                                       child: Padding(
                                         padding: const EdgeInsets.symmetric(
@@ -112,7 +114,7 @@ class _HomeScreen2State extends State<HomeScreen2> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 15),
+                        SizedBox(height: 21),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -149,71 +151,8 @@ class _HomeScreen2State extends State<HomeScreen2> {
                 ],
               ),
             ),
-            bottomNavigationBar: Container(
-              margin: EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                  color: greyColor, borderRadius: BorderRadius.circular(20)),
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 40),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    HomeScreen2()), // Replace "Donasi()" with your actual page route
-                          );
-                        },
-                        child: Image.asset(
-                          'assets/icons/homeactive.png',
-                          width: 35,
-                          height: 35,
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  Alarm()), // Replace "Donasi()" with your actual page route
-                        );
-                      },
-                      child: Image.asset(
-                        'assets/icons/alarm.png',
-                        width: 35,
-                        height: 35,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 40),
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Image.asset(
-                          'assets/icons/community.png',
-                          width: 35,
-                          height: 35,
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: Image.asset(
-                        'assets/icons/settings.png',
-                        width: 35,
-                        height: 35,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            )),
-        onWillPop: showExitPopup);
+            bottomNavigationBar: BottomNav(active: 0,)),
+        onWillPop: showExitPopup, );
   }
 
   Future<bool> showExitPopup() async {

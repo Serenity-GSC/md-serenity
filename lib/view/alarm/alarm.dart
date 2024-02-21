@@ -6,6 +6,7 @@ import 'package:aksonhealth/view/alarm/chart.dart';
 
 import 'package:aksonhealth/view/alarm/statistic.dart';
 import 'package:aksonhealth/view/doctor/home/banner2.dart';
+import 'package:aksonhealth/view/parents/home/bottomnavbar.dart';
 import 'package:aksonhealth/view/parents/home/home_screen2.dart';
 import 'package:aksonhealth/view/parents/home/menu.dart';
 
@@ -74,73 +75,12 @@ class _AlarmState extends State<Alarm> {
                     children: [Banner2(), SizedBox(width: 12), Banner2()],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
-        bottomNavigationBar: Container(
-          margin: EdgeInsets.all(20),
-          decoration: BoxDecoration(
-              color: greyColor, borderRadius: BorderRadius.circular(20)),
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                HomeScreen2()), // Replace "Donasi()" with your actual page route
-                      );
-                    },
-                    child: Image.asset(
-                      'assets/icons/home.png',
-                      width: 35,
-                      height: 35,
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Alarm(),
-                      ), // Replace "Donasi()" with your actual page route
-                    );
-                  },
-                  child: Image.asset(
-                    'assets/icons/alarmactive.png',
-                    width: 35,
-                    height: 35,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Image.asset(
-                      'assets/icons/community.png',
-                      width: 35,
-                      height: 35,
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {},
-                  child: Image.asset(
-                    'assets/icons/settings.png',
-                    width: 35,
-                    height: 35,
-                  ),
-                )
-              ],
-            ),
-          ),
+        bottomNavigationBar: BottomNav(
+          active: 1,
         ));
   }
 }

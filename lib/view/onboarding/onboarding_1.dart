@@ -61,15 +61,14 @@ class Onboarding1Screen extends StatelessWidget {
                   0.05, // Adjust bottom padding as per mockup
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize:
                   MainAxisSize.min, // Ensure the column takes minimum space
               children: [
                 Text(
                   'Everything you need to be a good parent is here',
-                  style: GoogleFonts.spectral(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
+                  style: GoogleFonts.sora(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w700,
                     color: blackColor,
                   ),
                 ),

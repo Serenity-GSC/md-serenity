@@ -168,13 +168,15 @@ class _AssesmentQuestionState extends State<AssesmentQuestion> {
                 decoration: BoxDecoration(
                     color: blueColor, borderRadius: BorderRadius.circular(5)),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 145, vertical: 18),
-                  child: Text(
-                    'Next',
-                    style: GoogleFonts.sora(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white),
+                  padding: EdgeInsets.symmetric(vertical: 21),
+                  child: Center(
+                    child: Text(
+                      'Next',
+                      style: GoogleFonts.sora(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white),
+                    ),
                   ),
                 ),
               ),

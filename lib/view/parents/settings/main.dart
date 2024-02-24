@@ -253,7 +253,6 @@ class Settings extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNav(active: 3),
     );
   }
 

@@ -96,12 +96,12 @@ class Menu extends StatelessWidget {
           //             ), // Replace "Donasi()" with your actual page route
           //           );
           //         } else if (categorize[index]["text"] == "Pelatihan") {
-          //           Navigator.push(
-          //             context,
-          //             MaterialPageRoute(
-          //               builder: (context) => CourseScreen(),
-          //             ), // Replace "Donasi()" with your actual page route
-          //           );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => CourseScreen(),
+                    //   ), // Replace "Donasi()" with your actual page route
+                    // );
           //         } else if (categorize[index]["text"] == "Event") {
           //           Navigator.push(
           //             context,

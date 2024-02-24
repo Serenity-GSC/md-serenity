@@ -1,6 +1,7 @@
 import 'package:aksonhealth/constants.dart';
 import 'package:aksonhealth/size_config.dart';
 import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/parents/home/bottomnavbar.dart';
 import 'package:aksonhealth/view/parents/home/home_screen2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,12 +25,12 @@ class _ResultState extends State<Result> {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        HomeScreen2()), // Replace "Donasi()" with your actual page route
-              );
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BottomNav(),
+                  ),
+                  (Route<dynamic> route) => false);
             },
             child: Padding(
               padding: const EdgeInsets.only(top: 40, left: 40),
@@ -80,18 +81,18 @@ class _ResultState extends State<Result> {
                 Container(
                   width: getRelativeWidth(0.6),
                   child: RichText(
-                    textAlign: TextAlign.center,
+                      textAlign: TextAlign.center,
                       text: TextSpan(
                           style: GoogleFonts.sora(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
                               color: blackColor),
                           children: [
-                        TextSpan(text: 'For precautions and information '),
-                        TextSpan(
-                            text: 'click here',
-                            style: TextStyle(decorationThickness: 1))
-                      ])),
+                            TextSpan(text: 'For precautions and information '),
+                            TextSpan(
+                                text: 'click here',
+                                style: TextStyle(decorationThickness: 1))
+                          ])),
                 )
               ],
             ),

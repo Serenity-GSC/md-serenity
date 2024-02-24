@@ -87,12 +87,7 @@ class _AssesmentQuestionState extends State<AssesmentQuestion> {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            HomeScreen2()), // Replace "Donasi()" with your actual page route
-                  );
+                    Navigator.pop(context);
                 },
                 child: Image.asset(
                   'assets/icons/back.png',

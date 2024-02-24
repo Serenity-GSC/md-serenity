@@ -79,8 +79,6 @@ class _AlarmState extends State<Alarm> {
             ],
           ),
         ),
-        bottomNavigationBar: BottomNav(
-          active: 1,
-        ));
+       );
   }
 }

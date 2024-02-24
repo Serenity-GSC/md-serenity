@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:aksonhealth/view/doctor/bottomNavBarDoctor/doctor_nav_bar_screen.dart';
 import 'package:aksonhealth/view/parents/bottomNavBar/app_bottom_nav_bar_screen.dart';
+import 'package:aksonhealth/view/parents/home/bottomnavbar.dart';
 import 'package:aksonhealth/view/parents/home/home_screen2.dart';
 import 'package:aksonhealth/view/splash/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -80,19 +81,7 @@ class _MyAppState extends State<MyApp> {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: userType == 'Parents'
-          ? AppBottomNavBarScreen(
-              index: 0,
-              title: '',
-              subTitle: '',
-            )
-          : userType == 'Doctors'
-              ? AppDoctorBottomNavBarScreen(
-                  index: 0,
-                  title: '',
-                  subTitle: '',
-                )
-              : HomeScreen2(),
+      home: BottomNav()
     );
   }
 }

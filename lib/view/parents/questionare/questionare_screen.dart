@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:aksonhealth/constants.dart';
 import 'package:aksonhealth/model/questionare_model.dart';
 import 'package:aksonhealth/theme.dart';
@@ -472,7 +470,7 @@ class _QuestionareScreenState extends State<QuestionareScreen> {
                             );
                           });
                         },
-                        child: Text('Tanyakan ke Dokter Akson',
+                        child: Text('Tanyakan ke Dokter Serenity',
                             style: GoogleFonts.sora(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,

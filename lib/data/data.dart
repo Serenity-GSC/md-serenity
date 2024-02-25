@@ -7,7 +7,7 @@ import 'package:line_icons/line_icons.dart';
 class Data {
   static final categoriesList = [
     Category(
-      title: "Tanya chatbot",
+      title: "Asking chatbot",
       doctorsNumber: 15,
       icon: LineIcons.spinner,
     ),

@@ -24,12 +24,25 @@ class _ConsultScreenState extends State<ConsultScreen> {
             child: Column(
               children: [
                 AppBar(
-                  title: Text("Konsultasi",
-                      style: GoogleFonts.sora(color: darkBlueColor)),
+                  title: Text("Consultation",
+                      style: GoogleFonts.sora(
+                          color: blueColor, fontWeight: FontWeight.bold)),
                   backgroundColor: Colors.white,
                 ),
                 SizedBox(height: 30),
                 ConsultBanner(),
+                SizedBox(height: 21),
+            Padding(
+              padding: const EdgeInsets.only(left: 31),
+              child: Text(
+                'List Doctors',
+                style: GoogleFonts.sora(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: blueColor),
+              ),
+            ),
+            SizedBox(height: 14),
                 SpecialistScreen(),
               ],
             ),
@@ -45,8 +58,8 @@ class _ConsultScreenState extends State<ConsultScreen> {
           //the return value will be from "Yes" or "No" options
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('Keluar Aplikasi'),
-            content: Text('Kamu ingin keluar aplikasi?'),
+            title: Text('Message'),
+            content: Text('Do you want exit??'),
             actions: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -55,7 +68,7 @@ class _ConsultScreenState extends State<ConsultScreen> {
                         fontSize: 16, fontWeight: FontWeight.bold)),
                 onPressed: () => Navigator.of(context).pop(false),
                 //return false when click on "NO"
-                child: Text('Tidak'),
+                child: Text('No'),
               ),
               ElevatedButton(
                 onPressed: () => Navigator.of(context).pop(true),
@@ -64,7 +77,7 @@ class _ConsultScreenState extends State<ConsultScreen> {
                     primary: redColor,
                     textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
-                child: Text('Ya'),
+                child: Text('Yes'),
               ),
             ],
           ),

@@ -4,6 +4,7 @@ import 'package:aksonhealth/constants.dart';
 import 'package:aksonhealth/model/firebase_auth.dart';
 import 'package:aksonhealth/model/input_validator.dart';
 import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/auth/login/login_screen.dart';
 import 'package:aksonhealth/view/doctor/bottomNavBarDoctor/doctor_nav_bar_screen.dart';
 import 'package:aksonhealth/view/parents/bottomNavBar/app_bottom_nav_bar_screen.dart';
 import 'package:aksonhealth/widgets/google_signup_button_widget.dart';
@@ -141,6 +142,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if (snapshot.state == TaskState.success) {
       return await snapshot.ref.getDownloadURL();
     }
+    return null;
   }
 
   List items = [
@@ -2209,7 +2211,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           'assets/logo.png',
                           fit: BoxFit.scaleDown,
                           height: 100,
-                          width: 100,
+                          width: 200,
                         ),
                       ),
                     ),
@@ -2218,7 +2220,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       child: Row(
                         children: [
                           Text(
-                            'Welcome Back!',
+                            'Register Account!',
                             style: GoogleFonts.sora(
                               color: blackColor,
                               fontSize: 22,
@@ -2243,6 +2245,74 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             textAlign: TextAlign.left,
                           ),
                         ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0, bottom: 5.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Name',
+                            style: GoogleFonts.sora(
+                              color: blackColor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(30)),
+                      //  color: Colors.white,
+                      margin: EdgeInsets.only(left: 16, right: 16, bottom: 0),
+                      child: TextFormField(
+                        controller: _firstNameControoler,
+                        keyboardType: TextInputType.name,
+                        style: GoogleFonts.sora(
+                          fontSize: 14,
+                          color: Colors.black,
+                        ),
+                        onChanged: (value) {
+                          // setState(() {
+                          //   userInput.text = value.toString();
+                          // });
+                        },
+                        decoration: InputDecoration(
+                          //contentPadding: EdgeInsets.only(top: 15,bottom: 15),
+                          contentPadding:
+                              EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                          focusColor: Colors.white,
+                          //add prefix icon
+                          prefixIcon: Icon(Icons.person_4_outlined),
+
+                          // errorText: "Error",
+
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: blueColor, width: 1.0),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          fillColor: Colors.white,
+                          hintText: "User Name",
+
+                          //make hint text
+                          hintStyle: GoogleFonts.sora(
+                            color: blueColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -2316,33 +2386,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     SizedBox(
                       height: size.height * 0.02,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Expanded(
-                          child: Container(
-                            padding: EdgeInsets.only(right: 20),
-                            child: Text(
-                              'Forgot Password?',
-                              textAlign: TextAlign.right,
-                              style: GoogleFonts.sora(
-                                color: Color(0xFF005BAC),
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            // decoration: BoxDecoration(
-                            //   border: Border(
-                            //     bottom: BorderSide(
-                            //       color: blueColor,
-                            //       width: 2.0,
-                            //     ),
-                            //   ),
-                            // ),
-                          ),
-                        ),
-                      ],
-                    ),
                     Padding(
                       padding: const EdgeInsets.only(left: 20.0, bottom: 5.0),
                       child: Row(
@@ -2413,335 +2456,275 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       height: size.height * 0.05,
                     ),
                     _isLoading
-                        ? CircularProgressIndicator(
-                            color: blueColor,
-                            strokeWidth: 2,
-                          )
-                        : Padding(
-                            padding: const EdgeInsets.only(left: 16, right: 16),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Colors.black26,
-                                      offset: Offset(0, 4),
-                                      blurRadius: 5.0)
-                                ],
-                                border: Border.all(
-                                    color: Colors.white.withOpacity(0.5)),
-                                gradient: LinearGradient(
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                  stops: [0.0, 1.0],
-                                  colors: [
-                                    blueColor,
-                                    blueColor,
-                                  ],
-                                ),
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                              child: ElevatedButton(
-                                  style: ButtonStyle(
-                                    shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
+                                ? CircularProgressIndicator(
+                                    color: darkBlueColor,
+                                    strokeWidth: 2,
+                                  )
+                                : Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 16, right: 16),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Colors.black26,
+                                              offset: Offset(0, 4),
+                                              blurRadius: 5.0)
+                                        ],
+                                        gradient: LinearGradient(
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                          stops: [0.0, 1.0],
+                                          colors: [
+                                            blueColor,
+                                            blueColor,
+                                          ],
+                                        ),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                    ),
-                                    minimumSize: MaterialStateProperty.all(
-                                        Size(size.width, 50)),
-                                    backgroundColor:
-                                        MaterialStateProperty.all(blueColor),
-                                    // elevation: MaterialStateProperty.all(3),
-                                    shadowColor: MaterialStateProperty.all(
-                                        Colors.transparent),
-                                  ),
-                                  onPressed: () async {
-                                    print(_emailControoler.text);
-                                    print(_passwordControoler.text);
-                                    print(widget.userType.toString());
-                                    if (_inputValidator.validateEmail(
-                                                _emailControoler.text) !=
-                                            'success' &&
-                                        _emailControoler
-                                            .text.isNotEmpty) {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(const SnackBar(
-                                              content: Text(
-                                                  'Wrong email, please use a correct email')));
-                                    } else {
-                                      if (_emailControoler
-                                          .text.isEmpty) {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(const SnackBar(
-                                                content: Text(
-                                                    'Enter Email Address')));
-                                      } else if (_passwordControoler
-                                          .text.isEmpty) {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(const SnackBar(
-                                                content:
-                                                    Text('Enter Password')));
-                                      } else {
-                                        setState(() {
-                                          _isLoading = true;
-                                        });
-                                        SharedPreferences prefs =
-                                            await SharedPreferences
-                                                .getInstance();
+                                      child: ElevatedButton(
+                                          style: ButtonStyle(
+                                            shape: MaterialStateProperty.all<
+                                                RoundedRectangleBorder>(
+                                              RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                              ),
+                                            ),
+                                            minimumSize:
+                                                MaterialStateProperty.all(
+                                                    Size(size.width, 50)),
+                                            backgroundColor:
+                                                MaterialStateProperty.all(
+                                                    Colors.transparent),
+                                            // elevation: MaterialStateProperty.all(3),
+                                            shadowColor:
+                                                MaterialStateProperty.all(
+                                                    Colors.transparent),
+                                          ),
+                                          onPressed: () async {
+                                            if (_inputValidator.validateEmail(
+                                                        _emailControoler
+                                                            .text) !=
+                                                    'success' &&
+                                                _emailControoler
+                                                    .text.isNotEmpty) {
+                                              Fluttertoast.showToast(
+                                                  msg: "Wrong email address",
+                                                  toastLength:
+                                                      Toast.LENGTH_SHORT,
+                                                  gravity: ToastGravity.BOTTOM,
+                                                  timeInSecForIosWeb: 1,
+                                                  backgroundColor: Colors.black,
+                                                  textColor: Colors.white,
+                                                  fontSize: 16.0);
+                                            }
 
-                                        try {
-                                          if (widget.userType == 'Doctors') {
-                                            final snapshot =
-                                                await FirebaseFirestore.instance
-                                                    .collection('Doctors')
-                                                    .get();
-                                            snapshot.docs.forEach((element) {
-                                              print('user data');
-                                              if (element['email'] ==
-                                                  _emailControoler.text
-                                                      .toString()
-                                                      .trim()) {
-                                                print(
-                                                    'user age in if of current user ');
-                                                //   print(element['age']);
+                                            else if ((_passwordControoler
+                                                            .text.length <
+                                                        1 &&
+                                                    _passwordControoler
+                                                        .text.isNotEmpty)) {
+                                            } else {
+                                              if (_firstNameControoler
+                                                  .text.isEmpty) {
+                                                Fluttertoast.showToast(
+                                                    msg:
+                                                        "Name must be filled in",
+                                                    toastLength:
+                                                        Toast.LENGTH_SHORT,
+                                                    gravity:
+                                                        ToastGravity.BOTTOM,
+                                                    timeInSecForIosWeb: 1,
+                                                    backgroundColor:
+                                                        Colors.black,
+                                                    textColor: Colors.white,
+                                                    fontSize: 16.0);
+                                              } else if (_emailControoler
+                                                  .text.isEmpty) {
+                                                Fluttertoast.showToast(
+                                                    msg:
+                                                        "Email address must be filled in",
+                                                    toastLength:
+                                                        Toast.LENGTH_SHORT,
+                                                    gravity:
+                                                        ToastGravity.BOTTOM,
+                                                    timeInSecForIosWeb: 1,
+                                                    backgroundColor:
+                                                        Colors.black,
+                                                    textColor: Colors.white,
+                                                    fontSize: 16.0);
+                                              } else if (_passwordControoler
+                                                  .text.isEmpty) {
+                                                Fluttertoast.showToast(
+                                                    msg: "Password must be filled in",
+                                                    toastLength:
+                                                        Toast.LENGTH_SHORT,
+                                                    gravity:
+                                                        ToastGravity.BOTTOM,
+                                                    timeInSecForIosWeb: 1,
+                                                    backgroundColor:
+                                                        Colors.black,
+                                                    textColor: Colors.white,
+                                                    fontSize: 16.0);
+                                              } else {
                                                 setState(() {
-                                                  isCreated = 'yes';
+                                                  _isLoading = true;
+                                                  print('We are in loading');
+                                                  //  state = ButtonState.loading;
+                                                });
+
+                                                print(_firstNameControoler.text
+                                                    .toString());
+                                                print(_emailControoler.text
+                                                    .toString());
+                                                print(_passwordControoler.text
+                                                    .toString());
+                                                //createAccount();
+                                                //_methodsHandler.createAccount(name: _controllerClinic.text, email: _controller.text, password: _controllerPass.text, context: context);
+                                                SharedPreferences prefs =
+                                                    await SharedPreferences
+                                                        .getInstance();
+
+                                                FirebaseFirestore.instance
+                                                    .collection(widget.userType
+                                                        .toString())
+                                                    .where("email",
+                                                        isEqualTo:
+                                                            _emailControoler
+                                                                .text
+                                                                .trim())
+                                                    .get()
+                                                    .then((value) async {
+                                                  if (value.docs.isNotEmpty) {
+                                                    setState(() {
+                                                      _isLoading = false;
+                                                    });
+                                                    Fluttertoast.showToast(
+                                                      msg:
+                                                          "Sorry email account already exists",
+                                                      toastLength:
+                                                          Toast.LENGTH_SHORT,
+                                                      gravity:
+                                                          ToastGravity.BOTTOM,
+                                                      timeInSecForIosWeb: 4,
+                                                    );
+                                                  } else {
+                                                    try {
+                                                      User? result = (await _auth
+                                                              .createUserWithEmailAndPassword(
+                                                                  email:
+                                                                      _emailControoler
+                                                                          .text
+                                                                          .trim(),
+                                                                  password:
+                                                                      _passwordControoler
+                                                                          .text
+                                                                          .trim()))
+                                                          .user;
+
+                                                      if (result != null) {
+                                                        var user = result;
+
+                                                        FirebaseFirestore
+                                                            .instance
+                                                            .collection(widget
+                                                                .userType
+                                                                .toString())
+                                                            .doc()
+                                                            .set({
+                                                          "email":
+                                                              _emailControoler
+                                                                  .text
+                                                                  .trim(),
+                                                          "password":
+                                                              _passwordControoler
+                                                                  .text
+                                                                  .trim(),
+                                                          "uid": user.uid,
+                                                          "name":
+                                                              _firstNameControoler
+                                                                  .text,
+                                                        }).then((value) =>
+                                                                print(
+                                                                    'success'));
+
+                                                        prefs.setString(
+                                                            'userType',
+                                                            'Users');
+                                                        prefs.setString(
+                                                            'userEmail',
+                                                            _emailControoler
+                                                                .text
+                                                                .trim());
+                                                        prefs.setString(
+                                                            'userPassword',
+                                                            _passwordControoler
+                                                                .text
+                                                                .trim());
+                                                        prefs.setString(
+                                                            'name',
+                                                            _firstNameControoler
+                                                                .text
+                                                                .trim());
+                                                        prefs.setString(
+                                                            'userId', user.uid);
+                                                        print(
+                                                            'Account creation successful');
+                                                        setState(() {
+                                                          _isLoading = false;
+                                                        });
+                                                        Navigator.of(context)
+                                                            .pop();
+                                                        // Navigator.pushReplacement(
+                                                        //   context,
+                                                        //   PageRouteBuilder(
+                                                        //     pageBuilder: (c, a1, a2) => HomeScreen(),
+                                                        //     transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child),
+                                                        //     transitionDuration: Duration(milliseconds: 100),
+                                                        //   ),
+                                                        // );
+                                                        Fluttertoast.showToast(
+                                                          msg:
+                                                              "Account created successfully",
+                                                          toastLength: Toast
+                                                              .LENGTH_SHORT,
+                                                          gravity: ToastGravity
+                                                              .BOTTOM,
+                                                          timeInSecForIosWeb: 4,
+                                                        );
+                                                      } else {
+                                                        setState(() {
+                                                          _isLoading = false;
+                                                        });
+                                                        print('error');
+                                                      }
+                                                    } on FirebaseAuthException catch (e) {
+                                                      setState(() {
+                                                        _isLoading = false;
+                                                      });
+                                                      if (e.code ==
+                                                          'email-already-in-use') {
+                                                        showAlertDialog(
+                                                            context,
+                                                            'Sorry',
+                                                            'The email address is already in use by another account.');
+                                                      }
+                                                      print(e.message);
+                                                      print(e.code);
+                                                    }
+
+                                                    await Future.delayed(
+                                                        Duration(seconds: 1));
+                                                  }
                                                 });
                                               }
-                                            });
-
-                                            if (isCreated == 'yes') {
-                                              final result = await _auth
-                                                  .signInWithEmailAndPassword(
-                                                      email:
-                                                          _emailControoler
-                                                              .text
-                                                              .trim()
-                                                              .toString(),
-                                                      password:
-                                                          _passwordControoler
-                                                              .text);
-                                              final user = result.user;
-
-                                              prefs.setString('userEmail',
-                                                  _emailControoler.text);
-                                              prefs.setString('userPassword',
-                                                  _passwordControoler.text);
-                                              prefs.setString(
-                                                  'userId', user!.uid);
-                                              prefs.setString('userType',
-                                                  widget.userType.toString());
-                                              print(
-                                                  'Account creation successful');
-                                              setState(() {
-                                                _isLoading = false;
-                                              });
-                                              Navigator.pushReplacement(
-                                                context,
-                                                PageRouteBuilder(
-                                                  pageBuilder: (c, a1, a2) =>
-                                                      AppDoctorBottomNavBarScreen(
-                                                    index: 0,
-                                                    title: '',
-                                                    subTitle: '',
-                                                  ),
-                                                  transitionsBuilder:
-                                                      (c, anim, a2, child) =>
-                                                          FadeTransition(
-                                                              opacity: anim,
-                                                              child: child),
-                                                  transitionDuration: Duration(
-                                                      milliseconds: 100),
-                                                ),
-                                              );
-                                              // ScaffoldMessenger.of(context).showSnackBar(
-                                              //     const  SnackBar(
-                                              //         content:  Text('Successfully Login')
-                                              //     )
-                                              // );
-                                            } else {
-                                              setState(() {
-                                                _isLoading = false;
-                                              });
-                                              _methodsHandler.showAlertDialog(
-                                                  context,
-                                                  'Sorry',
-                                                  'User Not Found');
                                             }
-                                          } else if (widget.userType ==
-                                              'Parents') {
-                                            final snapshot =
-                                                await FirebaseFirestore.instance
-                                                    .collection('Parents')
-                                                    .get();
-                                            snapshot.docs.forEach((element) {
-                                              print('user data');
-                                              if (element['email'] ==
-                                                  _emailControoler.text
-                                                      .toString()
-                                                      .trim()) {
-                                                print(
-                                                    'user age in if of current user ');
-                                                //   print(element['age']);
-                                                setState(() {
-                                                  isCreated = 'yes';
-                                                });
-                                              }
-                                            });
-
-                                            if (isCreated == 'yes') {
-                                              final result = await _auth
-                                                  .signInWithEmailAndPassword(
-                                                      email:
-                                                          _emailControoler
-                                                              .text
-                                                              .trim()
-                                                              .toString(),
-                                                      password:
-                                                          _passwordControoler
-                                                              .text);
-                                              final user = result.user;
-
-                                              prefs.setString('userEmail',
-                                                  _emailControoler.text);
-                                              prefs.setString('userPassword',
-                                                  _passwordControoler.text);
-                                              prefs.setString(
-                                                  'userId', user!.uid);
-                                              prefs.setString('userType',
-                                                  widget.userType.toString());
-                                              print(
-                                                  'Account creation successful');
-                                              setState(() {
-                                                _isLoading = false;
-                                              });
-                                              Navigator.pushReplacement(
-                                                context,
-                                                PageRouteBuilder(
-                                                  pageBuilder: (c, a1, a2) =>
-                                                      AppBottomNavBarScreen(
-                                                    index: 0,
-                                                    title: '',
-                                                    subTitle: '',
-                                                  ),
-                                                  transitionsBuilder:
-                                                      (c, anim, a2, child) =>
-                                                          FadeTransition(
-                                                              opacity: anim,
-                                                              child: child),
-                                                  transitionDuration: Duration(
-                                                      milliseconds: 100),
-                                                ),
-                                              );
-                                              // ScaffoldMessenger.of(context).showSnackBar(
-                                              //     const  SnackBar(
-                                              //         content:  Text('Successfully Login')
-                                              //     )
-                                              // );
-                                            } else {
-                                              setState(() {
-                                                _isLoading = false;
-                                              });
-                                              _methodsHandler.showAlertDialog(
-                                                  context,
-                                                  'Sorry',
-                                                  'User Not Found');
-                                            }
-                                          } else {
-                                            if (widget.userType == 'Admin' &&
-                                                _emailControoler.text ==
-                                                    'admin@gmail.com' &&
-                                                _passwordControoler.text ==
-                                                    '12345678') {
-                                              setState(() {
-                                                _isLoading = false;
-                                              });
-                                              prefs.setString('userEmail',
-                                                  _emailControoler.text);
-                                              prefs.setString('userPassword',
-                                                  _passwordControoler.text);
-                                              print(widget.userType.toString());
-                                              prefs.setString('userType',
-                                                  widget.userType.toString());
-
-                                              // Navigator.pushReplacement(
-                                              //   context,
-                                              //   PageRouteBuilder(
-                                              //     pageBuilder: (c, a1, a2) => AdminHomeScreen(),
-                                              //     transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child),
-                                              //     transitionDuration: Duration(milliseconds: 100),
-                                              //   ),
-                                              // );
-                                            } else {
-                                              setState(() {
-                                                _isLoading = false;
-                                              });
-                                              _methodsHandler.showAlertDialog(
-                                                  context,
-                                                  'Sorry',
-                                                  'User Not Found');
-                                            }
-                                          }
-                                        } on FirebaseAuthException catch (e) {
-                                          setState(() {
-                                            _isLoading = false;
-                                          });
-                                          print(e.code);
-                                          switch (e.code) {
-                                            case 'invalid-email':
-                                              _methodsHandler.showAlertDialog(
-                                                  context,
-                                                  'Sorry',
-                                                  'Invalid Email Address');
-
-                                              setState(() {
-                                                _isLoading = false;
-                                              });
-                                              break;
-                                            case 'wrong-password':
-                                              _methodsHandler.showAlertDialog(
-                                                  context,
-                                                  'Sorry',
-                                                  'Wrong Password');
-                                              setState(() {
-                                                _isLoading = false;
-                                              });
-                                              break;
-                                            case 'user-not-found':
-                                              _methodsHandler.showAlertDialog(
-                                                  context,
-                                                  'Sorry',
-                                                  'User Not Found');
-                                              setState(() {
-                                                _isLoading = false;
-                                              });
-                                              break;
-                                            case 'user-disabled':
-                                              _methodsHandler.showAlertDialog(
-                                                  context,
-                                                  'Sorry',
-                                                  'User Disabled');
-                                              setState(() {
-                                                _isLoading = false;
-                                              });
-                                              break;
-                                          }
-                                          setState(() {
-                                            _isLoading = false;
-                                          });
-                                        }
-                                      }
-                                    }
-
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(builder: (context) => HomeScreen()),
-                                    // );
-                                  },
-                                  child: Text('SIGN IN',
+                                          },
+                                  child: Text('SIGN UP',
                                       style: GoogleFonts.sora(
                                           fontSize: 15,
+                                          color: Colors.white,
                                           fontWeight: FontWeight.w600))),
                             ),
                           ),
@@ -2775,16 +2758,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     SizedBox(
                       height: 20,
                     ),
-                    widget.userType == "Admin" || widget.userType == "Clinic"
-                        ? Container()
-                        : Padding(
+                    Padding(
                             padding: const EdgeInsets.only(left: 16, right: 16),
                             child: GestureDetector(
                               onTap: () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => SignUpScreen(
+                                      builder: (context) => LoginScreen(
                                             userType: widget.userType,
                                           )),
                                 );
@@ -2793,14 +2774,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "Don't have an account? ",
+                                    "Already have an account? ",
                                     style: GoogleFonts.sora(
                                         color: Colors.black,
                                         fontSize: 16,
                                         fontWeight: FontWeight.w500),
                                   ),
                                   Text(
-                                    ' Register',
+                                    ' Sign In',
                                     style: GoogleFonts.sora(
                                         color: blueColor,
                                         fontSize: 16,

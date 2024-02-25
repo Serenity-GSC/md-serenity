@@ -3,7 +3,6 @@ import 'package:aksonhealth/model/firebase_auth.dart';
 import 'package:aksonhealth/theme.dart';
 import 'package:aksonhealth/view/detail/bookingDetail/booking_detail_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -32,26 +31,26 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
           // backgroundColor: primaryColor,
           appBar: AppBar(
             automaticallyImplyLeading: true,
-            backgroundColor: darkBlueColor,
+            backgroundColor: blueColor,
             bottom: TabBar(
-              indicatorColor: darkRedColor,
+              indicatorColor: Colors.white,
               onTap: (index) {
                 // Tab index when user select it, it start from zero
               },
               tabs: [
                 Tab(
-                  text: 'Baru',
+                  text: 'New',
                 ),
                 Tab(
-                  text: 'Konfirmasi',
+                  text: 'Confirmation',
                 ),
                 Tab(
-                  text: 'Batal',
+                  text: 'Cancel',
                 ),
               ],
             ),
             centerTitle: true,
-            title: Text('Janji Temu'),
+            title: Text('Schedule Appointment', style: GoogleFonts.sora(fontSize: 20, color: Colors.white),),
           ),
           body: TabBarView(
             children: [
@@ -72,7 +71,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                   } else if (snapshot.hasData && snapshot.data!.docs.isEmpty) {
                     // got data from snapshot but it is empty
 
-                    return Center(child: Text("Tidak Ada Data"));
+                    return Center(child: Text("No Data"));
                   } else {
                     return Container(
                       width: size.width * 0.95,
@@ -572,7 +571,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                   } else if (snapshot.hasData && snapshot.data!.docs.isEmpty) {
                     // got data from snapshot but it is empty
 
-                    return Center(child: Text("Tidak Ada Data"));
+                    return Center(child: Text("No Data"));
                   } else {
                     return Container(
                       width: size.width * 0.95,
@@ -882,7 +881,7 @@ class _DoctorBookingScreenState extends State<DoctorBookingScreen> {
                   } else if (snapshot.hasData && snapshot.data!.docs.isEmpty) {
                     // got data from snapshot but it is empty
 
-                    return Center(child: Text("Tidak Ada Data"));
+                    return Center(child: Text("No Data"));
                   } else {
                     return Container(
                       width: size.width * 0.95,

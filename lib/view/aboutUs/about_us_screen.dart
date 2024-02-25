@@ -59,7 +59,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                       "Fitur aplikasi ASD nya\n"
                       "- Diagnosis berdasarkan survei pada Anak ASD (menggunakan form dan gambar)\n"
                       "- AI chatbot untuk orang tua yang ingin mendapatkan informasi dengan jelas\n"
-                      "- Konsultasi dgn ahli via real-time chat dengan orang tua (Firebase)\n"
+                      "- Consultation dgn ahli via real-time chat dengan orang tua (Firebase)\n"
                       "- Berbagi aktivitas sesama orangtua ASD dan tindakan informasi (seperti P92 Meta atau Threads)\n"
                       "- Gamification pada anak ASD\n"
                       "- Social Skills\n"

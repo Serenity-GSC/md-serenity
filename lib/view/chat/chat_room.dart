@@ -74,7 +74,7 @@ class _ChatRoomState extends State<ChatRoom> {
       appBar: AppBar(
         backgroundColor: darkBlueColor,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back, color: Colors.white,),
           onPressed: () => Navigator.pop(context),
         ),
         title: Row(
@@ -85,17 +85,17 @@ class _ChatRoomState extends State<ChatRoom> {
             const SizedBox(width: 10),
             // prevent over flow text if name is too long
             Text(
-              widget.user2Name.substring(0, min(widget.user2Name.length, 12)),
+              widget.user2Name.substring(0, min(widget.user2Name.length, 12)), style: GoogleFonts.sora(fontSize: 20, color: Colors.white),
             ),
           ],
         ),
         actions: <Widget>[
           IconButton(
-            icon: const FaIcon(FontAwesomeIcons.video),
+            icon: const FaIcon(FontAwesomeIcons.video, color: Colors.white,),
             onPressed: () {},
           ),
           IconButton(
-            icon: const FaIcon(FontAwesomeIcons.circleInfo),
+            icon: const FaIcon(FontAwesomeIcons.circleInfo, color: Colors.white,),
             onPressed: () {},
           ),
         ],

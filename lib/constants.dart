@@ -15,8 +15,8 @@ const darkGreyTextColor = Color(0xffC2C2C4);
 const darkGreyTextColor1 = Color(0xffAEACB2);
 const authButtonColor = Color(0xffB4B49C);
 const authButtontextColor = Color(0xff2C64C5);
-const primaryColor = Color(0xff2C64C5);
-const buttonColor = Color(0xff2C64C5);
+const primaryColor = Color(0xff364473);
+const buttonColor = Color(0xff364473);
 const textColor = Color(0xff545043);
 const whiteColor = Color(0xffFFFFFF);
 

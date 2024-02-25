@@ -43,7 +43,7 @@ class ConsultBanner extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "Apa kamu masih bingung? konsultasi dengan Dokter Langsung melalui chat",
+                                  "Are you still confused? Consult with a doctor directly via chat",
                                   style: GoogleFonts.sora(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,

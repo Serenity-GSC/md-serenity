@@ -312,9 +312,9 @@ class _DoctorReportDetailScreenState extends State<DoctorReportDetailScreen> {
                         widget.total <= 4
                             ? 'Hasil ini menunjukkan risiko rendah autisme, tidak perlu membawa anak Anda ke dokter'
                             : widget.total > 4 && widget.total <= 6
-                                ? 'Hasil ini menunjukkan risiko autisme sedang, Anda diharuskan membawa anak Anda ke dokter untuk pemeriksaan lanjutan. Anda juga dapat mencari layanan intervensi dini untuk anak Anda di Aplikasi Akson.'
+                                ? 'Hasil ini menunjukkan risiko autisme sedang, Anda diharuskan membawa anak Anda ke dokter untuk pemeriksaan lanjutan. Anda juga dapat mencari layanan intervensi dini untuk anak Anda di Aplikasi Serenity.'
                                 : widget.total > 6
-                                    ? 'Hasil ini menunjukkan risiko tinggi autisme, Anda wajib membawa anak Anda ke dokter untuk pemeriksaan lanjutan. Anda juga dapat mencari layanan intervensi dini untuk anak Anda di Aplikasi Akson'
+                                    ? 'Hasil ini menunjukkan risiko tinggi autisme, Anda wajib membawa anak Anda ke dokter untuk pemeriksaan lanjutan. Anda juga dapat mencari layanan intervensi dini untuk anak Anda di Aplikasi Serenity'
                                     : 'Kalkulasi Autisme',
                         style: GoogleFonts.sora(
                             color: widget.total <= 4

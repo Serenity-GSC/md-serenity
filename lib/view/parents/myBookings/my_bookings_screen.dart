@@ -108,7 +108,7 @@ class _ParentBookingScreenState extends State<ParentBookingScreen> {
                   } else if (snapshot.hasData && snapshot.data!.docs.isEmpty) {
                     // got data from snapshot but it is empty
 
-                    return Center(child: Text("Tidak Ada Data"));
+                    return Center(child: Text("No Data"));
                   } else {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -470,7 +470,7 @@ class _ParentBookingScreenState extends State<ParentBookingScreen> {
                   } else if (snapshot.hasData && snapshot.data!.docs.isEmpty) {
                     // got data from snapshot but it is empty
 
-                    return Center(child: Text("Tidak Ada Data"));
+                    return Center(child: Text("No Data"));
                   } else {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -835,7 +835,7 @@ class _ParentBookingScreenState extends State<ParentBookingScreen> {
                   } else if (snapshot.hasData && snapshot.data!.docs.isEmpty) {
                     // got data from snapshot but it is empty
 
-                    return Center(child: Text("Tidak Ada Data"));
+                    return Center(child: Text("No Data"));
                   } else {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),

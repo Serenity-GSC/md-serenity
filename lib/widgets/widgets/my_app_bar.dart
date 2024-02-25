@@ -10,7 +10,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: darkBlueColor,
       title: Text(
-        'Akson Bot AI',
+        'Serenity Bot AI',
         style: GoogleFonts.sora(
           color: Theme.of(context).colorScheme.onPrimary,
         ),

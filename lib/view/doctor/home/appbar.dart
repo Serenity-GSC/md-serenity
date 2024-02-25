@@ -20,7 +20,7 @@ class DoctorAppBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Hi Akson",
+                "Hi Serenity",
                 style: GoogleFonts.sora(
                     color: Colors.black,
                     fontWeight: FontWeight.w800,

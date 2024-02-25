@@ -35,7 +35,7 @@ class Donation extends StatelessWidget {
 class DonationScreen extends StatelessWidget {
   final List<DonationCampaign> campaigns = [
     DonationCampaign(
-      title: 'Membantu Yayasan Autisme di Indonesia melalui Akson',
+      title: 'Membantu Yayasan Autisme di Indonesia melalui Serenity',
       description:
           'Selamat datang di kampanye donasi untuk mendukung Yayasan Autisme di Indonesia! Yayasan ini berkomitmen untuk meningkatkan pemahaman, dukungan, dan kualitas hidup bagi individu dengan spektrum autisme di seluruh negeri. Dengan memberikan sumbangan Anda, Anda turut berperan dalam mewujudkan perubahan positif dan inklusif bagi mereka yang membutuhkan.',
       validation: '',

@@ -15,25 +15,22 @@ class PlanetInfo {
 }
 
 List<PlanetInfo> planets = [
-  
   PlanetInfo(1,
       name: 'Buku tentang - Highly Sensitive Person',
       iconImage: 'assets/images/HSP_parent.png',
       description:
           "Blog ini tentang sensitivitas tinggi dan pencarian sensasi tinggi karena kami menerbitkan artikel terbaru tentang masalah ini. oleh Bianca Acevedo, Art Aron dan saya, Tracy Cooper, dan Robert Marhenke: “Sensitivitas pemrosesan sensorik dan hubungannya dengan pencarian sensasi,” dalam Current Research in Behavioral Sciences edisi 2023, 4, 100100. Baca artikel selengkapnya di sini.",
-      images: [
-        "https://images.gr-assets.com/authors/1401536347p5/89949.jpg"
-      ]),
+      images: ["https://images.gr-assets.com/authors/1401536347p5/89949.jpg"]),
   PlanetInfo(2,
       name: 'Buku tentang - Highly Sensitive Child',
       iconImage: 'assets/images/HSP_child.png',
       description:
           "Penulis buku laris dan psikolog yang bukunya mencapai 240.000 eksemplar sekarang mengatasi sifat pada anak-anak-dan menawarkan terobosan buku panduan pengasuhan untuk anak-anak yang sangat sensitif dan pengasuh mereka.",
       images: [
-          "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1320565354i/923949.jpg",
+        "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1320565354i/923949.jpg",
       ]),
   PlanetInfo(3,
-      name: 'Akson Multiple Literacies',
+      name: 'Serenity Multiple Literacies',
       iconImage: 'assets/images/book.png',
       description:
           "Definisi Literasi: kompetensi atau pengetahuan, kefasihan, pemahaman yang begitu mendasar, krusial & mendasar sehingga tanpanya, kehidupan seseorang akan sangat kurang optimal.",
@@ -48,5 +45,4 @@ List<PlanetInfo> planets = [
       images: [
         "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1612802561i/56997619.jpg"
       ]),
-
 ];

@@ -193,7 +193,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
               elevation: 0,
               backgroundColor: darkBlueColor,
               title: Text(
-                'Konsultasi',
+                'Consultation',
                 style: GoogleFonts.sora(
                     fontSize: 19,
                     fontWeight: FontWeight.w600,
@@ -801,7 +801,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
               elevation: 0,
               backgroundColor: darkBlueColor,
               title: Text(
-                'Konsultasi',
+                'Consultation',
                 style: GoogleFonts.sora(
                     fontSize: 19,
                     fontWeight: FontWeight.w600,
@@ -930,7 +930,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                                       width: size.width * .9,
                                       child: Center(
                                         child: Text(
-                                          'Kalender',
+                                          'Calendar',
                                           style: GoogleFonts.sora(
                                               fontSize: 18,
                                               color: Colors.black,
@@ -1034,7 +1034,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                                         padding: const EdgeInsets.all(8.0),
                                         child: Text(
                                           endTime.toString() == ''
-                                              ? 'Pilih Tanggal dan Jam'
+                                              ? 'Select Date and Time'
                                               : endTime.toString(),
                                           style: GoogleFonts.sora(
                                               color: endTime == ''
@@ -1083,7 +1083,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                                               borderRadius:
                                                   BorderRadius.circular(6)),
                                         ),
-                                        child: FaIcon(FontAwesomeIcons.add)),
+                                        child: FaIcon(FontAwesomeIcons.add, color: Colors.white,)),
                                   ),
                                 ],
                               ),
@@ -1111,8 +1111,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                                             snapshot.data!.docs.isEmpty) {
                                           // got data from snapshot but it is empty
 
-                                          return Center(
-                                              child: Text("Tidak Ada Data"));
+                                          return Center(child: Text("No Data"));
                                         } else {
                                           return Center(
                                             child: Container(
@@ -1589,7 +1588,7 @@ class _SpecialistDetailScreenState extends State<SpecialistDetailScreen> {
                                                 borderRadius:
                                                     BorderRadius.circular(6)),
                                           ),
-                                          child: Text("Buat Janji",
+                                          child: Text("Make Appointment",
                                               style: subtitleWhite)),
                                     ),
                                   ),

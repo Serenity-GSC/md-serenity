@@ -76,18 +76,19 @@ class _AppBottomNavBarScreenState extends State<AppBottomNavBarScreen> {
       backgroundColor: lightGreyColor,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: _selectedIndex == 2 ? primaryColor : Color.fromARGB(255, 56, 107, 208),
+        backgroundColor: _selectedIndex == 2
+            ? primaryColor
+            : Color.fromARGB(255, 56, 107, 208),
         onPressed: () {
           setState(() {
             _selectedIndex = 2;
             _pages[2] = FloatingMenu();
           });
-
         },
         child: FaIcon(
-                        FontAwesomeIcons.robot,
-                        size: 23,
-                      ),
+          FontAwesomeIcons.robot,
+          size: 23,
+        ),
         elevation: 2.0,
       ),
       body: _pages.elementAt(_selectedIndex),
@@ -141,13 +142,13 @@ class _AppBottomNavBarScreenState extends State<AppBottomNavBarScreen> {
                       //color: Color(0xFF3A5A98),
                     ),
                   ),
-                  label: 'Konsultasi',
+                  label: 'Consultation',
                 ),
                 BottomNavigationBarItem(
                   icon: Padding(
                     padding: EdgeInsets.only(bottom: 4),
                     child: InkWell(
-                    onTap: () {
+                      onTap: () {
                         setState(() {
                           _selectedIndex = 2;
                           _pages[1] = FloatingMenu();

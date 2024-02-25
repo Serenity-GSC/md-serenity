@@ -253,8 +253,8 @@ class _NSTState extends State<NST> {
     return await showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('Keluar Aplikasi'),
-            content: Text('Kamu ingin keluar aplikasi?'),
+            title: Text('Do you want exit?'),
+            content: Text('Kamu ingin Do you want exit??'),
             actions: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -262,7 +262,7 @@ class _NSTState extends State<NST> {
                     textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
                 onPressed: () => Navigator.of(context).pop(false),
-                child: Text('Tidak'),
+                child: Text('No'),
               ),
               ElevatedButton(
                 onPressed: () => Navigator.of(context).pop(true),
@@ -270,7 +270,7 @@ class _NSTState extends State<NST> {
                     primary: redColor,
                     textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
-                child: Text('Ya'),
+                child: Text('Yes'),
               ),
             ],
           ),

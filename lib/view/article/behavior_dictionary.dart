@@ -110,8 +110,8 @@ class _BehaviorDictionaryPageState extends State<BehaviorDictionaryPage> {
           //the return value will be from "Yes" or "No" options
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('Keluar Aplikasi'),
-            content: Text('Kamu ingin keluar aplikasi?'),
+            title: Text('Do you want exit?'),
+            content: Text('Kamu ingin Do you want exit??'),
             actions: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -120,7 +120,7 @@ class _BehaviorDictionaryPageState extends State<BehaviorDictionaryPage> {
                         fontSize: 16, fontWeight: FontWeight.bold)),
                 onPressed: () => Navigator.of(context).pop(false),
                 //return false when click on "NO
-                child: Text('Tidak'),
+                child: Text('No'),
               ),
               ElevatedButton(
                 onPressed: () => Navigator.of(context).pop(true),
@@ -129,7 +129,7 @@ class _BehaviorDictionaryPageState extends State<BehaviorDictionaryPage> {
                     primary: redColor,
                     textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
-                child: Text('Ya'),
+                child: Text('Yes'),
               ),
             ],
           ),

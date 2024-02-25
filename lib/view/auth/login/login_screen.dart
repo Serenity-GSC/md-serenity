@@ -2,6 +2,7 @@ import 'package:aksonhealth/theme.dart';
 import 'package:aksonhealth/view/auth/login/doctor_login_screen.dart';
 import 'package:aksonhealth/view/doctor/bottomNavBarDoctor/doctor_nav_bar_screen.dart';
 import 'package:aksonhealth/view/parents/bottomNavBar/app_bottom_nav_bar_screen.dart';
+import 'package:aksonhealth/view/parents/home/bottomnavbar.dart';
 import 'package:aksonhealth/widgets/google_signup_button_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:aksonhealth/model/firebase_auth.dart';
@@ -52,11 +53,11 @@ class _LoginScreenState extends State<LoginScreen> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: whiteColor,
+      backgroundColor: Colors.white,
       //resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
         child: Container(
-          height: 1000,
+          height: 900,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -495,10 +496,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 context,
                                                 PageRouteBuilder(
                                                   pageBuilder: (c, a1, a2) =>
-                                                      AppBottomNavBarScreen(
-                                                    index: 0,
-                                                    title: '',
-                                                    subTitle: '',
+                                                      BottomNav(
                                                   ),
                                                   transitionsBuilder:
                                                       (c, anim, a2, child) =>
@@ -617,6 +615,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   child: Text('SIGN IN',
                                       style: GoogleFonts.sora(
                                           fontSize: 15,
+                                          color: Colors.white,
                                           fontWeight: FontWeight.w600))),
                             ),
                           ),
@@ -650,9 +649,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(
                       height: 20,
                     ),
-                    widget.userType == "Admin" || widget.userType == "Clinic"
-                        ? Container()
-                        : Padding(
+                    Padding(
                             padding: const EdgeInsets.only(left: 16, right: 16),
                             child: GestureDetector(
                               onTap: () {
@@ -660,7 +657,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => SignUpScreen(
-                                            userType: widget.userType,
+                                            userType: "Parents",
                                           )),
                                 );
                               },

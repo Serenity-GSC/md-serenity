@@ -1,6 +1,7 @@
 import 'package:aksonhealth/data/data.dart';
 import 'package:aksonhealth/size_config.dart';
 import 'package:aksonhealth/theme.dart';
+import 'package:aksonhealth/view/chatbot/chat_screen.dart';
 import 'package:aksonhealth/view/parents/clinic/clinic_screen.dart';
 import 'package:aksonhealth/view/parents/clinic/clinic_test.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,7 @@ class CategoriesList extends StatelessWidget {
                             ),
                             SizedBox(height: getRelativeHeight(0.005)),
                             Text(
-                              " Akan ada fitur baru",
+                              "There will be new features",
                               style: GoogleFonts.sora(
                                   color: Colors.black.withOpacity(0.48),
                                   fontSize: getRelativeWidth(0.03)),
@@ -83,9 +84,9 @@ class CategoriesList extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ClinicTesting()));
+                              builder: (context) => ChatScreenBot()));
                     },
-                    child: const Text('Testing')),
+                    child: Text('Start', style: GoogleFonts.sora(fontSize: 16, color: blueColor),)),
                 SizedBox(width: getRelativeWidth(0.04))
               ],
             );

@@ -197,7 +197,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     color: Colors.black,
                     size: 15,
                   ),
-                  title: Text('Buat Janji', style: body4Black),
+                  title: Text('Make Appointment', style: body4Black),
                   onTap: () async {
                     if (userType == 'Doctors') {
                       Navigator.push(
@@ -313,8 +313,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           //the return value will be from "Yes" or "No" options
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('Keluar Aplikasi'),
-            content: Text('Kamu ingin keluar aplikasi?'),
+            title: Text('Do you want exit?'),
+            content: Text('Kamu ingin Do you want exit??'),
             actions: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -323,7 +323,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         fontSize: 16, fontWeight: FontWeight.bold)),
                 onPressed: () => Navigator.of(context).pop(false),
                 //return false when click on "NO"
-                child: Text('Tidak'),
+                child: Text('No'),
               ),
               ElevatedButton(
                 onPressed: () => Navigator.of(context).pop(true),
@@ -332,7 +332,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     primary: Colors.red,
                     textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
-                child: Text('Ya'),
+                child: Text('Yes'),
               ),
             ],
           ),

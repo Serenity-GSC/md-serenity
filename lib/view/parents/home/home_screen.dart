@@ -20,7 +20,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'appbar.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -132,8 +131,8 @@ class _HomeScreenState extends State<HomeScreen> {
           //the return value will be from "Yes" or "No" options
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('Keluar Aplikasi'),
-            content: Text('Kamu ingin keluar aplikasi?'),
+            title: Text('Do you want exit?'),
+            content: Text('Kamu ingin Do you want exit??'),
             actions: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -142,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontSize: 16, fontWeight: FontWeight.bold)),
                 onPressed: () => Navigator.of(context).pop(false),
                 //return false when click on "NO"
-                child: Text('Tidak'),
+                child: Text('No'),
               ),
               ElevatedButton(
                 onPressed: () => Navigator.of(context).pop(true),
@@ -151,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     primary: Colors.red,
                     textStyle: GoogleFonts.sora(
                         fontSize: 16, fontWeight: FontWeight.bold)),
-                child: Text('Ya'),
+                child: Text('Yes'),
               ),
             ],
           ),
@@ -184,7 +183,7 @@ class ExpandingAppBar extends ConsumerWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(children: [
           Text(
-            "Akson",
+            "Serenity",
             style: GoogleFonts.sourceSerif4(
                 fontSize: 30, color: Color.fromARGB(255, 236, 236, 236)),
           ),
